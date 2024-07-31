@@ -1,0 +1,115 @@
+@import './../../../style/common.scss';
+
+/*----- Иконочный шрифт ------*/
+@font-face {
+    font-family: 'footer_icomoon';
+    src:  url('./../fonts/footer_icomoon.eot?2ijcws');
+    src:  url('./../fonts/footer_icomoon.eot?2ijcws#iefix') format('embedded-opentype'),
+      url('./../fonts/footer_icomoon.ttf?2ijcws') format('truetype'),
+      url('./../fonts/footer_icomoon.woff?2ijcws') format('woff'),
+      url('./../fonts/footer_icomoon.svg?2ijcws#footer_icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="footer_icon_"], [class*=" footer_icon_"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'footer_icomoon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .footer_icon_phone:before {
+    content: "\e900";
+    color: var(--text-color-light);
+  }
+  .footer_icon_telegram:before {
+    content: "\e901";
+    color: var(--text-color-light);
+  }
+  .footer_icon_vk:before {
+    content: "\e902";
+    color: var(--text-color-light);
+  }
+  .footer_icon_whatsapp:before {
+    content: "\e903";
+    color: var(--text-color-light);
+  }
+  
+
+footer {
+    width: 100%;
+    height: auto;
+    @include adaptiveProperty(padding-top, 100, 50);
+    @include adaptiveProperty(padding-bottom, 100, 50);
+    border-radius: var(--main-border-radius) var(--main-border-radius) 0 0;
+    background-color: var(--main-color);
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @include adaptiveProperty(gap, 30, 20);
+    }
+    .info {
+        .logo {
+            font-size: 60px;
+            font-family: var(--montserrat-font);
+            color: var(--text-color-light);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .phone {
+            text-align: center;
+            .tel {
+                cursor: pointer;
+                @include adaptiveFont(20, 18);
+                font-weight: 700;
+                color: var(--text-color-light);
+                span {
+                    position: relative;
+                    transform: rotate(15deg);
+                }
+            }
+        }
+        .social_block {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            @include adaptiveProperty(gap, 20, 15);
+            a {
+                padding: 7px;
+                @include adaptiveFont(25, 17);
+            }
+        }
+    }
+    
+    .navigation {
+        width: max-content;
+        .navigation_head {
+            @include adaptiveFont(12, 11);
+            font-weight: 500;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            .link {
+                color: var(--text-color-light);
+                @include adaptiveFont(16, 14);
+            }
+        }
+    }
+
+}
