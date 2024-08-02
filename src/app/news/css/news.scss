@@ -1,0 +1,85 @@
+@import './../../../style/common.scss';
+
+.news {
+    width: 100%;
+    @include adaptiveProperty(padding-top, 200, 130);
+    min-height: 100dvh;
+    margin-bottom: 130px;
+    .news_head{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        .filter {
+            @include adaptiveFont(30, 16);
+            font-weight: 400;
+            line-height: 35px;
+            color: var(--text-color-dark);
+        }
+    }
+    .news_list_block{
+        width: 100%;
+        display: grid;
+        @include adaptiveProperty(gap, 50, 30);
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-rows: auto;
+        .news_card{
+            height: 470px;
+            .cover {
+                position: relative;
+                display: block;
+                width: 100%;
+                //max-width: 400px;
+                height: 214px;
+                overflow: hidden;
+                border-radius: var(--main-border-radius);
+                & .image{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    object-fit: cover;
+                    object-position: center;
+                    transition: 0.5s;
+                }
+            }
+            .date {
+                margin-top: 17px;
+                @include adaptiveFont(20, 18);
+                color: var(--main-color);
+                font-weight: 400;
+                line-height: 23px;
+            }
+            .content {
+                display: -webkit-box;
+                -webkit-line-clamp: 8;
+                -webkit-box-orient: vertical;  
+                overflow: hidden;
+            }
+            .main_title{
+                margin-top: 5px;
+                color: var(--text-color-dark);
+                display: block;
+                transition: 0.3s;
+            }
+            .description{
+                display: block;
+                margin-top: 17px;
+                color: var(--text-color-dark);
+                font-weight: 400;
+                @include adaptiveFont(20, 16);
+                line-height: 23px;
+            }
+            @include mediaMinWidth(768) {
+                .image:hover{
+                    transform: scale(1.1);
+                }
+                .main_title:hover{
+                    color: var(--main-color);
+                }
+            }
+        }
+    }
+}
