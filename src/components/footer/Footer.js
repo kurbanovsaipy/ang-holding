@@ -1,5 +1,6 @@
 import Link from "next/link";
 import './css/footer.scss'
+import Api from "@/utils/Api";
 
 
 export default function Footer() {
@@ -7,8 +8,8 @@ export default function Footer() {
         <footer>
             <div className="container">
                 <div className="info">
-                    <Link href={'/'} className="logo">
-                        LOGO.
+                    <Link href={'/'} className="logo footer">
+                        <img src={`${Api.url}/images/footer.png`} alt="" />
                     </Link>
                     <div className="phone">
                         <a href="tel:+7(8552)23‒00‒44" className="tel">

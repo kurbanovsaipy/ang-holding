@@ -3,6 +3,8 @@ import './css/header.scss';
 import Navigation from './components/Navigation';
 import ContactBlock from './components/ContactBlock';
 import MobileBlock from './components/MobileBlock';
+import Image from 'next/image';
+import Api from '@/utils/Api';
 
 export default function Header () {
 
@@ -11,7 +13,7 @@ export default function Header () {
             <div className="container">
 
                 <Link href={'/'} className="logo">
-                    LOGO.
+                    <img src={`${Api.url}/images/header.png`} alt="" />
                 </Link>
 
                 <Navigation />
