@@ -14,7 +14,7 @@ export default function MainSlider() {
                 spaceBetween={0}
                 slidesPerView={1}
                 autoplay={{
-                    delay: 3000,
+                    delay: 10000,
                     disableOnInteraction: false,
                 }}
                 allowTouchMove={false}
