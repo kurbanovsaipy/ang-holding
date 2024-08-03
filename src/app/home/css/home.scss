@@ -22,8 +22,10 @@
                 width: 100%;
                 height: 100%;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                gap: 20px;
                 padding: 10px;
                 padding-bottom: 60px;
                 &::before {
@@ -43,7 +45,11 @@
                     max-width: 650px;
                     @include adaptiveFont(70, 50);
                     font-weight: 700;
-                    color: var(--text-color-light);
+                    color: var(--card-text-color);
+                }
+                button {
+                    position: relative;
+                    z-index: 5;
                 }
                 & img{
                     position: absolute;
@@ -90,98 +96,5 @@
             flex-wrap: wrap;
             @include adaptiveProperty(margin-bottom, 50, 30);
         }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-auto-rows: 488px;  
-            @include adaptiveProperty(gap, 50, 20);
-            @include mediaMaxWidth(800) {
-                grid-auto-rows: 400px; 
-            }
-            .card {
-                position: relative;
-                border-radius: var(--main-border-radius);
-                overflow: hidden;
-                @include adaptiveProperty(padding, 30, 20);
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                img {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                    transition: 0.5s;
-                    z-index: 1;
-                }
-                .cover_link {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    z-index: 3;
-                }
-                .title {
-                    max-width: max-content;
-                    width: 100%;
-                    position: relative;
-                    z-index: 4;
-                    color: var(--text-color-light);
-                    @include adaptiveFont(30, 20);
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    font-family: var(--montserrat-font);
-                    transition: 0.3s;
-                    &:hover {
-                        color: var(--main-color);
-                    }
-                }
-                .ofer {
-                    position: relative;
-                    border-radius: 10px;
-                    padding: 10px;
-                    max-width: max-content;
-                    width: 100%;
-                    color: var(--text-color-light);
-                    @include adaptiveFont(18, 16);
-                    white-space: wrap;
-                    background-color: var(--main-color);
-                    z-index: 2;
-                }
-                .advantages {
-                    position: relative;
-                    margin-top: auto;
-                    z-index: 2;
-                    border-radius: 10px;
-                    padding: 10px;
-                    width: 100%;
-                    max-width: 228px;
-                    background-color: rgba($color: #838282, $alpha: 0.5);
-                    backdrop-filter: blur(20px);
-                    .advantages_title {
-                        color: #cecece;
-                        @include adaptiveFont(20, 18);
-                        font-weight: 600;
-                        margin-bottom: 5px;
-                    }
-                    .description {
-                        @include adaptiveFont(16, 14);
-                        color: var(--text-color-light);
-                        word-break: break-word;
-                        hyphens: auto;
-                    }
-                }
-                &:hover {
-                    img {
-                        transform: scale(1.1);
-                    }
-                }
-            }
-        }
     }
-    
 }

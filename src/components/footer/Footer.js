@@ -1,18 +1,20 @@
 import Link from "next/link";
 import './css/footer.scss'
+import Api from "@/utils/Api";
+import Image from "next/image";
 
 
-export default function Footer() {
+export default function Footer({info}) {
     return (
         <footer>
             <div className="container">
                 <div className="info">
-                    <Link href={'/'} className="logo">
-                        LOGO.
+                    <Link href={'/'} className="logo footer">
+                        <Image src={`${Api.url}/images/footer.png`} width={180} height={110}/>
                     </Link>
                     <div className="phone">
-                        <a href="tel:+7(8552)23‒00‒44" className="tel">
-                            +7 (8552) 23‒00‒44
+                        <a href={`tel:${info?.phone}`} className="tel">
+                            {info?.phone}
                         </a>
                     </div>
                     <div className="social_block">

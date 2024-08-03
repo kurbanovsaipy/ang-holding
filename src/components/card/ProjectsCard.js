@@ -1,4 +1,5 @@
 import Link from "next/link";
+import './css/card.scss';
 
 
 export default function ProjectsCard() {
