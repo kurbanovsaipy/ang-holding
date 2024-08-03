@@ -1,14 +1,16 @@
-import { Inter, Montserrat } from "next/font/google";
+import { Inter, Montserrat, Exo_2 } from "next/font/google";
 import './../style/style.scss'
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import Api from "@/utils/Api";
 
-const main = Inter({ 
+
+const main = Exo_2({ 
   subsets: ["latin"],
   variable: '--main-font',
   display: 'swap',
 });
+
 
 const montserrat = Montserrat({
   subsets: ['latin'],

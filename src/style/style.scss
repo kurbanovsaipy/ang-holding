@@ -60,7 +60,6 @@ body{
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
 }
 
 html.hidden{
@@ -72,6 +71,7 @@ body.hidden{
 }
 ::-webkit-scrollbar {
     width: 0px;
+    height: 0px;
     background: black;
 }
 .os-scrollbar {
@@ -151,7 +151,7 @@ input:-webkit-autofill:focus {
         }
     }
     img {
-        
+
     }
 }
 /*------ Основная ссылка ----------*/
