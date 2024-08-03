@@ -13,7 +13,7 @@ export default function Header ({info}) {
             <div className="container">
 
                 <Link href={'/'} className="logo">
-                    <Image src={`${Api.url}/images/header.png`} width={90} height={55}/>
+                    <Image src={`${Api.url}/images/header.png`} width={90} height={55} alt=''/>
                 </Link>
 
                 <Navigation />

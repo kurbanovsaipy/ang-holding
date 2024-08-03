@@ -125,20 +125,143 @@ header {
                 font-size: 25px;
             }
             .burger {
+                position: relative;
                 cursor: pointer;
                 width: 40px;
                 height: 25px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+                &.cross {
+                    .top {
+                        animation: TopCross 0.5s forwards;
+                    }
+                    .center {
+                        animation: CenterCross 0.25s forwards;
+                    }
+                    .bottom {
+                        animation: BottomCross 0.5s forwards;
+                    }
+                }
+                &.burg {
+                    .top {
+                        animation: TopBurg 0.5s forwards;
+                    }
+                    .center {
+                        animation: CenterBurg 0.25s forwards;
+                    }
+                    .bottom {
+                        animation: BottomBurg 0.5s forwards;
+                    }
+                }
                 span {
                     display: block;
                     width: 100%;
                     height: 5px;
                     border-radius: 5px;
                     background-color: var(--main-color);
+                    &.top {
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    &.center {
+                        position: absolute;
+                        top: 10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    &.bottom {
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
                 }
             }
         }
+    }
+}
+
+@keyframes TopCross {
+    0% {
+        top: 0;
+        transform: translateX(-50%) rotate(0deg) ;
+    }
+    50% {
+        top: 10px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        top: 10px;
+        transform: translateX(-50%) rotate(45deg);
+    }
+}
+
+@keyframes CenterCross {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes BottomCross {
+    0% {
+        bottom: 0;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        bottom: 10px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        bottom: 10px;
+        transform: translateX(-50%) rotate(-45deg);
+    }
+}
+
+
+@keyframes TopBurg {
+    0% {
+        top: 10px;
+        transform: translateX(-50%) rotate(45deg) ;
+    }
+    50% {
+        top: 10px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        top: 0;
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+@keyframes CenterBurg {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes BottomBurg {
+    0% {
+        bottom: 10px;
+        transform: translateX(-50%) rotate(-45deg);
+    }
+    50% {
+        bottom: 10px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        bottom: 0px;
+        transform: translateX(-50%) rotate(0deg);
     }
 }

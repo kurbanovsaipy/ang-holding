@@ -10,7 +10,7 @@ export default function Footer({info}) {
             <div className="container">
                 <div className="info">
                     <Link href={'/'} className="logo footer">
-                        <Image src={`${Api.url}/images/footer.png`} width={180} height={110}/>
+                        <Image src={`${Api.url}/images/footer.png`} width={180} height={110} alt=""/>
                     </Link>
                     <div className="phone">
                         <a href={`tel:${info?.phone}`} className="tel">
