@@ -27,7 +27,7 @@
             background-color: rgba($color: #000000, $alpha: 0.2);
             z-index: 2;
         }
-        & img {
+        .head_back {
             position: absolute;
             top: 0;
             left: 0;
@@ -42,7 +42,7 @@
             font-family: var(--montserrat-font);
             @include adaptiveFont(72, 50);
             font-weight: 700;
-            color: var(--text-color-light);
+            color: var(--card-text-color);
         }
         .button_block {
             position: relative;
@@ -52,6 +52,15 @@
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
+            button {
+                height: 60px;
+                &.img {
+                    width: 60px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
         }
     }
     .container {
@@ -75,6 +84,16 @@
                 height: 62px;
                 border-radius: 10px;
                 border: 2px solid var(--main-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.3s;
+                &:hover {
+                    background-color: var(--main-color);
+                }
+                img {
+                    display: block;
+                }
             }
             .description {
                 .settings_name {
@@ -109,6 +128,7 @@
                 border-radius: 10px;
                 background-color: #fff;
                 box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.25);
+                z-index: 5;
                 .advantages_tab {
                     position: relative;
                     padding: 18px;
@@ -140,6 +160,106 @@
                     }
                 }
             }
+
+            .advantage_swiper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: calc(var(--main-border-radius) * 1.5);
+                .button_block {
+                    position: absolute;
+                    left: 35px;
+                    bottom: 50px;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    z-index: 5;
+                    button {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        border: 2px solid var(--main-color);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: 0.3s;
+                        color: var(--text-color-light);
+                        font-size: 20px;
+                        font-weight: 700;
+                        &:hover {
+                            background-color: var(--main-color);
+                        }
+                    }
+                }
+                .swiper-slide {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba($color: #000000, $alpha: 0.2);
+                        z-index: 3;
+                        width: 100%;
+                        -ms-user-select: none; 
+                        -moz-user-select: none; 
+                        -webkit-user-select: none; 
+                        user-select: none;
+                    }
+                    .title {
+                        position: relative;
+                        z-index: 5;
+                        width: max-content;
+                        max-width: 650px;
+                        @include adaptiveFont(70, 50);
+                        font-weight: 700;
+                        color: var(--card-text-color);
+                    }
+                    button {
+                        position: relative;
+                        z-index: 5;
+                    }
+                    & img{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+                .swiper-pagination {
+                    position: absolute;
+                    @include adaptiveProperty(bottom, 20, 15);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 5;
+                    display: grid;
+                    grid-template-columns: 10px 10px 10px;
+                    grid-template-rows: 10px;
+                    gap: 10px;
+                    .swiper-pagination-bullet {
+                        flex: 1;
+                        height: 7px;
+                        background-color: rgba($color: #fff, $alpha: 0.3);
+                        border-radius: 7px;
+                        transition: 0.3s;
+                        cursor: pointer;
+                        &.swiper-pagination-bullet-active {
+                            background-color: var(--main-color);
+                        }
+                    }
+                }
+            }
+
             .description_window {
                 position: absolute;
                 right: 35px;
@@ -150,6 +270,7 @@
                 padding: 25px 30px;
                 box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.25);
                 background-color: #fff;
+                z-index: 5;
                 .title {
                     @include adaptiveFont(20, 18);
                     font-weight: 700;
@@ -162,5 +283,311 @@
                 }
             }
         }
+    }
+
+    .project_info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-auto-rows: auto;
+        align-items: center;
+        column-gap: 20px;
+        .description_block {
+            @include adaptiveProperty(margin-bottom, 50, 25);
+            .description {
+                margin-top: 30px;
+                width: 100%;
+                max-width: 430px;
+                @include adaptiveFont(20, 18);
+                word-break: break-word;
+                hyphens: auto;
+            }
+            .title {
+                @include adaptiveFont(20, 18);
+                font-weight: 700;
+                margin: 20px 0;
+            }
+            .station {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .station_item {
+                    @include adaptiveFont(20, 18);
+                }
+            }
+        }
+        .image_block {
+            position: relative;
+            border-radius: var(--main-border-radius);
+            box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            height: 100%;
+            min-height: 300px;
+            max-height: 500px;
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .general_plan {
+        .general {
+            width: 100%;
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            position: relative;
+            border-radius: var(--main-border-radius);
+            background-color: #a8a8a8;
+            overflow: hidden;
+            @include adaptiveProperty(margin-top, 50, 25);
+            @include adaptiveProperty(padding, 50, 20);
+            height: 75dvh;
+            min-height: 600px;
+            @include mediaMaxWidth(600) {
+                height: 300px;
+                min-height: 300px;
+            }
+        }
+    }
+
+    .project_layout {
+        .filters_block {
+            @include adaptiveProperty(margin-top, 30, 15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            .search_result {
+                p {
+                    @include adaptiveFont(20, 18);
+                }
+            }
+            .filters {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                @include adaptiveProperty(gap, 20, 10);
+                & .main_button{
+                    min-width: 65px;
+                    border: 0;
+                    background: var(--background-grey);
+                    box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.25);
+                    white-space: nowrap;
+                    &:active,
+                    &.active{
+                        background: var(--main-color);
+                        box-shadow: 0 0px 0px 0 rgba($color: #000000, $alpha: 0.25);
+                        transform: translateY(4px);
+                        color: var(--text-color-light);
+                    }
+                    @include mediaMinWidth(768) {
+                        &:hover{
+                            background: var(--main-color);
+                        }
+                    }
+                }
+            }
+        }
+
+        .layout_list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            grid-template-rows: auto;
+            @include adaptiveProperty(gap, 20, 10);
+            @include adaptiveProperty(margin-top, 60, 30);
+            @include mediaMaxWidth(800) {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+
+            .layout_item {
+                background-color: var(--background-grey);
+                border-radius: var(--main-border-radius);
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: 0.3s;
+                cursor: pointer;
+                @include mediaMinWidth(801) {
+                    &:hover {
+                        background-color: var(--main-color);
+                    }
+                }
+                @include mediaMaxWidth(800) {
+                    flex-direction: column;
+                }
+
+                .image {
+                    position: relative;
+                    width: 100%;
+                    max-width: 140px;
+                    min-width: 130px;
+                    height: 140px;
+                    @include mediaMaxWidth(800) {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        object-position: center;
+                        @include mediaMaxWidth(800) {
+                            position: relative;
+                            height: auto;
+                        }
+                    }
+                }
+
+                .description_block {
+                    width: 100%;
+                    flex: 1;
+                    display: flex;
+                    justify-content: space-around;
+                    column-gap: 10px;
+                    @include mediaMaxWidth(800) {
+                        flex-direction: column;
+                        justify-content: baseline;
+                    }
+                    .layout_settings {
+                        .section {
+                            margin-top: 14px;
+                            margin-bottom: 5px;
+                            @include mediaMaxWidth(800) {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                            }
+                            .setings_name {
+                                @include adaptiveFont(18, 14);
+                                font-weight: 700;
+                            }
+                            .setings_ch {
+                                font-size: 14px;
+                                white-space: nowrap;
+                                @include mediaMaxWidth(800) {
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+    
+                    .button_block {
+                        display: flex;
+                        align-items: end;
+                        justify-content: end;
+                        align-self: end;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .progress_slider_block {
+        .progress_swiper {
+            @include adaptiveProperty(margin-top, 30, 15);
+            cursor: grab;
+            width: 100%;
+            overflow: visible;
+            -ms-user-select: none; 
+            -moz-user-select: none; 
+            -webkit-user-select: none; 
+            user-select: none;
+            .swiper-slide {
+                position: relative;
+                width: 250px;
+                height: 250px;
+                @include adaptiveProperty(padding, 20, 10);
+                border-radius: var(--main-border-radius);
+                overflow: hidden;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba($color: #000000, $alpha: 0.4);
+                    z-index: 3;
+                }
+                .title {
+                    position: relative;
+                    z-index: 5;
+                    width: 100%;
+                    max-width: max-content;
+                    @include adaptiveFont(20, 16);
+                    font-weight: 700;
+                    color: var(--card-text-color);
+                }
+                button {
+                    position: relative;
+                    z-index: 5;
+                }
+                & img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+            .swiper-pagination {
+                position: absolute;
+                @include adaptiveProperty(bottom, 50, 20);
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 5;
+                width: 100%;
+                max-width: 720px;
+                padding: 0 100px;
+                display: flex;
+                gap: 18px;
+                .swiper-pagination-bullet {
+                    flex: 1;
+                    height: 7px;
+                    background-color: rgba($color: #fff, $alpha: 0.3);
+                    border-radius: 7px;
+                    transition: 0.3s;
+                    cursor: pointer;
+                    &.swiper-pagination-bullet-active {
+                        background-color: var(--main-color);
+                    }
+                }
+            }
+        }
+    }
+
+    .news {
+        .main_title {
+            @include adaptiveProperty(margin-top, 30, 15);
+        }
+    }
+
+    .project_other {
+        .grid {
+            @include adaptiveProperty(margin-top, 30, 15);
+        }
+    }
+}
+
+@keyframes Open {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

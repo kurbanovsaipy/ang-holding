@@ -2,6 +2,7 @@ import { Inter, Montserrat } from "next/font/google";
 import './../style/style.scss'
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import Api from "@/utils/Api";
 
 const main = Inter({ 
   subsets: ["latin"],
@@ -15,23 +16,22 @@ const montserrat = Montserrat({
   display: 'swap'
 })
 
-export const metadata = {
-  title: "Create Next App",
-  description: "",
-};
+export default async function RootLayout({ children }) {
 
-export default function RootLayout({ children }) {
+  const parametrs = await Api.getWithoutCache('thema/string')
+  const info = await Api.getWithoutCache('contact/info')
+
   return (
-    <html lang="ru">
+    <html lang="ru" style={{parametrs}}>
       <body className={`${main.variable} ${montserrat.variable}`}>
 
-        <Header />
+        <Header info={info}/>
 
         <div className="main_wrapper">
           {children}
         </div>
 
-        <Footer />
+        <Footer info={info}/>
 
       </body>
     </html>
