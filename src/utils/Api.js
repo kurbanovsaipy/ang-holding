@@ -10,14 +10,12 @@ Api.get = async (path) => {
         let res = await fetch(`${Api.url}/${path}`)
 
         res = await res.json()
-
-        if(!res.success) {
+        
+        if(res.status === 'success') {
+            return res.data
+        } else {
             return false
         }
-
-        console.log('back', res.data)
-
-        return res.data
 
     } catch (e) {
         return false
