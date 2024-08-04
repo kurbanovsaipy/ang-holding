@@ -2,21 +2,26 @@ import Image from 'next/image';
 import './news_details.scss';
 import main from './../images/main_news.jpg'
 import CommonNewsList from '@/components/common_news_list/CommonNewsList';
+import Api from '@/utils/Api';
+import Store from '@/utils/Store';
 
-export default function Details() {
+export default async function Details({params}) {
+
+    const detail = await Api.getData(`news/data/?id=${params.id}`)
+
     return (
         <div className='news_detail container'>
             
             <div className="head">
-                <h1>Заголовок статьи</h1>
+                <h1>{detail?.title}</h1>
 
-                <p className="date">05.02.2023</p>
+                <p className="date">{Store.Date(detail?.date, 'dd.mm.yyyy')}</p>
             </div>
 
             <div className="main_image">
                 <Image 
                     className='image'
-                    src={main}
+                    src={`${Api.url}/images/${detail?.image}`}
                     alt=''
                     width={1300}
                     height={600}
@@ -28,11 +33,7 @@ export default function Details() {
                 <a href="tel:+79998887766"> кликабельный номер</a> 
             </p>
 
-            <p className="description">
-                Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
-                <br></br>
-                По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.
-            </p>
+            <p className="description">{detail?.description}</p>
 
             <h2 className="main_title">Будут вам интересны</h2>
 

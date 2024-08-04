@@ -1,16 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import news from './news.jpg';
+import Api from "@/utils/Api";
+import Store from "@/utils/Store";
 
-export default function Card() {
+export default function Card({el}) {
 
     return (
         <div className="news_card">
 
-            <Link href={'/news/1'} className="cover">
+            <Link href={`/news/${el.id}`} className="cover">
 
                 <Image 
-                    src={news} 
+                    src={`${Api.url}/images/${el.image}`} 
                     alt=""
                     width={0} 
                     height={0} 
@@ -23,12 +25,12 @@ export default function Card() {
 
             </Link>
 
-            <p className="date">05.04.2023</p>
+            <p className="date">{Store.Date(el?.date, 'dd.mm.yyyy')}</p>
 
             <div className="content">
 
-                <Link href={'/news/1'} className="main_title">Заголовок новости</Link>
-                <Link href={'/news/1'} className="description"> Короткое описание с ограничение в 300 символов. Описание формируется из первых слов самой статьи </Link>
+                <Link href={`/news/${el.id}`} className="main_title">{el.title}</Link>
+                <Link href={`/news/${el.id}`} className="description">{el.description}</Link>
             
             </div>
         </div>

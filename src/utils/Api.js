@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation"
+
 const Api = {}
 
 Api.url = 'http://194.58.126.195:4043'
@@ -19,6 +21,26 @@ Api.get = async (path) => {
 
     } catch (e) {
         return false
+    }
+
+}
+
+Api.getData = async (path) => {
+
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`)
+
+        res = await res.json()
+        
+        if(res.status === 'success') {
+            return res.data
+        } else {
+            return notFound()
+        }
+
+    } catch (e) {
+        return notFound()
     }
 
 }
