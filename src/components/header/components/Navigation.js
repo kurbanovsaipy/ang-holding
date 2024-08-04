@@ -13,7 +13,7 @@ export default function Navigation() {
             <Link href={'/'} className={`link ${path === '' ? 'active' : ''}`}>Паркинг</Link>
             <Link href={'/mortgage'} className={`link ${path === '/mortgage' ? 'active' : ''}`}>Ипотека</Link>
             <Link href={'/news'} className={`link ${path === '/news' ? 'active' : ''}`}>Новости</Link>
-            <Link href={'/'} className={`link ${path === '' ? 'active' : ''}`}>О нас</Link>
+            <Link href={'/about'} className={`link ${path === '/about' ? 'active' : ''}`}>О нас</Link>
         </nav>
     );
 }
