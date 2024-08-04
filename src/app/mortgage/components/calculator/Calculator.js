@@ -9,7 +9,7 @@ export default function Calculator() {
     const calculate = useCalculator()
 
     return (
-        <div className="calculator">
+        <div className="calculator" id="calculator">
             <h2 className="main_title">Калькулятор</h2>
 
             <CalculatorTabs refer={calculate.calculatorTabs} changeCreditRateTabs={calculate.changeCreditRateTabs}/>
