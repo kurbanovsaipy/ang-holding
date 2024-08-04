@@ -205,3 +205,67 @@ input:-webkit-autofill:focus {
         grid-auto-rows: 400px; 
     }
 }
+
+
+/*----- Страница 404 ------*/
+.not_found_wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 90px 10px 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    .not-found {
+        @include adaptiveFont(100, 80);
+        font-weight: 700;
+        color: var(--main-color);
+    }
+    p {
+        @include adaptiveFont(30, 25);
+    }
+    .main_button {
+        @include adaptiveFont(25, 20);
+    }
+}
+
+
+/*---------- Главный лоадер ----------*/
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba($color: #fff, $alpha: 0.7);
+    backdrop-filter: blur(40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 90px 20px;
+    z-index: 500;
+}
+
+/*-------- Основной спинер -------*/
+.circle_main{
+    fill: transparent;
+    stroke: var(--main-color);
+    stroke-width: 5px;
+    stroke-linecap: butt;
+    stroke-dasharray: 172px;
+    stroke-dashoffset: 60px;
+    transform-origin: center;
+    animation: Spin 1s infinite linear;
+}
+
+@keyframes Spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
