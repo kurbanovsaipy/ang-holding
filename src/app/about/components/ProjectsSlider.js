@@ -4,16 +4,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import 'swiper/css';
+import ProjectsCard from "@/components/card/ProjectsCard";
 
 export default function ProjectsSlider() {
     return (
         <Swiper
-        modules={[Autoplay]}
+            modules={[Autoplay]}
             spaceBetween={50}
             speed={2500}
             rewind={true}
             autoplay={{delay: 3000}}
             centeredSlides={true}
+            slidesPerView={'auto'}
             breakpoints={{
                 1700: {
                     slidesPerView: 4.5
@@ -54,31 +56,31 @@ export default function ProjectsSlider() {
             loop={true}
         >
             <SwiperSlide>
-                <div className="imitate_card"></div>
+                <ProjectsCard />
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="imitate_card"></div>
+                <ProjectsCard />
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="imitate_card"></div>
+                <ProjectsCard />
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="imitate_card"></div>
+                <ProjectsCard />
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="imitate_card"></div>
+                <ProjectsCard />
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="imitate_card"></div>
+                <ProjectsCard />
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="imitate_card"></div>
+                <ProjectsCard />
             </SwiperSlide>
         </Swiper>
     )

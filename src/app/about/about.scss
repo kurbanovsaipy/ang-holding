@@ -144,18 +144,19 @@
 
     .projects{
         width: 100%;
-        //overflow: hidden
         .swiper {
             padding: 20px 0;
             margin-top: 40px;
             margin-bottom: 60px;
             .swiper-slide {
-                // width: 400px;
-                border-radius: var(--main-border-radius);
-                height: 488px;
-                background: gray;
+                @include adaptiveProperty(width, 394, 300);
+                max-width: 400px;
                 transition: 0.3s;
-                cursor: pointer;
+                box-sizing: border-box;
+                will-change: transform;
+                .card {
+                    height: 488px;
+                }
                 @include mediaMinWidth(992) {
                     &:hover{
                         transform: scale(1.05);
@@ -232,7 +233,7 @@
                         h3 {
                             color: var(--text-color-dark);
                             font-weight: 700;
-                            @include adaptiveFont(35, 18);
+                            @include adaptiveFont(20, 18);
                             @include adaptiveProperty(line-height, 23, 22);
                             @include adaptiveProperty(margin-bottom, 20, 17);
                         }
@@ -267,6 +268,7 @@
             flex-direction: column;
             transition: 0.5s;
             height: max-content;
+            will-change: transform;
             @include adaptiveProperty(gap, 45, 25); 
             @include adaptiveProperty(padding-bottom, 50, 25);
             @include adaptiveProperty(padding-top, 50, 25);
