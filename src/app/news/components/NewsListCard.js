@@ -2,15 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import news from './../images/news.jpg'
 
-export default function NewsListCard() {
+export default function NewsListCard({el}) {
 
     return (
         <div className="news_card">
 
-            <Link href={'/news/1'} className="cover">
+            <Link href={`/news/${el.id}`} className="cover">
 
                 <Image 
-                    src={news} 
+                    src={el.image || ''} 
                     alt=""
                     width={0} 
                     height={0} 
@@ -23,12 +23,12 @@ export default function NewsListCard() {
 
             </Link>
 
-            <p className="date">05.04.2023</p>
+            <p className="date">{el.date}</p>
 
             <div className="content">
 
-                <Link href={'/news/1'} className="main_title">Заголовок новости</Link>
-                <Link href={'/news/1'} className="description"> Короткое описание с ограничение в 300 символов. Описание формируется из первых слов самой статьи </Link>
+                <Link href={`/news/${el.id}`} className="main_title">{el.title}</Link>
+                <Link href={`/news/${el.id}`} className="description">{el.description}</Link>
             
             </div>
         </div>

@@ -1,18 +1,19 @@
-import { Suspense } from "react";
+
+import Api from "@/utils/Api";
 import Head from "./components/Head";
 import NewsList from "./components/NewsList";
 import './css/news.scss';
-import LoadSkeleton from "./components/LoadSkeleton";
 
-export default function News() {
+export default async function News() {
+
+    const news = await Api.get('news/all')
+
     return (
         <div className="news container">
 
             <Head />
 
-            <Suspense fallback={<LoadSkeleton />}>
-                <NewsList />
-            </Suspense>
+            <NewsList news={news}/>
             
         </div>
     )
