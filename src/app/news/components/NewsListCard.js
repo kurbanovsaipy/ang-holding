@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import news from './../images/news.jpg'
+import Api from "@/utils/Api";
+import Store from "@/utils/Store";
 
 export default function NewsListCard({el}) {
 
@@ -10,7 +11,7 @@ export default function NewsListCard({el}) {
             <Link href={`/news/${el.id}`} className="cover">
 
                 <Image 
-                    src={el.image || ''} 
+                    src={`${Api.url}/images/${el.image}`} 
                     alt=""
                     width={0} 
                     height={0} 
@@ -23,7 +24,7 @@ export default function NewsListCard({el}) {
 
             </Link>
 
-            <p className="date">{el.date}</p>
+            <p className="date">{Store.Date(el?.date, 'dd.mm.yyyy')}</p>
 
             <div className="content">
 
