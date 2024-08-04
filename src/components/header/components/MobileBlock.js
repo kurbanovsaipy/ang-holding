@@ -22,6 +22,7 @@ export default function MobileBlock({info}) {
     return (
         <div className={`mobile_block`}>
             <a href={`tel:${info?.phone}`} className='header_icon_phone'></a>
+            <a href="" className="header_icon_home"></a>
 
             <div className={`burger ${isOpen ? 'cross' : 'burg'}`} onMouseDown={(e) => toggleMenu(e)}>
                 <span className="top"></span>
