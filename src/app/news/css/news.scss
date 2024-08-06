@@ -5,6 +5,23 @@
     @include adaptiveProperty(padding-top, 200, 130);
     min-height: 100dvh;
     margin-bottom: 130px;
+    .main_button.show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin: 60px auto 0 auto;
+        width: 100%;
+        max-width: 500px;
+        font-size: 22px;
+        @include mediaMinWidth(992) {
+            &:hover {
+                .circle_load{
+                    stroke: var(--text-color-light);
+                }
+            }
+        }
+    }
     .news_head{
         width: 100%;
         display: flex;
@@ -12,10 +29,52 @@
         justify-content: space-between;
         margin-bottom: 30px;
         .filter {
-            @include adaptiveFont(30, 16);
+            position: relative;
             font-weight: 400;
-            line-height: 35px;
             color: var(--text-color-dark);
+        }
+        .flex {
+            @include adaptiveFont(22, 16);
+            line-height: 35px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .filter_list {
+            padding: 15px 0;
+            position: absolute;
+            width: 100%;
+            top: calc(100% + 10px);
+            background: #fff;
+            border-radius: calc(0.7 * var(--main-border-radius));
+            z-index: 10;
+            border: 1px solid rgb(233, 233, 233);
+            border-bottom: 0;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+            animation: appearFilter 0.2s linear forwards;
+            & p{
+                padding: 15px 25px;
+                transition: 0.3s;
+                cursor: pointer;
+                @include adaptiveFont(20, 16);
+                @include mediaMinWidth(992) {
+                    &:hover {
+                        background: var(--background-grey);
+                    }
+                }
+                &.active{
+                    background: var(--background-grey);
+                }
+            }
+        }
+        @keyframes appearFilter {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     }
     .news_list_block{
