@@ -15,12 +15,14 @@ export async function generateMetadata() {
   }
 }
 
-export default function Home() {
+export default async function Home() {
+
+  const slider = await Api.get('slider/list')
   
   return (
     <div className='home'>
        
-      <MainSlider />
+      <MainSlider slider={slider}/>
 
       <Projects />
 
