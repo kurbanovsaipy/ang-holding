@@ -77,7 +77,7 @@
             }
         }
     }
-    .news_list_block{
+    .news_list_block_list{
         width: 100%;
         display: grid;
         @include adaptiveProperty(gap, 50, 30);

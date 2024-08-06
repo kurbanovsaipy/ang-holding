@@ -11,8 +11,8 @@ export default function AboutDescription() {
                 <div className="description">
                     <p>Текст о компании, сколько лет на рынке, кто главный, какие основные принципы компании и какой сектор недвижимости хотят покрыть своим предложением проекты компании. Основные вещи, не очень громадно, но очень информативно</p>
                     <div className="description_flex">
-                        <button className="main_button">Награды</button>
-                        <button className="main_button">Контакты</button>
+                        <a href="#awards" className="main_button">Награды</a>
+                        <a href="#info" className="main_button">Контакты</a>
                     </div>
                 </div>
 

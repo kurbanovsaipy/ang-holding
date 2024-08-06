@@ -68,7 +68,13 @@
                     gap: 10px;
                 }
                 & .main_button{
+                    color: var(--text-color-dark);
                     @include adaptiveFont(25, 18);
+                    @include mediaMinWidth(992) {
+                        &:hover {
+                            color: var(--text-color-light);
+                        }
+                    }
                 }
                 & p{
                     @include adaptiveFont(20, 18);
@@ -122,8 +128,16 @@
             .icon {
                 @include adaptiveProperty(min-width, 120, 50);
                 @include adaptiveProperty(min-height, 120, 50);
-                background: rgb(217, 217, 217);
+                border: 3px solid var(--main-color);
+                //background: #fff;
                 border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                & .image {
+                    @include adaptiveProperty(min-width, 80, 32);
+                    @include adaptiveProperty(min-height, 80, 32);
+                }
             }
             .content {
                 & h3 {
@@ -147,7 +161,6 @@
         .swiper {
             padding: 20px 0;
             margin-top: 40px;
-            margin-bottom: 60px;
             .swiper-slide {
                 @include adaptiveProperty(width, 394, 300);
                 max-width: 400px;
@@ -166,6 +179,10 @@
         }
     }
 
+    .awards_wrapper {
+        margin-top: -60px;
+        @include adaptiveProperty(padding-top, 120, 80);
+    }
     .awards {
         width: 100%;
         background: var(--main-color);
@@ -207,7 +224,8 @@
     }
 
     .info{
-        margin-top: 40px;
+        margin-top: -50px;
+        @include adaptiveProperty(padding-top, 120, 80);
         width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
