@@ -4,7 +4,7 @@ import NewsListCard from "./NewsListCard";
 export default function NewsList({news}) {
 
     return (
-        <div className="news_list_block">
+        <div className="news_list_block_list">
 
             {news?.length ? 
                 <>
