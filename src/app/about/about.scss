@@ -256,6 +256,7 @@
             }
         }
         .consultation{
+            position: relative;
             margin: 0 auto;
             width: 100%;
             //max-width: 550px;
@@ -317,6 +318,16 @@
                         color: var(--text-color-dark);
                     }
                 }
+                &.disable {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+                    @include mediaMinWidth(992) {
+                        &:hover {
+                            background: var(--main-color);
+                            color: var(--text-color-light);  
+                        }
+                    }
+                }
             }
             a{
                 display: block;
@@ -324,6 +335,116 @@
                 text-align: center;
                 color: var(--text-color-dark);
                 @include adaptiveFont(30, 20);
+            }
+            @keyframes appearSuccess {
+                to {
+                    z-index: 2;
+                    opacity: 1;
+                }
+            }
+            .success {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: var(--main-border-radius);
+                background: #fff;
+                opacity: 0;
+                z-index: -1;
+                transition: 0.5s;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                animation: appearSuccess 0.5s forwards linear;
+                animation-delay: 0.5s;
+                & p {
+                    opacity: 0;
+                    animation: appearSuccess 0.5s forwards linear;
+                    animation-delay: 3s;
+                }
+                .check_box{
+                    position: relative;
+                    width: 250px;
+                    height: 250px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .line {
+                        position: absolute;
+                        top: 92.5px;
+                        left: 31px;
+                        transform: rotate(41deg);
+                        transform-origin: left;
+                        max-width: 100px;
+                        height: 12px;
+                        border-radius: 10px;
+                        background: var(--main-color);
+                        animation: lineAnim 0.7s forwards linear;
+                        animation-delay: 2s;
+
+                    }
+                    .second_line {
+                        position: absolute;
+                        top: 158px;
+                        left: 99px;
+                        transform: rotate(312deg);
+                        transform-origin: left;
+                        max-width: 150px;
+                        height: 12px;
+                        border-radius: 10px;
+                        background: var(--main-color);
+                        animation: lineAnim 0.7s forwards linear;
+                        animation-delay: 2.3s;
+                    }
+                    svg{
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    circle {
+                        position: relative;
+                        fill: transparent;
+                        stroke: var(--main-color);
+                        stroke-width: 12px;
+                        stroke-linecap: butt;
+                        stroke-dasharray: 773;
+                        stroke-dashoffset: calc(773 - (773 * 60) / 100);
+                        transform-origin: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transform: scale(-1, 1);
+                        transform: rotate(380deg) scale(-1, 1);
+                        animation: roundCircle 1.5s forwards;
+                        animation-delay: 0.5s;
+                    }
+                }
+                @keyframes roundCircle {
+                    0% {
+                        transform: rotate(0) scale(-1, 1);
+                    }
+                    30% {
+                        stroke-dashoffset: calc(773 - (773 * 60) / 100);
+                    }
+                    70% {
+                        transform: rotate(380deg) scale(-1, 1);
+                    }
+                    100% {
+                        transform: rotate(380deg) scale(-1, 1);
+                        stroke-dashoffset: calc(773 - (773 * 0) / 100);
+                    }
+                }
+                @keyframes lineAnim {
+                    from {
+                        width: 0;
+                    }
+                    to {
+                        width: 100%;
+                    }
+                }
             }
         }
     }
