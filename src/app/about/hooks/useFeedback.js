@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 
 
 export default function useFeedback() {
-
+    const [success, setSuccess] = useState(false)
+    const [disable, setDisable] = useState(false)
     const [info, setInfo] = useState()
     const [input, setInput] = useState({
         name: '',
@@ -24,7 +25,7 @@ export default function useFeedback() {
 
         })()
 
-    })  
+    }, [])  
 
     const changeName = (value) => {
         validateName(value)
@@ -118,10 +119,13 @@ export default function useFeedback() {
     const sendForm = async (e) => {
         e.preventDefault()
 
+        if(disable) {
+            return
+        }
 
-
+        
         let errorChange = 0
-
+        
         if(validateName(input.name) === 'error') {
             errorChange += 1
         }
@@ -129,21 +133,25 @@ export default function useFeedback() {
         if(validatePhone(input.phone) === 'error') {
             errorChange += 1
         }
-
+        
         if(errorChange > 0) {
             return
         }
 
+        setDisable(prev => prev = true)
+
         let res = await Api.post('feedback/send', input)
 
         if(res === 'success') {
-            
+            setSuccess(prev => prev = true)
         }
+
+        setDisable(prev => prev = false)
     }
 
     var getInputNumbersValue = function (input) {
         return input.value.replace(/\D/g, '');
     }
 
-    return { info, input, validateName, changeName, error, sendError, onPhoneInput, onPhoneKeyDown, onPhonePaste, sendForm }
+    return {success, disable, info, input, validateName, changeName, error, sendError, onPhoneInput, onPhoneKeyDown, onPhonePaste, sendForm }
 }
