@@ -4,7 +4,7 @@ import Statistick from './components/Statistick';
 import Projects from './components/Projects';
 import Awards from './components/Awards';
 import CommonNewsList from '@/components/common_news_list/CommonNewsList';
-import Info from '../home/components/Info';
+import Info from './components/Info';
 
 import './about.scss';
 

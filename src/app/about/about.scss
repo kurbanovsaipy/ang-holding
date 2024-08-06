@@ -274,12 +274,6 @@
             @include adaptiveProperty(padding-top, 50, 25);
             @include adaptiveProperty(padding-left, 50, 20);
             @include adaptiveProperty(padding-right, 50, 20);
-            @include mediaMinWidth(992) {
-                &:hover {
-                    transform: translate(-10px, -12px);
-                    box-shadow: 10px 12px 20px 0px rgba(0, 0, 0, 0.25);
-                }
-            }
             .main_title.mb {
                 @include adaptiveProperty(margin-bottom, 25, 15); 
             }
@@ -299,6 +293,19 @@
                 width: 100%;
                 background: var(--background-grey);
                 border-radius: 10px;
+                transition: 0.3s;
+                border: 1px solid transparent;
+                &.input_error {
+                    border: 1px solid red;
+                    background-color: rgba($color: red, $alpha: 0.1);
+                }
+            }
+            .error {
+                height: 20px;
+                width: 100%;
+                text-align: center;
+                color: red;
+                @include adaptiveFont(14, 12);
             }
             .main_button {
                 width: 100%;
