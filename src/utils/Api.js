@@ -1,9 +1,9 @@
-import { notFound } from "next/navigation"
+import { notFound } from "next/navigation.js"
 
 const Api = {}
 
-Api.url = 'http://194.58.126.195:4043'
-Api.domain = '194.58.126.195'
+Api.url = 'https://api.ang-holding.ru'
+Api.domain = 'api.ang-holding.ru'
 
 Api.get = async (path) => {
 
@@ -55,6 +55,26 @@ Api.getWithoutCache = async (path) => {
 
         if(res.status === 'success') {
             return res.data
+        } else {
+            return false
+        }
+
+    } catch (e) {
+        return false
+    }
+
+}
+
+Api.getFull = async (path) => {
+
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`)
+
+        res = await res.json()
+        
+        if(res.status === 'success') {
+            return res
         } else {
             return false
         }

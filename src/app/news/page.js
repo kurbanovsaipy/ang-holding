@@ -1,19 +1,37 @@
-
-import Api from "@/utils/Api";
+'use client'
 import Head from "./components/Head";
 import NewsList from "./components/NewsList";
+import ShowMore from "./components/ShowMore";
+import Loading from "../loading";
+import LoadSkeleton from "./components/LoadSkeleton";
+import useNews from "./hooks/useNews";
+
 import './css/news.scss';
 
-export default async function News() {
+export default function News() {
 
-    const news = await Api.get('news/all')
+    const {changeSort, params, news, pageLoad, showMore, total} = useNews()
 
     return (
         <div className="news container">
 
-            <Head />
+            <Head changeSort={changeSort} sort={params.sort}/>
 
-            <NewsList news={news}/>
+            {pageLoad ?
+                <>
+                    <NewsList news={news}/>
+
+                    <LoadSkeleton />
+
+                    {news?.length && params.page < total.pages ? 
+                        <ShowMore showMore={showMore}/>
+                        :
+                        <></>
+                    }
+                </>
+            :
+                <Loading />
+            }
             
         </div>
     )
