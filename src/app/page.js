@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import MainSlider from './home/components/MainSlider';
 import './home/css/home.scss'
 import Projects from './home/components/Projects';

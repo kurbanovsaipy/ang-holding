@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import news from './news.jpg';
 import Api from "@/utils/Api";
 import Store from "@/utils/Store";
 
