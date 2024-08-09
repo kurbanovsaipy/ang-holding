@@ -1,11 +1,11 @@
 import Image from "next/image";
-import main from './../images/main.jpg'
 
 export default function Hero() {
+
     return (
         <div className="hero">
             <Image 
-                src={main} 
+                src={'/images/main.jpg'} 
                 alt=""
                 width={0} 
                 height={0} 

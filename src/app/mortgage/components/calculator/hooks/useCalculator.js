@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 
 export default function useCalculator() {
+    
     const [monthPay, setMonthPay] = useState(0)
     const [total, setTotal] = useState(0)
     const [field, setField] = useState({

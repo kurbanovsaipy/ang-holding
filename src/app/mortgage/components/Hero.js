@@ -1,12 +1,12 @@
 import Image from "next/image";
-import mortgage from './../images/mortgage.webp'
+
 
 export default function Hero () {
     return (
         <div className="hero">
             <Image 
                 className='image'
-                src={mortgage}
+                src={'/images/mortgage.webp'}
                 alt=''
                 width={1920} 
                 height={1080} 
