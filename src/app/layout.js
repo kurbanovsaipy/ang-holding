@@ -1,4 +1,4 @@
-import { Inter, Montserrat, Exo_2 } from "next/font/google";
+//import { Inter, Montserrat, Exo_2 } from "next/font/google";
 import './../style/style.scss'
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
@@ -6,18 +6,18 @@ import Api from "@/utils/Api";
 import Menu from "@/components/menu/Menu";
 
 
-const main = Exo_2({ 
-  subsets: ["latin"],
-  variable: '--main-font',
-  display: 'swap',
-});
+// const main = Exo_2({ 
+//   subsets: ["latin"],
+//   variable: '--main-font',
+//   display: 'swap',
+// });
 
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--montserrat-font',
-  display: 'swap'
-})
+// const montserrat = Montserrat({
+//   subsets: ['latin'],
+//   variable: '--montserrat-font',
+//   display: 'swap'
+// })
 
 export default async function RootLayout({ children }) {
 
@@ -26,7 +26,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="ru" style={{parametrs}}>
-      <body className={`${main.variable} ${montserrat.variable}`}>
+      <body>
 
         <Header info={info}/>
 
