@@ -114,7 +114,6 @@
             border-radius: var(--main-border-radius);
             width: 100%;
             display: flex;
-            align-items: start;
             transition: 0.3s;
             @include adaptiveProperty(gap, 65, 20);
             @include mediaMaxWidth(993) {
