@@ -1,50 +1,5 @@
 @import './../../../style/common.scss';
-
-/*----- Иконочный шрифт ------*/
-@font-face {
-    font-family: 'footer_icomoon';
-    src:  url('./../fonts/footer_icomoon.eot?2ijcws');
-    src:  url('./../fonts/footer_icomoon.eot?2ijcws#iefix') format('embedded-opentype'),
-      url('./../fonts/footer_icomoon.ttf?2ijcws') format('truetype'),
-      url('./../fonts/footer_icomoon.woff?2ijcws') format('woff'),
-      url('./../fonts/footer_icomoon.svg?2ijcws#footer_icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
   
-  [class^="footer_icon_"], [class*=" footer_icon_"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'footer_icomoon' !important;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-  
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .footer_icon_phone:before {
-    content: "\e900";
-    color: var(--text-color-light);
-  }
-  .footer_icon_telegram:before {
-    content: "\e901";
-    color: var(--text-color-light);
-  }
-  .footer_icon_vk:before {
-    content: "\e902";
-    color: var(--text-color-light);
-  }
-  .footer_icon_whatsapp:before {
-    content: "\e903";
-    color: var(--text-color-light);
-  }
-  
-
 footer {
     width: 100%;
     height: auto;
@@ -162,6 +117,7 @@ footer {
               margin-bottom: 20px;
               text-transform: uppercase;
               .arrow {
+                transition: 0.8s;
                 display: none;
               }
           }
@@ -184,7 +140,7 @@ footer {
                     background: var(--text-color-light);
                     transition: 0.4s;
                   }
-                  @include mediaMaxWidth(992) {
+                  @include mediaMinWidth(992) {
                     &:hover:before {
                       width: 100%;
                     }
@@ -207,21 +163,44 @@ footer {
             align-items: center;
             gap: 5px;
             justify-content: center;
+            cursor: pointer;
             .arrow {
               display: block;
             }
           }
           & nav {
-            padding: 20px;
             width: 100%;
             max-width: 300px;
             background: #fff;
             border-radius: var(--main-border-radius);
+            height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            transition: 0.8s;
+            will-change: height;
             .link {
               color: var(--text-color-dark);
+              font-size: 18px;
+              &:nth-child(1) {
+                margin-top: 20px;
+              }
+              &:nth-child(5) {
+                margin-bottom: 20px;
+              }
             }
-            display: none; //
           }
+          &.show {  
+            & .navigation_head {
+              .arrow {
+                transform: rotate(-180deg);
+              }
+            }
+            & nav {
+              height: 200px;
+            }
+          }
+
         }
       }
     }

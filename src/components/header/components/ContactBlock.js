@@ -5,7 +5,6 @@ export default function ContactBlock({info}) {
         <div className="contact_block">
             <div className="phone">
                 <a href={`tel:${info?.phone}`}>
-                    <span className='header_icon_phone'></span>
                     {info?.phone}
                 </a>
                 <p>ПН-СБ: С 08:00 ДО 19:00</p>

@@ -2,9 +2,11 @@ import Link from "next/link";
 import './css/footer.scss'
 import Api from "@/utils/Api";
 import Image from "next/image";
+import NavigationHead from "./NavigationHead";
 
 
 export default function Footer({info}) {
+
     return (
         <footer>
             <div className="container">
@@ -24,9 +26,9 @@ export default function Footer({info}) {
 
                         <div className="info_item">
                             <div className="social_block">
-                                <a href="" className="footer_icon_telegram"></a>
-                                <a href="" className="footer_icon_vk"></a>
-                                <a href="" className="footer_icon_whatsapp"></a>
+                                <a href="" className=""></a>
+                                <a href="" className=""></a>
+                                <a href="" className=""></a>
                             </div>
 
                             <div className="phone">
@@ -43,35 +45,7 @@ export default function Footer({info}) {
                     <nav className="footer_nav">
 
                         <div className="navigation">
-                            <h5 className="navigation_head">Проекты
-                                <Image
-                                    src='/icons/arrow_down_white.svg'
-                                    alt=""
-                                    width={20}
-                                    height={20}
-                                    className="arrow"
-                                />
-                            </h5>
-                            <nav>
-                                <Link href={''} className={`link`}>Название проекта 1</Link>
-                                <Link href={''} className={`link`}>Название проекта 2</Link>
-                                <Link href={''} className={`link`}>Название проекта 3</Link>
-                                <Link href={''} className={`link`}>Название проекта 4</Link>
-                                <Link href={''} className={`link`}>Название проекта 5</Link>
-                                <Link href={''} className={`link`}>Название проекта 6</Link>
-                            </nav>
-                        </div>
-
-                        <div className="navigation">
-                            <h5 className="navigation_head">Паркинг и кладовые
-                                <Image
-                                    src='/icons/arrow_down_white.svg'
-                                    alt=""
-                                    width={20}
-                                    height={20}
-                                    className="arrow"
-                                />
-                            </h5>
+                            <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Проекты'}/>
                             <nav>
                                 <Link href={''} className={`link`}>Название проекта 1</Link>
                                 <Link href={''} className={`link`}>Название проекта 2</Link>
@@ -82,15 +56,18 @@ export default function Footer({info}) {
                         </div>
 
                         <div className="navigation">
-                            <h5 className="navigation_head">Карта сайта
-                                <Image
-                                    src='/icons/arrow_down_white.svg'
-                                    alt=""
-                                    width={20}
-                                    height={20}
-                                    className="arrow"
-                                />
-                            </h5>
+                            <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Паркинг и кладовые'}/>
+                            <nav>
+                                <Link href={''} className={`link`}>Название проекта 1</Link>
+                                <Link href={''} className={`link`}>Название проекта 2</Link>
+                                <Link href={''} className={`link`}>Название проекта 3</Link>
+                                <Link href={''} className={`link`}>Название проекта 4</Link>
+                                <Link href={''} className={`link`}>Название проекта 5</Link>
+                            </nav>
+                        </div>
+
+                        <div className="navigation">
+                            <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Карта сайта'}/>
                             <nav>
                                 <Link href={''} className={`link`}>Главная</Link>
                                 <Link href={''} className={`link`}>Проекты</Link>
