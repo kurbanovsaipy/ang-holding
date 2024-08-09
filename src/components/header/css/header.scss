@@ -1,46 +1,5 @@
 @import './../../../style/common.scss';
 
-/*------- Иконочный шрифт -------*/
-@font-face {
-    font-family: 'header_icomoon';
-    src:  url('./../fonts/header_icomoon.eot?ydhcyp');
-    src:  url('./../fonts/header_icomoon.eot?ydhcyp#iefix') format('embedded-opentype'),
-      url('./../fonts/header_icomoon.ttf?ydhcyp') format('truetype'),
-      url('./../fonts/header_icomoon.woff?ydhcyp') format('woff'),
-      url('./../fonts/header_icomoon.svg?ydhcyp#header_icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
-  
-  [class^="header_icon_"], [class*=" header_icon_"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'header_icomoon' !important;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-  
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .header_icon_phone:before {
-    content: "\e900";
-    color: var(--main-color);
-  }
-  .header_icon_key:before {
-    content: "\e901";
-    color: var(--main-color);
-  }
-  .header_icon_home:before {
-    content: "\e902";
-    color: var(--main-color);
-  }
-  
-
 /*------ Шапка страницы -------*/
 header {
     position: fixed;
