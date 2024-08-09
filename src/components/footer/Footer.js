@@ -26,9 +26,9 @@ export default function Footer({info}) {
 
                         <div className="info_item">
                             <div className="social_block">
-                                <a href="" className="footer_icon_telegram"></a>
-                                <a href="" className="footer_icon_vk"></a>
-                                <a href="" className="footer_icon_whatsapp"></a>
+                                <a href="" className=""></a>
+                                <a href="" className=""></a>
+                                <a href="" className=""></a>
                             </div>
 
                             <div className="phone">
