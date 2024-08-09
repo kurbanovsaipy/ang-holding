@@ -62,7 +62,7 @@ footer {
         .social_block {
             display: flex;
             align-items: center;
-            justify-content: start;
+            justify-content: flex-start;
             @include adaptiveProperty(gap, 20, 15);
             a {
                 display: block;
@@ -102,7 +102,7 @@ footer {
     .footer_nav {
       flex: 1;
       display: flex;
-      align-items: start;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 50px;
       @include mediaMaxWidth(900) {

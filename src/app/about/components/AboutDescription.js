@@ -1,5 +1,4 @@
 import Image from "next/image";
-import desc from './../images/desc.jpg'
 
 export default function AboutDescription() {
 
@@ -19,7 +18,7 @@ export default function AboutDescription() {
                 
                 <div className="image_wrapper">
                     <Image 
-                        src={desc} 
+                        src={'/images/desc.jpg'} 
                         alt=""
                         width={0} 
                         height={0} 

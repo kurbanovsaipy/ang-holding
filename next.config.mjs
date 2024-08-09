@@ -3,10 +3,15 @@ import Api from './src/utils/Api.js';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: [Api.domain],
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: Api.domain,
+          pathname: '**',
+        },
+      ],
     },
 };
 
 
 export default nextConfig;
-

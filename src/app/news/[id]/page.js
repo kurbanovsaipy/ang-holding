@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import './news_details.scss';
-import main from './../images/main_news.jpg'
 import CommonNewsList from '@/components/common_news_list/CommonNewsList';
 import Api from '@/utils/Api';
 import Store from '@/utils/Store';

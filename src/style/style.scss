@@ -1,7 +1,10 @@
 @import './common.scss';
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 /*------ Основные переменные -----------*/
 :root {
+    --montserrat-font: "Montserrat", sans-serif;
+    --main-font: "Exo 2", sans-serif;
     --main-color: rgb(61, 177, 249);
     --main-border-radius: 30px;
     --text-color-dark: #000;
