@@ -1,5 +1,110 @@
+import { notFound } from "next/navigation.js"
+
 const Api = {}
 
-Api.url = ''
+Api.url = 'https://api.ang-holding.ru'
+Api.domain = 'api.ang-holding.ru'
+
+Api.get = async (path) => {
+
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`)
+
+        res = await res.json()
+        
+        if(res.status === 'success') {
+            return res.data
+        } else {
+            return false
+        }
+
+    } catch (e) {
+        return false
+    }
+
+}
+
+Api.getData = async (path) => {
+
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`)
+
+        res = await res.json()
+        
+        if(res.status === 'success') {
+            return res.data
+        } else {
+            return notFound()
+        }
+
+    } catch (e) {
+        return notFound()
+    }
+
+}
+
+Api.getWithoutCache = async (path) => {
+    
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`, {cache: 'no-cache'})
+
+        res = await res.json()
+
+        if(res.status === 'success') {
+            return res.data
+        } else {
+            return false
+        }
+
+    } catch (e) {
+        return false
+    }
+
+}
+
+Api.getFull = async (path) => {
+
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`)
+
+        res = await res.json()
+        
+        if(res.status === 'success') {
+            return res
+        } else {
+            return false
+        }
+
+    } catch (e) {
+        return false
+    }
+
+}
+
+Api.post = async (path, input) => {
+
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`, {
+            method: 'POST',
+            headers: {
+                "Content-type": 'application/json;charset=UTF-8',
+            },
+            body: JSON.stringify(input)
+        })
+
+        res = await res.json()
+        
+        return res.status
+
+    } catch (e) {
+        return false
+    }
+
+}
 
 export default Api;

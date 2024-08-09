@@ -1,0 +1,77 @@
+@import './../../../style/common.scss';
+
+.load_skelet{
+    --light-radius: 10px;
+    margin-top: 0px;
+    width: 100%;
+    display: grid;
+    @include adaptiveProperty(gap, 50, 30);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: 470px;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    &.show {
+        animation: appearSkelet 1s linear forwards;
+    }
+    .load_card{
+        height: 470px;
+        .cover {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 214px;
+            border-radius: var(--main-border-radius);
+        }
+        .date {
+            margin-top: 17px;
+            height: 23px;
+            width: 100px;
+            border-radius: var(--light-radius);
+        }
+        .content {
+            height: 213px;
+        }
+        .title{
+            width: 70%;
+            border-radius: var(--light-radius);
+            height: 30px;
+            margin-top: 5px;
+            margin-bottom: 17px; 
+            display: block;
+        }
+        .description{
+            border-radius: var(--light-radius);
+            display: block;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .shim {
+            --back1: #ecedeeea;
+            --back2: #dedfe2ea;
+            background: var(--back1);
+            background-position: -500px 0;
+            background-image: linear-gradient(90deg, var(--back1) 5%, var(--back2) 23%, var(--back1) 40%, var(--back1) 100%);
+            background-repeat: no-repeat;
+            background-size: 1000px 100%;
+            animation: shim 1s linear infinite;
+        }
+        @keyframes shim {
+            to {
+                background-position: 500px 0;
+            }
+        }
+    }
+}
+
+@keyframes appearSkelet {
+    70% {
+        height: 470px;
+        margin-top: 30px;
+    }
+    100% {
+        margin-top: 30px;
+        opacity: 1;
+        height: 470px;
+    }
+}

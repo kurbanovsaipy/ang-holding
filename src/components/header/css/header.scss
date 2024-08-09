@@ -3,17 +3,17 @@
 /*------- Иконочный шрифт -------*/
 @font-face {
     font-family: 'header_icomoon';
-    src:  url('./../fonts/header_icomoon.eot?8yvup2');
-    src:  url('./../fonts/header_icomoon.eot?8yvup2#iefix') format('embedded-opentype'),
-      url('./../fonts/header_icomoon.ttf?8yvup2') format('truetype'),
-      url('./../fonts/header_icomoon.woff?8yvup2') format('woff'),
-      url('./../fonts/header_icomoon.svg?8yvup2#header_icomoon') format('svg');
+    src:  url('./../fonts/header_icomoon.eot?ydhcyp');
+    src:  url('./../fonts/header_icomoon.eot?ydhcyp#iefix') format('embedded-opentype'),
+      url('./../fonts/header_icomoon.ttf?ydhcyp') format('truetype'),
+      url('./../fonts/header_icomoon.woff?ydhcyp') format('woff'),
+      url('./../fonts/header_icomoon.svg?ydhcyp#header_icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
   }
   
-[class^="header_icon_"], [class*=" header_icon_"] {
+  [class^="header_icon_"], [class*=" header_icon_"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'header_icomoon' !important;
     font-style: normal;
@@ -25,12 +25,21 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
+  }
   
-.header_icon_phone:before {
+  .header_icon_phone:before {
     content: "\e900";
     color: var(--main-color);
-}
+  }
+  .header_icon_key:before {
+    content: "\e901";
+    color: var(--main-color);
+  }
+  .header_icon_home:before {
+    content: "\e902";
+    color: var(--main-color);
+  }
+  
 
 /*------ Шапка страницы -------*/
 header {
@@ -54,10 +63,22 @@ header {
         align-items: center;
         height: 100%;
         .logo {
-            color: var(--main-color);
-            font-size: 40px;
-            //min-width: 90px;
-            font-weight: 700;
+            width: 90px;
+            height: 55px;
+            position: relative;
+            &.footer {
+                width: 180px;
+                height: 110px;
+            }
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
         }
         nav {
             display: flex;
@@ -113,20 +134,143 @@ header {
                 font-size: 25px;
             }
             .burger {
+                position: relative;
                 cursor: pointer;
                 width: 40px;
                 height: 25px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+                &.cross {
+                    .top {
+                        animation: TopCross 0.5s forwards;
+                    }
+                    .center {
+                        animation: CenterCross 0.25s forwards;
+                    }
+                    .bottom {
+                        animation: BottomCross 0.5s forwards;
+                    }
+                }
+                &.burg {
+                    .top {
+                        animation: TopBurg 0.5s forwards;
+                    }
+                    .center {
+                        animation: CenterBurg 0.25s forwards;
+                    }
+                    .bottom {
+                        animation: BottomBurg 0.5s forwards;
+                    }
+                }
                 span {
                     display: block;
                     width: 100%;
                     height: 5px;
                     border-radius: 5px;
                     background-color: var(--main-color);
+                    &.top {
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    &.center {
+                        position: absolute;
+                        top: 10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    &.bottom {
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
                 }
             }
         }
+    }
+}
+
+@keyframes TopCross {
+    0% {
+        top: 0;
+        transform: translateX(-50%) rotate(0deg) ;
+    }
+    50% {
+        top: 10px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        top: 10px;
+        transform: translateX(-50%) rotate(45deg);
+    }
+}
+
+@keyframes CenterCross {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes BottomCross {
+    0% {
+        bottom: 0;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        bottom: 10px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        bottom: 10px;
+        transform: translateX(-50%) rotate(-45deg);
+    }
+}
+
+
+@keyframes TopBurg {
+    0% {
+        top: 10px;
+        transform: translateX(-50%) rotate(45deg) ;
+    }
+    50% {
+        top: 10px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        top: 0;
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+@keyframes CenterBurg {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes BottomBurg {
+    0% {
+        bottom: 10px;
+        transform: translateX(-50%) rotate(-45deg);
+    }
+    50% {
+        bottom: 10px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        bottom: 0px;
+        transform: translateX(-50%) rotate(0deg);
     }
 }

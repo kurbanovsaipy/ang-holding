@@ -1,0 +1,291 @@
+@import './../../style/common.scss';
+
+.mortgage {
+    .hero{
+        position: relative;
+        width: 100%;
+        height: 75dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($color: #000000, $alpha: .5);
+            z-index: 1;
+        }
+        .image{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .content{
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & h1 {
+                @include adaptiveFont(70, 38);
+                font-weight: 700;
+                line-height: 82px;
+                color: var(--text-color-light);
+                text-align: center;
+                text-transform: uppercase;
+                margin-bottom: 25px;
+            }
+            & .main_button{
+                @include adaptiveProperty(padding-top, 25, 20);
+                @include adaptiveProperty(padding-bottom, 25, 20);
+                @include adaptiveProperty(padding-left, 60, 45);
+                @include adaptiveProperty(padding-right, 60, 45);
+                font-weight: 400;
+                color: var(--text-color-light);
+            }
+        }
+    }
+
+    .calculator{
+        //@include adaptiveProperty(margin-top, 80, 60);
+        margin-top: -60px;
+        padding-top: 130px;
+        margin-bottom: 100px;
+        .tabs{
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            @include adaptiveProperty(column-gap, 20, 10);
+            row-gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            & .main_button{
+                border: 0;
+                background: var(--background-grey);
+                box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.25);
+                white-space: nowrap;
+                &:active,
+                &.active{
+                    background: var(--main-color);
+                    box-shadow: 0 0px 0px 0 rgba($color: #000000, $alpha: 0.25);
+                    transform: translateY(4px);
+                    color: var(--text-color-light);
+                }
+                @include mediaMinWidth(768) {
+                    &:hover{
+                        background: var(--main-color);
+                    }
+                }
+            }
+        }
+        .count {
+            display: grid;
+            grid-template-columns: minmax(300px, 2fr) minmax(300px, 1fr);
+            @include adaptiveProperty(gap, 50, 30);
+            @include mediaMaxWidth(700) {
+                grid-template-columns: minmax(300px, 1fr);
+                grid-template-rows: 1fr 1fr;
+            }
+            .calculate_block {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 25px;
+                .flex{
+                    width: 100%;
+                    display: flex;
+                    align-items: end;
+                    gap: 50px;
+                    @include adaptiveProperty(gap, 50, 20);
+                }
+                .calculate_item{
+                    position: relative;
+                    width: 100%;
+                    & label {
+                        display: block;
+                        margin-bottom: 18px;
+                        @include adaptiveFont(20, 16);
+                        font-weight: 400;
+                        line-height: 23px;
+                        color: var(--text-color-dark);
+                    }
+                    & .input_wrapper{
+                        position: relative;
+                        padding: 15px 20px;
+                        border-radius: 10px;
+                        width: 100%;
+                        overflow: hidden;
+                        border: 1px solid rgb(233, 233, 233);
+                        border-bottom: 0;
+                        box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.25);
+                        & input {
+                            width: 100%;
+                            @include adaptiveFont(20, 18);
+                        }
+                    }
+                }
+            }
+            .result_block{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                & label {
+                    display: block;
+                    margin-bottom: 10px;
+                    @include adaptiveFont(20, 16);
+                    font-weight: 400;
+                    line-height: 23px;
+                    color: var(--text-color-dark);
+                    white-space: nowrap;
+                }
+                .result__count{
+                    flex: 1;
+                    padding: 30px;
+                    @include adaptiveProperty(padding, 30, 15);
+                    border-radius: 10px;
+                    overflow: hidden;
+                    border: 1px solid rgb(233, 233, 233);
+                    box-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 0.25);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    .loan{
+                        color: var(--main-color);
+                        @include adaptiveFont(40, 30);   
+                    }
+                    .loan_summ{
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        @include adaptiveProperty(gap, 20, 10);
+                        & p {
+                            color: var(--main-color);
+                            white-space: nowrap;
+                            @include adaptiveFont(20, 18);
+                        }
+                        .loan_item{
+                            flex: 1;
+                            padding: 15px;
+                            background: var(--background-grey);
+                            border-radius: 10px;
+                            & label {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .range_fill {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            background: red;
+            width: 100%;
+            height: 3px;
+        }
+
+        input[type=range] {
+            position: absolute;
+            bottom: 1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            accent-color: var(--main-color);
+            color: var(--main-color);
+            background: transparent;
+            z-index: 1;
+        }
+        /* Общие стили для трека */
+        input[type=range] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            width: 100%;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            -webkit-appearance: none;
+            appearance: none;
+            box-shadow: none;
+            border: none;
+            height: 3px;
+            width: 100%;
+            border-radius: 0;
+            background-color: transparent;
+        }
+
+        input[type=range]::-moz-range-track {
+            box-shadow: none;
+            border: none;
+            height: 3px;
+            width: 100%;
+            border-radius: 0;
+            background-color: transparent;
+        }
+
+        input[type=range]::-ms-track {
+            box-shadow: none;
+            border: none;
+            height: 3px;
+            width: 100%;
+            border-radius: 0;
+            background-color: transparent;
+            /* нужно скрыть элементы, чтобы стилизовать трек */
+            color: transparent;
+        }
+
+        /* Стилизация бегунка */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            display: block;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: var(--main-color);
+            transform: translateY(-6.5px);
+            cursor: grab;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: var(--main-color);
+            transform: translateY(-6.5px);
+            cursor: grab;
+        }
+
+        input[type=range]::-ms-thumb {
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: var(--main-color);
+            transform: translateY(-6.5px);
+            cursor: grab;
+        }
+
+        /* Стилизация активного состояния бегунка */
+        input[type=range]::-webkit-slider-thumb:active {
+            cursor: grabbing;
+        }
+
+        input[type=range]::-moz-range-thumb:active {
+            cursor: grabbing;
+        }
+
+        input[type=range]::-ms-thumb:active {
+            cursor: grabbing;
+        }
+    }
+}
