@@ -146,7 +146,9 @@ export default function useCalculator() {
     }
 
     const changeCreditRate = (e) => {
+
         const value = +e.target.value
+
         let rate = 30 * (value / 100)
         rate = rate < 0.1 ? 0.1 : rate.toFixed(1)
 
@@ -170,6 +172,10 @@ export default function useCalculator() {
     }
 
     const inputCreditRange = (e) => {
+
+        if(e.target.value === '.') {
+            return
+        }
 
         let value = e.target.value.replace(/[^0-9.]/g, '').replace('.', 'x').replace(/\./g,'').replace('x','.');
 
