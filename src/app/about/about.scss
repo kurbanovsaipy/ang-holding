@@ -169,11 +169,11 @@
                 .card {
                     height: 488px;
                 }
-                @include mediaMinWidth(992) {
-                    &:hover{
-                        transform: scale(1.05);
-                    }
-                }
+                // @include mediaMinWidth(992) {
+                //     &:hover{
+                //         transform: scale(1.05);
+                //     }
+                // }
             }
         }
     }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 
 export default function Hero () {
@@ -17,7 +18,7 @@ export default function Hero () {
             />
             <div className="content">
                 <h1>Заголовок</h1>
-                <a href="#calculator" className='main_button'>КАЛЬКУЛЯТОР</a>
+                <Link href="/mortgage#calculator" className='main_button'>КАЛЬКУЛЯТОР</Link>
             </div>
         </div>
     )

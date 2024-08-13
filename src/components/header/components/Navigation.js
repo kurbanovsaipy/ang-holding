@@ -9,8 +9,8 @@ export default function Navigation() {
 
     return (
         <nav>
-            <Link href={''} className={`link ${path === '' ? 'active' : ''}`}>Проекты</Link>
-            <Link href={'/'} className={`link ${path === '' ? 'active' : ''}`}>Паркинг</Link>
+            <a href={'/#projects'} className={`link ${path === '/#projects' ? 'active' : ''}`}>Проекты</a>
+            <a href={'/#parking'} className={`link ${path === '/#parking' ? 'active' : ''}`}>Паркинг</a>
             <Link href={'/mortgage'} className={`link ${path === '/mortgage' ? 'active' : ''}`}>Ипотека</Link>
             <Link href={'/news'} className={`link ${path === '/news' ? 'active' : ''}`}>Новости</Link>
             <Link href={'/about'} className={`link ${path === '/about' ? 'active' : ''}`}>О нас</Link>
