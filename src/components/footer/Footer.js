@@ -5,8 +5,9 @@ import Image from "next/image";
 import NavigationHead from "./NavigationHead";
 
 
-export default function Footer({info}) {
+export default async function Footer({info}) {
 
+    const socials = await Api.getWithoutCache('socials/all')
     return (
         <footer>
             <div className="container">
@@ -26,9 +27,16 @@ export default function Footer({info}) {
 
                         <div className="info_item">
                             <div className="social_block">
-                                <a href="" className=""></a>
-                                <a href="" className=""></a>
-                                <a href="" className=""></a>
+
+                                {socials?.length ? 
+                                    <>
+                                        {socials.map((el) => (
+                                            <a href={el.link} className="" key={el.id}>
+                                                <div className="icon_wrapper" dangerouslySetInnerHTML={{__html: el.icon}}></div>
+                                            </a>
+                                        ))}
+                                    </>
+                                :<></>}
                             </div>
 
                             <div className="phone">
