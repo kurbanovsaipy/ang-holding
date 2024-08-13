@@ -5,8 +5,18 @@ import Projects from './components/Projects';
 import Awards from './components/Awards';
 import CommonNewsList from '@/components/common_news_list/CommonNewsList';
 import Info from './components/Info';
+import Api from '@/utils/Api';
 
 import './about.scss';
+
+export async function generateMetadata() {
+  
+    let meta = await Api.getWithoutCache(`pages/info?path=/about`)
+  
+    if(meta) {
+      return {title: meta.title, description: meta.description}
+    }
+  }
 
 export default function About () {
     return (

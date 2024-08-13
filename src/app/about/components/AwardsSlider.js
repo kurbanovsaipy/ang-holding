@@ -13,7 +13,7 @@ export default function AwardsSlider() {
             modules={[Autoplay]}
             spaceBetween={30}
             allowTouchMove={false}
-            speed={2000}
+            speed={8000}
             rewind={true}
             autoplay={{
                 delay: 0,

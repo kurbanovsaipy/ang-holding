@@ -7,7 +7,7 @@ export default function useNews() {
     const [news, setNews] = useState(false)
     const [params, setParams] = useState({
         page: 1,
-        limit: 3,
+        limit: 6,
         sort: 'ASC',
     })
 

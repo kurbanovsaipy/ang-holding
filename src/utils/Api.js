@@ -9,7 +9,9 @@ Api.get = async (path) => {
 
     try {
 
-        let res = await fetch(`${Api.url}/${path}`)
+        let res = await fetch(`${Api.url}/${path}`, {
+            next: { revalidate: 10 }
+        })
 
         res = await res.json()
         
@@ -29,7 +31,9 @@ Api.getData = async (path) => {
 
     try {
 
-        let res = await fetch(`${Api.url}/${path}`)
+        let res = await fetch(`${Api.url}/${path}`, {
+            next: { revalidate: 10 }
+        })
 
         res = await res.json()
         
@@ -69,7 +73,9 @@ Api.getFull = async (path) => {
 
     try {
 
-        let res = await fetch(`${Api.url}/${path}`)
+        let res = await fetch(`${Api.url}/${path}`, {
+            next: { revalidate: 10 }
+        })
 
         res = await res.json()
         

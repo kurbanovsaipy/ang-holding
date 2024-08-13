@@ -604,7 +604,7 @@
         }
     }
 
-    .news {
+    .news_list {
         .main_title {
             @include adaptiveProperty(margin-top, 30, 15);
         }
