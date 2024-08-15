@@ -1,22 +1,24 @@
 import ContactsItem from "./ContactsItem";
 
-export default function Contacts() {
+export default function Contacts({info}) {
     return (
         <div className="contacts">
 
             <div className="central">
                 <h2>Центральный офис продаж</h2>
                 <div className="flex">
-                    <ContactsItem 
-                        title={'Адрес расположения офиса, кликабельная ссылка на 2гис'}
-                    >
-                        <p>Основной номер телефона</p>
-                    </ContactsItem>
+                    
+                    <div className="contacts_item">
+                        <a href="https://go.2gis.com/m67zw" className="contacts_item">
+                            Республика Татарстан г.Набережные Челны пр.Набережночелнинский д.9А (ЗЯБ 17А/7)
+                        </a>
+                        <a href={`tel:${info?.phone}`}>{info?.phone}</a>
+                    </div>
 
                     <ContactsItem 
                         title={'Для клиентов по вопросам заселения и получения ключей'}
                     >
-                        <p>номер телефона</p>
+                        <a href="tel:89274230044">8(8552)23-00-44</a>
                     </ContactsItem>
                 </div>
             </div>
@@ -27,21 +29,21 @@ export default function Contacts() {
                     <ContactsItem 
                         title={'Для обращений и служебной переписке'}
                     >
-                        <p>номер телефона</p>
+                        <a href="tel:89274230044">8(8552)23-00-44</a>
 
-                        <a href="mailto:company@mail.ru">company@mail.ru</a>
+                        <a href="mailto:Op-holding@mail.ru">Op-holding@mail.ru</a>
                     </ContactsItem>
 
                     <ContactsItem 
                         title={'Корпоративным клиентам'}
                     >
-                        <p>номер телефона</p>
+                        <a href="tel:89274230044">8(8552)23-00-44</a>
                     </ContactsItem>
 
                     <ContactsItem 
                         title={'Агентствам недвижимости'}
                     >
-                        <p>номер телефона</p>
+                        <a href="tel:89274230044">8(8552)23-00-44</a>
                     </ContactsItem>
                 </div>
             </div>
