@@ -17,8 +17,9 @@ export default function Hero() {
                 className="image"
             />
             <div className="content container">
-                <h1>НАЗВАНИЕ КОМПАНИИ</h1>
-                <p>РЕКЛАМНАЯ ФРАЗА. ЛОЗУНГ КОМПАНИИ</p>
+                <h1>АНГ-Холдинг группа компаний</h1>
+                <p>Жить красиво!</p>
+                <p>Более 10 лет на российском рынке!</p>
             </div>
         </div>
     )

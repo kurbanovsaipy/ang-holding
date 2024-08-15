@@ -16,9 +16,12 @@ export async function generateMetadata() {
     if(meta) {
       return {title: meta.title, description: meta.description}
     }
-  }
+}
 
-export default function About () {
+export default async function About () {
+
+    const info = await Api.getWithoutCache('contact/info')
+
     return (
         <div className='about'>
             <Hero />
@@ -36,7 +39,7 @@ export default function About () {
 
                 <CommonNewsList />
 
-                <Info />
+                <Info info={info}/>
             </div>
         </div>
     )
