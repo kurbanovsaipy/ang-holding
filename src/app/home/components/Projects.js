@@ -1,4 +1,5 @@
 import ProjectsCard from "../../../components/card/ProjectsCard";
+import ProjectsList from "./ProjectsList";
 
 
 export default function Projects() {
@@ -9,11 +10,8 @@ export default function Projects() {
             <button className='main_button'>Показать на карте</button>
             </div>
 
-            <div className="grid">
-                <ProjectsCard />
-                <ProjectsCard />
-                <ProjectsCard />
-            </div>
+            <ProjectsList />
+            
         </div>
     );
 }

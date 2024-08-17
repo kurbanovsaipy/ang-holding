@@ -25,20 +25,20 @@ export default async function RootLayout({ children }) {
   const info = await Api.getWithoutCache('contact/info')
 
   return (
-    <html lang="ru" className={`${montserrat.variable} ${main.variable}`} style={{parametrs}}>
-      <body>
+      <html lang="ru" className={`${montserrat.variable} ${main.variable}`} style={{parametrs}} >
+        <body>
 
-        <Header info={info}/>
+          <Header info={info}/>
 
-        <div className="main_wrapper">
-          {children}
-        </div>
+          <div className="main_wrapper">
+            {children}
+          </div>
 
-        <Footer info={info}/>
+          <Footer info={info}/>
 
-        <Menu />
+          <Menu />
 
-      </body>
-    </html>
+        </body>
+      </html>
   );
 }

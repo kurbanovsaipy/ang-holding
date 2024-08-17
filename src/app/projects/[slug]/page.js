@@ -9,30 +9,34 @@ import ProjectLayout from './components/ProjectLayout';
 import ProjectProgress from './components/ProjectProgress';
 import ProjectNews from './components/ProjectNews';
 import ProjectOther from './components/ProjectOther';
+import Api from '@/utils/Api';
 
-export default function ProjectDetail() {
+export default async function ProjectDetail({params}) {
+
+    const project = await Api.getDataList(`pb/house?id=${params.slug}`)
+
     return (
         <div className="project_detail">
 
-            <ProjectHead />
+            <ProjectHead project={project}/>
 
-            <ProjectSettings />
+            <ProjectSettings project={project}/>
 
-            <ProjectAdvantages />
+            <ProjectAdvantages project={project}/>
 
-            <ProjectLocation />
+            <ProjectLocation project={project}/>
 
-            <ProjectPlan />
+            <ProjectPlan project={project}/>
 
-            <ProjectLayout />
+            <ProjectLayout project={project}/>
 
-            <ProjectProgress />
+            <ProjectProgress project={project}/>
 
-            <ProjectDistrict />
+            <ProjectDistrict project={project}/>
 
-            <ProjectNews />
+            <ProjectNews project={project}/>
 
-            <ProjectOther />
+            <ProjectOther project={project}/>
 
         </div>
     );

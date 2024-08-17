@@ -53,6 +53,14 @@ footer {
                 @include adaptiveFont(20, 18);
                 font-weight: 700;
                 color: var(--text-color-light);
+                display: flex;
+                align-items: center;
+                svg {
+                    padding-top: 3px;
+                    #SVGRepo_iconCarrier {
+                        fill: #fff;
+                    }
+                }
                 span {
                     position: relative;
                     transform: rotate(15deg);

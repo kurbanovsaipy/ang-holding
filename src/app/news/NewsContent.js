@@ -1,4 +1,5 @@
 'use client'
+
 import Head from "./components/Head";
 import NewsList from "./components/NewsList";
 import ShowMore from "./components/ShowMore";
