@@ -4,7 +4,7 @@ export default function StatistickItem({title, description, icon}) {
     return (
         <div className="item">
             <div className="icon">
-                <Image className="image" src={icon} width={25} height={25} />
+                <Image className="image" src={icon} width={25} height={25} alt=""/>
             </div>
             <div className="content">
                 <h3>{title}</h3>

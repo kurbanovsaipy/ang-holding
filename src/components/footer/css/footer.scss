@@ -53,6 +53,14 @@ footer {
                 @include adaptiveFont(20, 18);
                 font-weight: 700;
                 color: var(--text-color-light);
+                display: flex;
+                align-items: center;
+                svg {
+                    padding-top: 3px;
+                    #SVGRepo_iconCarrier {
+                        fill: #fff;
+                    }
+                }
                 span {
                     position: relative;
                     transform: rotate(15deg);
@@ -65,11 +73,23 @@ footer {
             justify-content: flex-start;
             @include adaptiveProperty(gap, 20, 15);
             a {
-                display: block;
-                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
                 @include adaptiveFont(32, 25);
                 border: 2px solid var(--text-color-light);
                 border-radius: 10px;
+                .icon_wrapper {
+                  width: 30px;
+                  height: 30px;
+                }
+                svg {
+                  width: 30px;
+                  height: 30px;
+                  fill: #fff;
+                }
             }
         }
       }

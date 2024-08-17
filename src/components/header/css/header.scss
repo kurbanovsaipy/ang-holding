@@ -72,6 +72,12 @@ header {
                             color: var(--main-color);
                         }
                     }
+                    svg {
+                        padding-top: 3px;
+                        #SVGRepo_iconCarrier {
+                            fill: var(--main-color);
+                        }
+                    }
                     span {
                         position: relative;
                         transform: rotate(14deg);
@@ -84,13 +90,30 @@ header {
         }
         .mobile_block {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 10px;
             margin-left: auto;
             @include mediaMinWidth(1001) {
                 display: none;
             }
             a {
                 font-size: 25px;
+                &.phone_icon {
+                    svg {
+                        padding-top: 3px;
+                        #SVGRepo_iconCarrier {
+                            fill: var(--main-color);
+                        }
+                    }
+                }
+                &.home_icon {
+                    svg {
+                        padding-top: 3px;
+                        path {
+                            fill: var(--main-color);
+                        }
+                    }
+                }
             }
             .burger {
                 position: relative;

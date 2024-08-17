@@ -9,7 +9,9 @@ Api.get = async (path) => {
 
     try {
 
-        let res = await fetch(`${Api.url}/${path}`)
+        let res = await fetch(`${Api.url}/${path}`, {
+            next: { revalidate: 10 }
+        })
 
         res = await res.json()
         
@@ -29,12 +31,42 @@ Api.getData = async (path) => {
 
     try {
 
-        let res = await fetch(`${Api.url}/${path}`)
+        let res = await fetch(`${Api.url}/${path}`, {
+            next: { revalidate: 10 }
+        })
 
         res = await res.json()
         
         if(res.status === 'success') {
             return res.data
+        } else {
+            return notFound()
+        }
+
+    } catch (e) {
+        return notFound()
+    }
+
+}
+
+Api.getDataList = async (path) => {
+
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`, {
+            next: { revalidate: 10 }
+        })
+
+        res = await res.json()
+        
+        if(res.status === 'success') {
+            
+            if(res.data.length > 0) {
+                return res.data[0]
+            } else {
+                return notFound()
+            }
+                
         } else {
             return notFound()
         }
@@ -69,7 +101,9 @@ Api.getFull = async (path) => {
 
     try {
 
-        let res = await fetch(`${Api.url}/${path}`)
+        let res = await fetch(`${Api.url}/${path}`, {
+            next: { revalidate: 10 }
+        })
 
         res = await res.json()
         

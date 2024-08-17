@@ -2,12 +2,13 @@ import Api from "@/utils/Api"
 import { useEffect, useState } from "react"
 
 export default function useNews() {
+    
     const [pageLoad, setPageLoad] = useState(false)
     const [total, setTotal] = useState(false)
     const [news, setNews] = useState(false)
     const [params, setParams] = useState({
         page: 1,
-        limit: 3,
+        limit: 6,
         sort: 'ASC',
     })
 
@@ -21,10 +22,11 @@ export default function useNews() {
         if(params.sort === name) {
             return
         }
-        const skelet = document.getElementById('skelet')
-        skelet.style.height = '470px'
-        skelet.style.opacity = '1'
-        setNews([])
+        // const skelet = document.getElementById('skelet')
+        // skelet.style.height = '470px'
+        // skelet.style.opacity = '1'
+        setPageLoad(prev => prev = false)
+        setNews(false)
         setParams(prev => ({...prev, sort: name, page: 1}))
     }
 
@@ -35,13 +37,7 @@ export default function useNews() {
             if(init) {
                 if(!news) {
                     setNews(init.data)
-                } else if (!news?.length) {
-                    const skelet = document.getElementById('skelet')
-                    setTimeout(() => {
-                        setNews(init.data)
-                        skelet.style.height = '0'
-                        skelet.style.opacity = '0'
-                    }, 1200)
+                    setPageLoad(prev => prev = true)
                 } else {
                     const skelet = document.getElementById('skelet')
                     setTimeout(() => {

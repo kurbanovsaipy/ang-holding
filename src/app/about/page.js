@@ -5,10 +5,23 @@ import Projects from './components/Projects';
 import Awards from './components/Awards';
 import CommonNewsList from '@/components/common_news_list/CommonNewsList';
 import Info from './components/Info';
+import Api from '@/utils/Api';
 
 import './about.scss';
 
-export default function About () {
+export async function generateMetadata() {
+  
+    let meta = await Api.getWithoutCache(`pages/info?path=/about`)
+  
+    if(meta) {
+      return {title: meta.title, description: meta.description}
+    }
+}
+
+export default async function About () {
+
+    const info = await Api.getWithoutCache('contact/info')
+
     return (
         <div className='about'>
             <Hero />
@@ -26,7 +39,7 @@ export default function About () {
 
                 <CommonNewsList />
 
-                <Info />
+                <Info info={info}/>
             </div>
         </div>
     )

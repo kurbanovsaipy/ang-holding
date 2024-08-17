@@ -13,7 +13,7 @@ export default function NewsList({news}) {
                     ))}
                 </>
             :
-                <div className="no_items"></div>
+                <div className="no_items">No items</div>
             }
             
         </div>

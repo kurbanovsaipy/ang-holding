@@ -2,7 +2,7 @@
 
 import useFeedback from "../hooks/useFeedback"
 
-export default function Consultation() {
+export default function Consultation({info}) {
 
     const feedBack = useFeedback()
 
@@ -25,7 +25,7 @@ export default function Consultation() {
 
             <button className={`main_button ${feedBack.disable ? 'disable' : ''}`}>Получить консультацию</button>
 
-            <a href={`tel:${feedBack.info?.phone}`} className="main_title">{feedBack.info?.phone}</a>
+            <a href={`tel:${info?.phone}`} className="main_title">{info?.phone}</a>
 
             <p>Нажимая кнопку «Получить консультацию», вы подтверждаете свое согласие на обработку персональных данных</p>
             

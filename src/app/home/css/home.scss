@@ -95,5 +95,11 @@
             flex-wrap: wrap;
             @include adaptiveProperty(margin-bottom, 50, 30);
         }
+        &.anchor {
+            @include adaptiveProperty(padding-top, 160, 80);
+            @include adaptiveProperty(margin-top, -80, -40);
+        }
     }
+
+    
 }

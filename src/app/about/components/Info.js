@@ -1,12 +1,12 @@
 import Consultation from "./Consultation";
 import Contacts from "./Contacts";
 
-export default function Info() {
+export default function Info({info}) {
     return (
         <div className="info" id="info">
-            <Contacts />
+            <Contacts info={info}/>
 
-            <Consultation />
+            <Consultation info={info}/>
         </div>
     )
 }

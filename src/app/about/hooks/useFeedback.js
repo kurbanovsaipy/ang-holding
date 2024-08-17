@@ -17,13 +17,7 @@ export default function useFeedback() {
     })
 
     useEffect(() => {
-
-        (async () => {
-
-            let res = await Api.getWithoutCache('contact/info')
-            setInfo(res)
-
-        })()
+        
 
     }, [])  
 
