@@ -31,7 +31,7 @@ export default function Contacts({info}) {
                     >
                         <a href="tel:89274230044">8(8552)23-00-44</a>
 
-                        <a href="mailto:Op-holding@mail.ru">Op-holding@mail.ru</a>
+                        <a href={`mailto:Op-holding@mail.ru ${info?.email}`}>{info?.email}</a>
                     </ContactsItem>
 
                     <ContactsItem 

@@ -72,6 +72,12 @@ header {
                             color: var(--main-color);
                         }
                     }
+                    svg {
+                        padding-top: 3px;
+                        #SVGRepo_iconCarrier {
+                            fill: var(--main-color);
+                        }
+                    }
                     span {
                         position: relative;
                         transform: rotate(14deg);

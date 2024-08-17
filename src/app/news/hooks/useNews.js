@@ -2,6 +2,7 @@ import Api from "@/utils/Api"
 import { useEffect, useState } from "react"
 
 export default function useNews() {
+    
     const [pageLoad, setPageLoad] = useState(false)
     const [total, setTotal] = useState(false)
     const [news, setNews] = useState(false)

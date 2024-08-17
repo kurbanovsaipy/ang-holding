@@ -49,6 +49,34 @@ Api.getData = async (path) => {
 
 }
 
+Api.getDataList = async (path) => {
+
+    try {
+
+        let res = await fetch(`${Api.url}/${path}`, {
+            next: { revalidate: 10 }
+        })
+
+        res = await res.json()
+        
+        if(res.status === 'success') {
+            
+            if(res.data.length > 0) {
+                return res.data[0]
+            } else {
+                return notFound()
+            }
+                
+        } else {
+            return notFound()
+        }
+
+    } catch (e) {
+        return notFound()
+    }
+
+}
+
 Api.getWithoutCache = async (path) => {
     
     try {
