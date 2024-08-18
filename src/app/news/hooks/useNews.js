@@ -22,9 +22,6 @@ export default function useNews() {
         if(params.sort === name) {
             return
         }
-        // const skelet = document.getElementById('skelet')
-        // skelet.style.height = '470px'
-        // skelet.style.opacity = '1'
         setPageLoad(prev => prev = false)
         setNews(false)
         setParams(prev => ({...prev, sort: name, page: 1}))
@@ -35,14 +32,16 @@ export default function useNews() {
             const query = new URLSearchParams(params).toString()
             const init = await Api.getFull(`news/page?${query}`)
             if(init) {
+                const data = init.data.filter(el => el.active === 1)
                 if(!news) {
-                    setNews(init.data)
+                    console.log(init)
+                    setNews(data)
                     setPageLoad(prev => prev = true)
                 } else {
                     const skelet = document.getElementById('skelet')
                     setTimeout(() => {
                         skelet.classList.remove('show')
-                        setNews(prev => [...prev, ...init.data])
+                        setNews(prev => [...prev, ...data])
                     }, 1200)
                 }
                 setTotal(init.state)

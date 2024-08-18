@@ -147,6 +147,8 @@ footer {
               gap: 18px;
               .link {
                   color: var(--text-color-light);
+                  width: 100%;
+                  max-width: max-content;
                   @include adaptiveFont(16, 14);
                   &:before {
                     content: '';
@@ -202,6 +204,8 @@ footer {
             .link {
               color: var(--text-color-dark);
               font-size: 18px;
+              width: 100%;
+              max-width: max-content;
               &:nth-child(1) {
                 margin-top: 20px;
               }

@@ -1,4 +1,5 @@
 import ContactsItem from "./ContactsItem";
+import Phone from "./Phone";
 
 export default function Contacts({info}) {
     return (
@@ -12,7 +13,7 @@ export default function Contacts({info}) {
                         <a href="https://go.2gis.com/m67zw" className="contacts_item">
                             Республика Татарстан г.Набережные Челны пр.Набережночелнинский д.9А (ЗЯБ 17А/7)
                         </a>
-                        <a href={`tel:${info?.phone}`}>{info?.phone}</a>
+                        <Phone phone={info?.phone}/>
                     </div>
 
                     <ContactsItem 
@@ -31,7 +32,7 @@ export default function Contacts({info}) {
                     >
                         <a href="tel:89274230044">8(8552)23-00-44</a>
 
-                        <a href={`mailto:Op-holding@mail.ru ${info?.email}`}>{info?.email}</a>
+                        <a href={`mailto:${info?.email}`}>{info?.email}</a>
                     </ContactsItem>
 
                     <ContactsItem 

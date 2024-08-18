@@ -1,6 +1,7 @@
 'use client'
 
 import useFeedback from "../hooks/useFeedback"
+import Phone from "./Phone"
 
 export default function Consultation({info}) {
 
@@ -25,7 +26,7 @@ export default function Consultation({info}) {
 
             <button className={`main_button ${feedBack.disable ? 'disable' : ''}`}>Получить консультацию</button>
 
-            <a href={`tel:${info?.phone}`} className="main_title">{info?.phone}</a>
+            <Phone phone={info?.phone}/>
 
             <p>Нажимая кнопку «Получить консультацию», вы подтверждаете свое согласие на обработку персональных данных</p>
             

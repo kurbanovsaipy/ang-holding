@@ -19,12 +19,17 @@ export default function MainSlider({slider}) {
                     delay: 10000,
                     disableOnInteraction: false,
                 }}
-                allowTouchMove={false}
+                allowTouchMove={true}
                 speed={3000}
                 draggable={false}
                 navigation={{
                     nextEl: '.swiper_button_right',
                     prevEl: '.swiper_button_left'
+                }}
+                breakpoints={{
+                    991: {
+                        allowTouchMove: false
+                    }
                 }}
                 pagination={{ clickable: true }}
                 modules={[Navigation, Autoplay, Pagination ]}
