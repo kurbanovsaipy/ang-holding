@@ -4,6 +4,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import Api from "@/utils/Api";
 import Menu from "@/components/menu/Menu";
+import Head from "next/head";
 
 
 const main = Exo_2({ 
@@ -26,6 +27,9 @@ export default async function RootLayout({ children }) {
 
   return (
       <html lang="ru" className={`${montserrat.variable} ${main.variable}`} style={{parametrs}} >
+        {/* <Head>
+          <link rel="icon" href="/favicon.ico"/>
+        </Head> */}
         <body>
 
           <Header info={info}/>

@@ -4,10 +4,20 @@ import Api from "@/utils/Api";
 import Image from "next/image";
 import NavigationHead from "./NavigationHead";
 
+const getSocials = async () => {
+    let res = await Api.getWithoutCache('socials/all')
+
+    if(res) {
+        return res.filter(el => el.active === 1)
+    } else {
+        return false
+    }
+}
+
 
 export default async function Footer({info}) {
 
-    const socials = await Api.getWithoutCache('socials/all')
+    const socials = await getSocials()
 
     return (
         <footer>
@@ -19,7 +29,7 @@ export default async function Footer({info}) {
 
                         <div className="info_item">
                             <Link href={'/'} className="logo footer">
-                                <Image src={`${Api.url}/images/footer.png`} width={160} height={80} alt=""/>
+                                <Image src={`${Api.url}/images/footer`} width={160} height={80} alt=""/>
                             </Link>
 
                             <p>Анг-холдинг, строительная компания, 17а комплекс, 07, Набережные Челны — 2ГИС</p>
@@ -41,7 +51,7 @@ export default async function Footer({info}) {
                             </div>
 
                             <div className="phone">
-                                <a href={`tel:${info?.phone}`} className="tel">
+                                <a href={`tel:${(info?.phone)?.replace(/\D/g, '')}`} className="tel">
                                     <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
                                         <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
