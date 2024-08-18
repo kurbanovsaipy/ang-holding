@@ -37,8 +37,8 @@ export default function Menu() {
     return (
         <div className={`menu_wrapper ${isOpen}`} onMouseDown={(e) => e.stopPropagation()}>
             <div className="menu">
-                <Link href={'/#projects'} className={`menu_link ${path === '/#projects' ? 'active' : ''}`} onMouseDown={closeMenu}>Проекты</Link>
-                <Link href={'/#parking'} className={`menu_link ${path === '/#parking' ? 'active' : ''}`} onMouseDown={closeMenu}>Паркинг</Link>
+                <a href={'/#projects'} className={`menu_link ${path === '/#projects' ? 'active' : ''}`} onMouseDown={closeMenu}>Проекты</a>
+                <a href={'/#parking'} className={`menu_link ${path === '/#parking' ? 'active' : ''}`} onMouseDown={closeMenu}>Паркинг</a>
                 <Link href={'/mortgage'} className={`menu_link ${path === '/mortgage' ? 'active' : ''}`} onMouseDown={closeMenu}>Ипотека</Link>
                 <Link href={'/news'} className={`menu_link ${path === '/news' ? 'active' : ''}`} onMouseDown={closeMenu}>Новости</Link>
                 <Link href={'/about'} className={`menu_link ${path === '/about' ? 'active' : ''}`} onMouseDown={closeMenu}>О нас</Link>
