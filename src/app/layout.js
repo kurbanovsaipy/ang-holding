@@ -42,6 +42,7 @@ export default async function RootLayout({ children }) {
 
           <Menu />
 
+          <script src={`${Api.url}/script/pb.js`}></script>
         </body>
       </html>
   );
