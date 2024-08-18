@@ -74,35 +74,44 @@ export default async function Footer({info}) {
 
                         <div className="navigation">
                             <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Проекты'}/>
-                            <nav>
-                                <Link href={''} className={`link`}>Название проекта 1</Link>
-                                <Link href={''} className={`link`}>Название проекта 2</Link>
-                                <Link href={''} className={`link`}>Название проекта 3</Link>
-                                <Link href={''} className={`link`}>Название проекта 4</Link>
-                                <Link href={''} className={`link`}>Название проекта 5</Link>
-                            </nav>
+                            <div className="nav_wrapper">
+                                <nav>
+                                    <Link href={''} className={`link`}>Название проекта 1</Link>
+                                    <Link href={''} className={`link`}>Название проекта 2</Link>
+                                    <Link href={''} className={`link`}>Название проекта 3</Link>
+                                    <Link href={''} className={`link`}>Название проекта 4</Link>
+                                    <Link href={''} className={`link`}>Название проекта 5</Link>
+                                </nav>
+                            </div>
+                                
                         </div>
 
                         <div className="navigation">
                             <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Паркинг и кладовые'}/>
-                            <nav>
-                                <Link href={''} className={`link`}>Название проекта 1</Link>
-                                <Link href={''} className={`link`}>Название проекта 2</Link>
-                                <Link href={''} className={`link`}>Название проекта 3</Link>
-                                <Link href={''} className={`link`}>Название проекта 4</Link>
-                                <Link href={''} className={`link`}>Название проекта 5</Link>
-                            </nav>
+                            <div className="nav_wrapper">
+                                <nav>
+                                    <Link href={''} className={`link`}>Название проекта 1</Link>
+                                    <Link href={''} className={`link`}>Название проекта 2</Link>
+                                    <Link href={''} className={`link`}>Название проекта 3</Link>
+                                    <Link href={''} className={`link`}>Название проекта 4</Link>
+                                    <Link href={''} className={`link`}>Название проекта 5</Link>
+                                </nav>
+                            </div>
+                                
                         </div>
 
                         <div className="navigation">
                             <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Карта сайта'}/>
-                            <nav>
-                                <Link href={''} className={`link`}>Главная</Link>
-                                <Link href={''} className={`link`}>Проекты</Link>
-                                <Link href={''} className={`link`}>Паркинг</Link>
-                                <Link href={''} className={`link`}>Ипотека</Link>
-                                <Link href={''} className={`link`}>О нас</Link>
-                            </nav>
+                            <div className="nav_wrapper">
+                                <nav>
+                                    <Link href={''} className={`link`}>Главная</Link>
+                                    <Link href={''} className={`link`}>Проекты</Link>
+                                    <Link href={''} className={`link`}>Паркинг</Link>
+                                    <Link href={''} className={`link`}>Ипотека</Link>
+                                    <Link href={''} className={`link`}>О нас</Link>
+                                </nav>
+                            </div>
+                                
                         </div>
 
                     </nav>
