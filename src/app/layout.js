@@ -27,9 +27,9 @@ export default async function RootLayout({ children }) {
 
   return (
       <html lang="ru" className={`${montserrat.variable} ${main.variable}`} style={{parametrs}} >
-        <Head>
+        {/* <Head>
           <link rel="icon" href="/favicon.ico"/>
-        </Head>
+        </Head> */}
         <body>
 
           <Header info={info}/>
