@@ -4,7 +4,7 @@ import Count from "../count/Count"
 import CalculatorTabs from "./CalculatorTabs"
 import useCalculator from "./hooks/useCalculator"
 
-export default function Calculator() {
+export default function Calculator({mortgage}) {
 
     const calculate = useCalculator()
 
@@ -12,7 +12,7 @@ export default function Calculator() {
         <div className="calculator" id="calculator">
             <h2 className="main_title">Калькулятор</h2>
 
-            <CalculatorTabs refer={calculate.calculatorTabs} changeCreditRateTabs={calculate.changeCreditRateTabs}/>
+            <CalculatorTabs mortgage={mortgage} refer={calculate.calculatorTabs} changeCreditRateTabs={calculate.changeCreditRateTabs} tab={calculate.tab}/>
 
             <Count 
                 calculate={calculate}

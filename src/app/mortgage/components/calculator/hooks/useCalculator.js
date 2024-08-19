@@ -17,6 +17,7 @@ export default function useCalculator() {
         rate: 30,
     })
     const max = 100000000
+    const [tab, setTab] = useState('Семейная')
     const calculatorTabs = useRef()
 
     useEffect(() => {
@@ -91,17 +92,19 @@ export default function useCalculator() {
         setField(prev => ({...prev, [name]: value}))
     }
 
-    const changeCreditRateTabs = (e, rate) => {
+    const changeCreditRateTabs = (name, rate) => {
 
-        const allTabs = calculatorTabs.current.querySelectorAll('.main_button')
+        // const allTabs = calculatorTabs.current.querySelectorAll('.main_button')
 
-        allTabs.forEach(el => {
-            if(el === e.target) {
-                e.target.classList.add('active')
-            } else {
-                el.classList.remove('active')
-            }
-        })
+        // allTabs.forEach(el => {
+        //     if(el === e.target) {
+        //         e.target.classList.add('active')
+        //     } else {
+        //         el.classList.remove('active')
+        //     }
+        // })
+
+        setTab(name)
 
         const rateRange = ((rate / 30 )* 100).toFixed(1)
 
@@ -223,5 +226,5 @@ export default function useCalculator() {
         setField(prev => ({...prev, rate: value}))  
     }
 
-    return {monthPay, total, field, range, changeCreditRateTabs, calculatorTabs, changeFlatCost, changeInitialPayment, changeLoanTerm, changeCreditRate, inputCreditRange, mainValidate, inputFlat}
+    return {monthPay, total, field, range, changeCreditRateTabs, calculatorTabs, changeFlatCost, changeInitialPayment, changeLoanTerm, changeCreditRate, inputCreditRange, mainValidate, inputFlat, tab}
 }

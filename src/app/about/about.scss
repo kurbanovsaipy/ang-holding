@@ -110,15 +110,17 @@
         gap: 20px;
         margin-bottom: 100px;
         & .item{
-            padding: 30px;
+            padding: 30px 10px;
             border-radius: var(--main-border-radius);
             width: 100%;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             transition: 0.3s;
-            @include adaptiveProperty(gap, 65, 20);
+            //@include adaptiveProperty(gap, 45, 20);
+            gap: 10px;
             @include mediaMaxWidth(993) {
                 padding: 0;
+                align-items: flex-start;
             }
             @include mediaMinWidth(992) {
                 &:hover{
@@ -126,17 +128,20 @@
                 }
             }
             .icon {
-                @include adaptiveProperty(min-width, 120, 50);
-                @include adaptiveProperty(min-height, 120, 50);
-                border: 3px solid var(--main-color);
+                @include adaptiveProperty(min-width, 120, 100);
+                //@include adaptiveProperty(min-height, 120, 50);
+                //border: 3px solid var(--main-color);
                 //background: #fff;
-                border-radius: 10px;
+                //border-radius: 10px;
+                height: auto;
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
                 & .image {
-                    @include adaptiveProperty(min-width, 80, 32);
-                    @include adaptiveProperty(min-height, 80, 32);
+                    //@include adaptiveProperty(min-width, 80, 32);
+                    //@include adaptiveProperty(min-height, 80, 32);
+                    min-width: 80px;
+                    min-height: 80px;
                 }
             }
             .content {

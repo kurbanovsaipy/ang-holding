@@ -38,7 +38,7 @@
                 @include adaptiveFont(70, 38);
                 font-weight: 700;
                 line-height: 82px;
-                color: var(--text-color-light);
+                color: var(--card-text-color);
                 text-align: center;
                 text-transform: uppercase;
                 margin-bottom: 25px;
@@ -86,6 +86,7 @@
                 }
             }
         }
+
         .count {
             display: grid;
             grid-template-columns: minmax(300px, 2fr) minmax(300px, 1fr);

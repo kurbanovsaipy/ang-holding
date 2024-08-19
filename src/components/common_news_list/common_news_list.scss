@@ -56,12 +56,16 @@
             font-weight: 400;
             @include adaptiveFont(20, 16);
             line-height: 23px;
+            transition: 0.3s;
         }
-        @include mediaMinWidth(768) {
+        @include mediaMinWidth(769) {
             .image:hover{
                 transform: scale(1.1);
             }
             .main_title:hover{
+                color: var(--main-color);
+            }
+            .description:hover{
                 color: var(--main-color);
             }
         }

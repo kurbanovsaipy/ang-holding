@@ -13,14 +13,17 @@ export async function generateMetadata() {
     }
 }
 
-export default function Mortgage() {
+export default async function Mortgage() {
+
+    const mortgage = await Api.get('calculator/info')
+
     return (
         <div className="mortgage">
-            <Hero />
+            <Hero title={mortgage?.title} button={mortgage?.button} description={mortgage?.description} image={mortgage?.image}/>
 
             <div className="container">
                 
-                <Calculator />
+                <Calculator mortgage={mortgage?.list}/>
 
                 <h2 className="main_title">Новости</h2>
 
