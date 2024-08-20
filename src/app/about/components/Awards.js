@@ -1,6 +1,10 @@
+import Api from "@/utils/Api";
 import AwardsSlider from "./AwardsSlider";
 
-export default function Awards() {
+export default async function Awards() {
+
+    const awards = await Api.get('award/list')
+
     return (
         <div className="awards_wrapper" id="awards">
             <div className="awards">
@@ -8,7 +12,7 @@ export default function Awards() {
                     <h2 className="main_title">Награды и прочие документы</h2>
                 </div>
 
-                <AwardsSlider />
+                <AwardsSlider awards={awards}/>
             </div>
         </div>
     )

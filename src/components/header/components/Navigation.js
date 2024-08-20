@@ -2,6 +2,9 @@
 
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
+import Store from '@/utils/Store';
+import More from './More';
+
 
 export default function Navigation() {
     
@@ -9,11 +12,19 @@ export default function Navigation() {
 
     return (
         <nav>
-            <a href={'/#projects'} className={`link ${path === '/#projects' ? 'active' : ''}`}>Проекты</a>
-            <a href={'/#parking'} className={`link ${path === '/#parking' ? 'active' : ''}`}>Паркинг</a>
-            <Link href={'/mortgage'} className={`link ${path === '/mortgage' ? 'active' : ''}`}>Ипотека</Link>
-            <Link href={'/news'} className={`link ${path === '/news' ? 'active' : ''}`}>Новости</Link>
-            <Link href={'/about'} className={`link ${path === '/about' ? 'active' : ''}`}>О нас</Link>
+            {Store.navigation.slice(0, 5).map((el, i) => (
+                <>
+                    {el.anchor ? 
+                        <a key={i} href={el.link} className={`link ${path === el.link ? 'active' : ''}`}>{el.title}</a>
+                    :
+                        <Link key={i} href={el.link} className={`link ${path === el.link ? 'active' : ''}`}>{el.title}</Link>
+                    }
+                </>
+            ))}
+
+            {Store.navigation.length > 5 ? 
+                <More />
+            :<></>} 
         </nav>
     );
 }
