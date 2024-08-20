@@ -38,5 +38,32 @@ Store.Date = (x, y) => {
     return y;
 };
 
+Store.navigation = [
+    {
+        title: 'Проекты',
+        link: '/#projects',
+        anchor: true
+    },
+    {
+        title: 'Паркинг',
+        link: '/#parking',
+        anchor: true
+    },
+    {
+        title: 'Ипотека',
+        link: '/mortgage',
+        anchor: false
+    },
+    {
+        title: 'Новости',
+        link: '/news',
+        anchor: false
+    },
+    {
+        title: 'О нас',
+        link: '/about',
+        anchor: false
+    },
+]
 
 export default Store;

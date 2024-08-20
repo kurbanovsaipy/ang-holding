@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
-export default function AwardsSlider() {
+export default function AwardsSlider({awards}) {
 
     return (
         <Swiper
@@ -23,52 +23,35 @@ export default function AwardsSlider() {
             slidesPerView={'auto'}
             loop={true}
         >
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
-            
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
-            <SwiperSlide>
-                <p className="year">2023</p>
-                <h3>Заголовок</h3>
-                <p className="description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
-            </SwiperSlide>
+            {awards?.length ? 
+                <>
+                    {awards.map((el) => (
+                        <SwiperSlide key={el.id}>
+                            <p className="year">{el.date}</p>
+                            <h3>{el.title}</h3>
+                            <p className="description">{el.description}</p>
+                        </SwiperSlide>
+                    ))}
+
+                    {awards.map((el) => (
+                        <SwiperSlide key={el.id}>
+                            <p className="year">{el.date}</p>
+                            <h3>{el.title}</h3>
+                            <p className="description">{el.description}</p>
+                        </SwiperSlide>
+                    ))}
+
+                    {awards.map((el) => (
+                        <SwiperSlide key={el.id}>
+                            <p className="year">{el.date}</p>
+                            <h3>{el.title}</h3>
+                            <p className="description">{el.description}</p>
+                        </SwiperSlide>
+                    ))}
+                </>
+            :
+                <></>
+            }
         </Swiper>
     )
 }

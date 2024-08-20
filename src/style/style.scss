@@ -167,6 +167,7 @@ input:-webkit-autofill:focus {
     color: var(--text-color-dark);
     @include adaptiveFont(18, 14);
     transition: 0.3s;
+    cursor: pointer;
     &::before {
         content: '';
         position: absolute;
