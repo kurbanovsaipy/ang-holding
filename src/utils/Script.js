@@ -1,13 +1,13 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import Api from "./Api"
 
 export default function Script() {
 
     const [script, setScript] = useState(false)
 
-    useEffect(() => {
+    useLayoutEffect(() => {
 
         if(window.innerWidth < 1001) {
             setScript(true)
@@ -19,6 +19,6 @@ export default function Script() {
 
     if(!script) return null
 
-    return <script src={`${Api.url}/script/pb.js`}></script>
+    return 
 
 }
