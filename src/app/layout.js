@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import Api from "@/utils/Api";
 import Menu from "@/components/menu/Menu";
 import Head from "next/head";
+import Script from "@/utils/Script";
 
 
 const main = Exo_2({ 
@@ -42,7 +43,8 @@ export default async function RootLayout({ children }) {
 
           <Menu />
 
-          <script src={`${Api.url}/script/pb.js`}></script>
+          <Script />
+          
         </body>
       </html>
   );
