@@ -20,7 +20,7 @@ export default async function ProjectDetail({params}) {
 
             <ProjectHead project={project}/>
 
-            <ProjectSettings project={project}/>
+            <ProjectSettings data={project.developmentEndQuarter}/>
 
             <ProjectAdvantages project={project}/>
 
@@ -28,7 +28,7 @@ export default async function ProjectDetail({params}) {
 
             <ProjectPlan project={project}/>
 
-            <ProjectLayout project={project}/>
+            <ProjectLayout id={params.slug}/>
 
             <ProjectProgress project={project}/>
 
@@ -36,7 +36,7 @@ export default async function ProjectDetail({params}) {
 
             <ProjectNews project={project}/>
 
-            <ProjectOther project={project}/>
+            <ProjectOther id={params.slug}/>
 
         </div>
     );

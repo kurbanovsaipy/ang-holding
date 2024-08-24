@@ -19,7 +19,7 @@ const getSocials = async () => {
 export default async function Footer({info}) {
 
     const socials = await getSocials()
-    const projects = await Api.get('pb/projects?limit=5&offset=0')
+    const projects = await Api.get('pb/house?limit=5&offset=0')
 
     return (
         <footer>
