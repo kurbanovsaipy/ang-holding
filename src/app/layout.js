@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import Api from "@/utils/Api";
 import Menu from "@/components/menu/Menu";
 import Head from "next/head";
+import ButtonUp from "@/components/button_up/ButtonUp";
 
 
 const main = Exo_2({ 
@@ -41,6 +42,8 @@ export default async function RootLayout({ children }) {
           <Footer info={info}/>
 
           <Menu />
+
+          <ButtonUp />
 
           <script src={`${Api.url}/script/pb.js`}></script>
           
