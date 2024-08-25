@@ -1,0 +1,19 @@
+@import './../../style/common.scss';
+
+.button_up {
+    position: fixed;
+    bottom: 30px;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: var(--main-color);
+    z-index: 100;
+    box-shadow: 0px 10px 25px -5px #0009;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--main-color);
+    transition: 0.7s ease;
+    transform: translateX(115%);
+}
