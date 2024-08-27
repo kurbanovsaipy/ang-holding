@@ -3,6 +3,7 @@ import './home/css/home.scss'
 import Projects from './home/components/Projects';
 import Parking from './home/components/Parking';
 import Api from '@/utils/Api';
+import Info from './about/components/Info';
 
 
 export async function generateMetadata() {
@@ -26,6 +27,10 @@ export default async function Home() {
       <Projects />
 
       <Parking />
+
+      <div className="container">
+        <Info />
+      </div>
 
     </div>
   );

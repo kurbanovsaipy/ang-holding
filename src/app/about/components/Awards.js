@@ -1,5 +1,5 @@
 import Api from "@/utils/Api";
-import AwardsSlider from "./AwardsSlider";
+import AwardsSplider from "./AwardsSplider";
 
 export default async function Awards() {
 
@@ -12,7 +12,7 @@ export default async function Awards() {
                     <h2 className="main_title">Награды и прочие документы</h2>
                 </div>
 
-                <AwardsSlider awards={awards}/>
+                <AwardsSplider awards={awards}/>
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import Calculator from './components/calculator/Calculator'
 import Hero from './components/Hero'
 import './mortgage.scss'
 import Api from '@/utils/Api'
+import Projects from '../home/components/Projects'
 
 export async function generateMetadata() {
   
@@ -25,10 +26,12 @@ export default async function Mortgage() {
                 
                 <Calculator mortgage={mortgage?.list}/>
 
-                <h2 className="main_title">Новости</h2>
+                {/* <h2 className="main_title">Новости</h2> */}
 
-                <CommonNewsList />
+                {/* <CommonNewsList /> */}
             </div>
+            
+            <Projects />
         </div>
     )
 }
