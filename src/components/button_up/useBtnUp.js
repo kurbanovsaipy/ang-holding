@@ -15,20 +15,20 @@ export default function useBtnUp () {
     const showBtn = () => {
         const scrollSpeed = checkScrollSpeed()
 
-        const screenPos = document.documentElement.scrollTop
+        const screenPos = window.scrollY || document.documentElement.scrollTop
 
         if(screenPos > 1000) {
             if (scrollSpeed < 2) {
                 if((bottom - screenPos) > 100) {
-                    upBtn.current.style.transform = 'translateX(-30px)'
+                    upBtn.current ? upBtn.current.style.transform = 'translateX(-25px)' : ''
                 }
             }
             if((screenPos - top) > 110) {
-                upBtn.current.style.transform = 'translateX(115%)'
+                upBtn.current ? upBtn.current.style.transform = 'translateX(115%)' : ''
             }
         }
         if(screenPos < 1000) {
-            upBtn.current.style.transform = 'translateX(115%)'
+            upBtn.current ? upBtn.current.style.transform = 'translateX(115%)' : ''
         }
         if(screenPos > lastPos) {
             bottom = screenPos

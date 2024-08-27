@@ -1,6 +1,16 @@
 @import './../../style/common.scss';
 
 .mortgage {
+    .container {
+        .head {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            @include adaptiveProperty(margin-bottom, 50, 30);
+        }
+        margin-bottom: 100px;
+    }
     .hero{
         position: relative;
         width: 100%;

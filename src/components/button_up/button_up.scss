@@ -2,10 +2,8 @@
 
 .button_up {
     position: fixed;
-    bottom: 30px;
+    bottom: 25px;
     right: 0;
-    height: 60px;
-    width: 60px;
     border-radius: 50%;
     background: var(--main-color);
     z-index: 100;
@@ -16,4 +14,6 @@
     border: 2px solid var(--main-color);
     transition: 0.7s ease;
     transform: translateX(115%);
+    @include adaptiveProperty(width, 60, 50);
+    @include adaptiveProperty(height, 60, 50);
 }
