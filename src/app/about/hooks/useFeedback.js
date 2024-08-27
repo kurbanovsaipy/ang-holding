@@ -22,6 +22,13 @@ export default function useFeedback() {
     }, [])  
 
     const changeName = (value) => {
+
+        if(value.length > 50) return
+
+        let words = value.trim().split(/\s+/);
+
+        if (words.length > 3) return
+
         validateName(value)
         setInput(prev => ({...prev, name: value}))
     }

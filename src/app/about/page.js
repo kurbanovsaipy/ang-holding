@@ -26,8 +26,6 @@ export async function generateMetadata() {
 
 export default async function About () {
 
-    const info = await Api.getWithoutCache('contact/info')
-
     return (
         <div className='about'>
             <Hero />
@@ -45,7 +43,7 @@ export default async function About () {
 
                 <CommonNewsList />
 
-                <Info info={info}/>
+                <Info />
             </div>
         </div>
     )
