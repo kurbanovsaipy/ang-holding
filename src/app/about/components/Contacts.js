@@ -19,7 +19,7 @@ export default function Contacts({info}) {
                     <ContactsItem 
                         title={'Для клиентов по вопросам заселения и получения ключей'}
                     >
-                        <a href="tel:89274230044">8(8552)23-00-44</a>
+                        <a href="tel:+79274230044">+7(8552)23-00-44</a>
                     </ContactsItem>
                 </div>
             </div>
@@ -30,7 +30,7 @@ export default function Contacts({info}) {
                     <ContactsItem 
                         title={'Для обращений и служебной переписке'}
                     >
-                        <a href="tel:89274230044">8(8552)23-00-44</a>
+                        <a href="tel:+79274230044">+7(8552)23-00-44</a>
 
                         <a href={`mailto:${info?.email}`}>{info?.email}</a>
                     </ContactsItem>
@@ -38,13 +38,13 @@ export default function Contacts({info}) {
                     <ContactsItem 
                         title={'Корпоративным клиентам'}
                     >
-                        <a href="tel:89274230044">8(8552)23-00-44</a>
+                        <a href="tel:+79274230044">+7(8552)23-00-44</a>
                     </ContactsItem>
 
                     <ContactsItem 
                         title={'Агентствам недвижимости'}
                     >
-                        <a href="tel:89274230044">8(8552)23-00-44</a>
+                        <a href="tel:+79274230044">+7(8552)23-00-44</a>
                     </ContactsItem>
                 </div>
             </div>
