@@ -22,8 +22,6 @@ export default async function ProjectDetail({params}) {
 
             <ProjectSettings data={project.developmentEndQuarter}/>
 
-            <ProjectAdvantages project={project}/>
-
             <ProjectLocation project={project}/>
 
             <ProjectPlan project={project}/>
