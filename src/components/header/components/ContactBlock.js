@@ -1,3 +1,4 @@
+import ProfitBaseBtn from "./ProfitBaseBtn";
 
 
 export default function ContactBlock({info}) {
@@ -21,7 +22,8 @@ export default function ContactBlock({info}) {
                 </a>
                 <p>{info?.time}</p>
             </div>
-            <a href="https://ang-holding.ru/#/catalog/projects/houses?filter=property.status:AVAILABLE" className='main_button'>Выбрать квартиру</a>
+
+            <ProfitBaseBtn />
         </div>
     );
 }
