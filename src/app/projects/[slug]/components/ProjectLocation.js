@@ -1,21 +1,26 @@
-export default function ProjectLocation() {
+import Api from "@/utils/Api";
+
+export default function ProjectLocation({project}) {
     return (
         <div className="project_info container">
             <div className="description_block">
-                <h2 className="main_title">Транспортная доступность</h2>
+                <h2 className="main_title">Общая информация</h2>
                 <div className="description">
-                    Квартал расположен на территории Набережных Челнов. С одной стороны, он окружен лесными массивами, с другой — имеет удобные выезды и маршруты в сторону центра для личного и общественного транспорта.
+                    {project.description}
                 </div>
                 
-                <h4 className='title'>Ближайшие остановки</h4>
-                <div className="station">
-                    <div className="station_item">Пр. Сююмбике - 600 м</div>
-                    <div className="station_item">Ул. Шамиля Усманова - 1,2 км</div>
-                </div>
+                <h4 className='title'>Транспортная доступность</h4>
+                {project.transports?.length ? 
+                    <div className="station">
+                        {project.transports.map((el, i) => (
+                            <div className="station_item" key={i}>{el}</div>
+                        ))}
+                    </div>
+                :<></>}
             </div>
 
             <div className="image_block">
-                <img src="https://getpublii.com/docs/media/posts/44/google-map.png" alt="" />
+                <img src={`${Api.url}/images/${project.map_image}`} alt="" />
             </div>
         </div>
     );

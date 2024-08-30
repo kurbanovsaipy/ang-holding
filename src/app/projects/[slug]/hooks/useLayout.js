@@ -97,7 +97,5 @@ export default function useLayout(id) {
 
     }, [id])
 
-    console.log(pagination)
-
     return { layouts, count, load, filter, showMore, getAll, switchRooms, moreRooms }
 }
