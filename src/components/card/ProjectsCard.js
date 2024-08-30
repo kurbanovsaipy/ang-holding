@@ -3,6 +3,7 @@ import './css/card.scss';
 import Image from "next/image";
 
 export default function ProjectsCard({el}) {
+    console.log(el)
     return (
         <div className="card">
             <Image
@@ -17,12 +18,18 @@ export default function ProjectsCard({el}) {
                 className="back_image"
             />
             <Link href={`/projects/${el?.id}`} className='cover_link'></Link>
+            <div className="project_name">{el?.projectName}</div>
             <Link href={`/projects/${el?.id}`} className='title'>{el?.title || 'Название'}</Link>
-            <div className="ofer">Старт продаж новых квартир</div>
-            <div className="advantages">
-            <h3 className="advantages_title">{el?.description || 'Преимущества'}</h3>
-            <p className="description">{el?.description || 'Описание преимущества'}</p>
-            </div>
+            
+            {el.houseBadges?.length 
+            ?<div className="labels">
+                {el.houseBadges.map((e) => (
+                    <div className="labels_item" style={{background: e.color}}>
+                        {e.label}
+                    </div>
+                ))}
+            </div>:<></>}
+
         </div>
     );
 }
