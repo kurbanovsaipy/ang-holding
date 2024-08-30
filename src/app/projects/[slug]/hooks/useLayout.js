@@ -97,5 +97,7 @@ export default function useLayout(id) {
 
     }, [id])
 
+    console.log(layouts)
+
     return { layouts, count, load, filter, showMore, getAll, switchRooms, moreRooms }
 }

@@ -8,8 +8,11 @@ export default function ProjectLocation({project}) {
                 <div className="description">
                     {project.description}
                 </div>
+
+                {project.transports?.length 
+                ?<h4 className='title'>Транспортная доступность</h4>
+                :<></>}
                 
-                <h4 className='title'>Транспортная доступность</h4>
                 {project.transports?.length ? 
                     <div className="station">
                         {project.transports.map((el, i) => (
