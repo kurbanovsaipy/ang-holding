@@ -32,7 +32,7 @@ export default function ProjectLayout({id}) {
                     {layout.layouts?.length ? 
                         <div className="layout_list">
                             {layout.layouts.map((el) => (
-                                <ProjectLayoutItem el={el} key={el.id}/>
+                                <ProjectLayoutItem el={el} houseId={id} key={el.id}/>
                             ))}
                         </div>
                     :<NothingHere />}

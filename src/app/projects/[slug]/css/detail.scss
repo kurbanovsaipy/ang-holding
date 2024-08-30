@@ -452,6 +452,7 @@
                 opacity: 0;
                 animation: Open 0.5s forwards;
                 cursor: pointer;
+                color: var(--text-color-dark);
                 @include mediaMinWidth(801) {
                     &:hover {
                         background-color: var(--main-color);

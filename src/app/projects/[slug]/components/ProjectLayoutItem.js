@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 
-export default function ProjectLayoutItem({el}) {
+export default function ProjectLayoutItem({el, houseId}) {
     return (
-        <div className="layout_item">
+        <a href={`https://ang-holding.ru/projects/${houseId}#/catalog/house/${houseId}/plans?planId=${el.id}&filter=property.status:AVAILABLE`} className="layout_item">
                     
             <div className="image">
                 <img src={el.image?.source || '/images/no-image.webp'} alt="" />
@@ -22,6 +22,6 @@ export default function ProjectLayoutItem({el}) {
                 </div>
             </div>
             
-        </div>
+        </a>
     );
 }

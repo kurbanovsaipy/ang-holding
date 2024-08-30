@@ -4,7 +4,7 @@ import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 
-export default function ProjectProgress() {
+export default function ProjectProgress({progress}) {
     return (
         <div className="progress_slider_block container">
 

@@ -17,20 +17,6 @@ const ProjectLayoutSkelet = () => {
                         <p className="setings_ch inner_shim"></p>
                     </div>
                 </div>
-
-                <div className="layout_settings">
-
-                    <div className="section">
-                        <h5 className="setings_name inner_shim"></h5>
-                        <p className="setings_ch inner_shim"></p>
-                    </div>
-
-                    <div className="section">
-                        <h5 className="setings_name inner_shim"></h5>
-                        <p className="setings_ch inner_shim"></p>
-                    </div>
-                    
-                </div>
             </div>
             
         </div>

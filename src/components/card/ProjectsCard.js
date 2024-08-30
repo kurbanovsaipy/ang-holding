@@ -23,8 +23,8 @@ export default function ProjectsCard({el}) {
             
             {el.houseBadges?.length 
             ?<div className="labels">
-                {el.houseBadges.map((e) => (
-                    <div className="labels_item" style={{background: e.color}}>
+                {el.houseBadges.map((e, i) => (
+                    <div className="labels_item" key={i} style={{background: e.color}}>
                         {e.label}
                     </div>
                 ))}
