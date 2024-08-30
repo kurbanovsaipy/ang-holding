@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 
-export default function ProjectSettings({data}) {
+export default function ProjectSettings({data, maxFloor, propertyCount}) {
     return (
         <div className="projects_settings container">
             <div className="settings_item">
@@ -10,7 +10,7 @@ export default function ProjectSettings({data}) {
                 </div>
                 <div className="description">
                     <h4 className="settings_name">Этажность</h4>
-                    <p className="character">16, 18, 24 этажей</p>
+                    <p className="character">{maxFloor} этажей</p>
                 </div>
             </div>
             <div className="settings_item">
@@ -18,7 +18,7 @@ export default function ProjectSettings({data}) {
                     <Image src={'/icons/building2.svg'} width={45} height={45} alt=""/></div>
                 <div className="description">
                     <h4 className="settings_name">Квартир в доме</h4>
-                    <p className="character">1238 квадртир</p>
+                    <p className="character">{propertyCount} квартир</p>
                 </div>
             </div>
             <div className="settings_item">

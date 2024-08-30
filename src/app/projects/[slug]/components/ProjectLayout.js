@@ -16,11 +16,11 @@ export default function ProjectLayout({id}) {
             <div className="filters_block">
                 <div className="filters">
                     <button className={`main_button ${layout.filter === 'all' ? 'active' : ''}`} onClick={layout.getAll}>Все</button>
-                    <button className={`main_button ${layout.filter === 'studio' ? 'active' : ''}`} onClick={() => layout.switchRooms(false, true, false)}>Студии</button>
-                    <button className={`main_button ${layout.filter === 'room1' ? 'active' : ''}`} onClick={() => layout.switchRooms(1, false, false)}>1</button>
-                    <button className={`main_button ${layout.filter === 'room2' ? 'active' : ''}`} onClick={() => layout.switchRooms(2, false, false)}>2</button>
-                    <button className={`main_button ${layout.filter === 'room3' ? 'active' : ''}`} onClick={() => layout.switchRooms(3, false, false)}>3</button>
-                    <button className={`main_button ${layout.filter === 'more' ? 'active' : ''}`} onClick={() => layout.switchRooms(false, false, 4)}>4+</button>
+                    <button className={`main_button ${layout.filter === 0 ? 'active' : ''}`} onClick={() => layout.switchRooms(0)}>Студии</button>
+                    <button className={`main_button ${layout.filter === 1 ? 'active' : ''}`} onClick={() => layout.switchRooms(1)}>1</button>
+                    <button className={`main_button ${layout.filter === 2 ? 'active' : ''}`} onClick={() => layout.switchRooms(2)}>2</button>
+                    <button className={`main_button ${layout.filter === 3 ? 'active' : ''}`} onClick={() => layout.switchRooms(3)}>3</button>
+                    <button className={`main_button ${layout.filter === 'more' ? 'active' : ''}`} onClick={() => layout.moreRooms(4)}>4+</button>
                 </div>
                 <div className="search_result">
                     <p>Найдено: {layout.count}</p>

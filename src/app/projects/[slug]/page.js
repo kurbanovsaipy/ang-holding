@@ -20,7 +20,9 @@ export default async function ProjectDetail({params}) {
 
             <ProjectHead project={project}/>
 
-            <ProjectSettings data={project.developmentEndQuarter}/>
+            {/* <ProjectAdvantages /> */}
+
+            <ProjectSettings data={project.developmentEndQuarter} maxFloor={project.maxFloor} propertyCount={project.propertyCount}/>
 
             <ProjectLocation project={project}/>
 

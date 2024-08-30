@@ -16,23 +16,9 @@ export default function ProjectLayoutItem({el}) {
                         <p className="setings_ch">{el.areaRange?.max} м2</p>
                     </div>
                     <div className="section">
-                        <h5 className="setings_name">Этаж</h5>
-                        <p className="setings_ch">8-10</p>
-                    </div>
-                </div>
-
-                <div className="layout_settings">
-
-                    <div className="section">
                         <h5 className="setings_name">Стоимость</h5>
                         <p className="setings_ch">{(el.priceRange?.max).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} руб.</p>
                     </div>
-
-                    <div className="section">
-                        <h5 className="setings_name">Ипотека</h5>
-                        <p className="setings_ch">24 000 руб.</p>
-                    </div>
-                    
                 </div>
             </div>
             

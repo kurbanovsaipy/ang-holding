@@ -19,12 +19,9 @@ export default function ProjectHead({project}) {
             <h2 className="title">{project.title}</h2>
             <div className="button_block">
                 <button className="main_button big fill">Вырбать квартиру</button>
-                <div className="subitem">
-                    <button className="main_button big">Скачать буклет</button>
-                    <button className="main_button big img">
-                        <Image src={'/icons/share.svg'} width={35} height={35} alt=""/>
-                    </button>
-                </div>
+                <button className="main_button big img">
+                    <Image src={'/icons/share.svg'} width={35} height={35} alt=""/>
+                </button>
             </div>
         </div>
     );

@@ -62,10 +62,6 @@
                     justify-content: center;
                 }
             }
-            .subitem {
-                display: flex;
-                gap: 10px;
-            }
         }
     }
     .container {
@@ -335,7 +331,7 @@
             .description {
                 margin-top: 30px;
                 width: 100%;
-                max-width: 430px;
+                max-width: 550px;
                 @include adaptiveFont(20, 18);
                 word-break: break-word;
                 hyphens: auto;
@@ -437,7 +433,7 @@
 
         .layout_list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             grid-template-rows: auto;
             @include adaptiveProperty(gap, 20, 10);
             @include adaptiveProperty(margin-top, 60, 30);
@@ -484,7 +480,7 @@
                         object-fit: contain;
                         object-position: center;
                         @include mediaMaxWidth(800) {
-                            height: auto;
+                            
                         }
                     }
                 }
@@ -493,7 +489,6 @@
                     width: 100%;
                     flex: 1;
                     display: flex;
-                    justify-content: space-around;
                     column-gap: 10px;
                     @include mediaMaxWidth(800) {
                         flex-direction: column;
@@ -501,7 +496,6 @@
                     }
                     .layout_settings {
                         .section {
-                            margin-top: 14px;
                             margin-bottom: 5px;
                             @include mediaMaxWidth(800) {
                                 display: flex;
@@ -511,6 +505,7 @@
                             .setings_name {
                                 @include adaptiveFont(18, 14);
                                 font-weight: 700;
+                                margin-bottom: 4px;
                             }
                             .setings_ch {
                                 font-size: 14px;

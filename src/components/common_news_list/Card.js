@@ -29,7 +29,7 @@ export default function Card({el}) {
             <div className="content">
 
                 <Link href={`/news/${el.id}`} className="main_title">{el.title}</Link>
-                <Link href={`/news/${el.id}`} className="description">{Store.markdown(el.description)}</Link>
+                <Link href={`/news/${el.id}`} className="description" dangerouslySetInnerHTML={{__html: Store.markdown(el.description)}}></Link>
             
             </div>
         </div>
