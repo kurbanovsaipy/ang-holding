@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import 'swiper/css';
 import ProjectsCard from "@/components/card/ProjectsCard";
 
-export default function ProjectsSlider() {
+export default function ProjectsSlider({project}) {
     return (
         <Swiper
             modules={[Autoplay]}
@@ -55,33 +55,45 @@ export default function ProjectsSlider() {
             }}
             loop={true}
         >
-            <SwiperSlide>
-                <ProjectsCard />
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <ProjectsCard />
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <ProjectsCard />
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <ProjectsCard />
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <ProjectsCard />
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <ProjectsCard />
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <ProjectsCard />
-            </SwiperSlide>
+            {project?.length ? 
+                <>
+                    {project.map((el, i) => (
+                        <SwiperSlide key={i}>
+                            <ProjectsCard el={el} />
+                        </SwiperSlide>
+                    ))}
+                    {project.map((el, i) => (
+                        <SwiperSlide key={i}>
+                            <ProjectsCard el={el} />
+                        </SwiperSlide>
+                    ))}
+                    {project.map((el, i) => (
+                        <SwiperSlide key={i}>
+                            <ProjectsCard el={el} />
+                        </SwiperSlide>
+                    ))}
+                    {project.map((el, i) => (
+                        <SwiperSlide key={i}>
+                            <ProjectsCard el={el} />
+                        </SwiperSlide>
+                    ))}
+                    {project.map((el, i) => (
+                        <SwiperSlide key={i}>
+                            <ProjectsCard el={el} />
+                        </SwiperSlide>
+                    ))}
+                    {project.map((el, i) => (
+                        <SwiperSlide key={i}>
+                            <ProjectsCard el={el} />
+                        </SwiperSlide>
+                    ))}
+                    {project.map((el, i) => (
+                        <SwiperSlide key={i}>
+                            <ProjectsCard el={el} />
+                        </SwiperSlide>
+                    ))}
+                </>
+            :<></>}
         </Swiper>
     )
 }
