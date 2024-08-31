@@ -10,7 +10,7 @@ export default function ProjectsList() {
     const [load, setLoad] = useState(false)
     const [projects, setProjects] = useState([])
     const [filter, setFilter] = useState({
-        limit: 5,
+        limit: 10,
         offset: 0
     })
 

@@ -21,7 +21,7 @@ export default function ProjectsCard({el}) {
             <div className="project_name">{el?.projectName}</div>
             <Link href={`/projects/${el?.id}`} className='title'>{el?.title || 'Название'}</Link>
             
-            {el.houseBadges?.length 
+            {el?.houseBadges?.length 
             ?<div className="labels">
                 {el.houseBadges.map((e, i) => (
                     <div className="labels_item" key={i} style={{background: e.color}}>
