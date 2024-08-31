@@ -2,7 +2,7 @@
 
 .button_up {
     position: fixed;
-    bottom: 25px;
+    bottom: 70px;
     right: 0;
     border-radius: 50%;
     background: var(--main-color);
@@ -16,4 +16,7 @@
     transform: translateX(115%);
     @include adaptiveProperty(width, 60, 50);
     @include adaptiveProperty(height, 60, 50);
+    @include mediaMaxWidth(992) {
+        bottom: 100px;
+    }
 }
