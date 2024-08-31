@@ -13,7 +13,7 @@ import Api from '@/utils/Api';
 
 export default async function ProjectDetail({params}) {
 
-    const project = await Api.getDataList(`pb/house?id=${params.slug}`)
+    const project = await Api.getDataList(`pb/house?id=`, params.slug)
 
     return (
         <div className="project_detail">
@@ -26,15 +26,15 @@ export default async function ProjectDetail({params}) {
 
             <ProjectLocation project={project.project}/>
 
-            <ProjectDistrict project={project.project}/>
+            <ProjectPlan id={project.projectId}/>
 
-            <ProjectPlan project={project}/>
+            <ProjectDistrict project={project.project}/>
 
             <ProjectLayout id={params.slug}/>
 
             <ProjectProgress progress={project.project.progress}/>
 
-            <ProjectNews project={project}/>
+            <ProjectNews />
 
             <ProjectOther id={params.slug}/>
 

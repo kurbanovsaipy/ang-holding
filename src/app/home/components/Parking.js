@@ -1,4 +1,4 @@
-import ParkingCard from "./ParkingCard";
+import ParkingList from "./ParkingList";
 
 
 export default function Parking() {
@@ -9,11 +9,8 @@ export default function Parking() {
             <button className='main_button'>Показать на карте</button>
             </div>
             
-            <div className="grid">
-                <ParkingCard />
-                <ParkingCard />
-                <ParkingCard />
-            </div>
+            <ParkingList />
+            
         </div>
     );
 }

@@ -37,6 +37,7 @@
             z-index: 1;
         }
         .title {
+            text-align: center;
             margin-top: auto;
             position: relative;
             z-index: 3;
@@ -373,20 +374,119 @@
     .general_plan {
         .general {
             width: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
             position: relative;
-            border-radius: var(--main-border-radius);
-            background-color: #a8a8a8;
             overflow: hidden;
-            @include adaptiveProperty(margin-top, 50, 25);
-            @include adaptiveProperty(padding, 50, 20);
             height: 75dvh;
             min-height: 600px;
+            margin-top: 20px;
+            border-radius: calc(var(--main-border-radius) * 1.5);  
+            background-color: var(--background-grey);
             @include mediaMaxWidth(600) {
                 height: 300px;
                 min-height: 300px;
+            }
+            .galery_swiper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%; 
+                @include mediaMaxWidth(768) {
+                    position: relative;
+                    height: 400px;
+                }
+                .button_block {
+                    position: absolute;
+                    left: 35px;
+                    bottom: 50px;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    z-index: 5;
+                    button {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        border: 2px solid var(--main-color);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: 0.3s;
+                        color: var(--text-color-light);
+                        font-size: 20px;
+                        font-weight: 700;
+                        @include mediaMinWidth(769) {
+                            &:hover {
+                                background-color: var(--main-color);
+                            }
+                        }
+
+                    }
+                }
+                .swiper-slide {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba($color: #000000, $alpha: 0.2);
+                        z-index: 3;
+                        width: 100%;
+                        -ms-user-select: none; 
+                        -moz-user-select: none; 
+                        -webkit-user-select: none; 
+                        user-select: none;
+                    }
+                    .title {
+                        position: relative;
+                        z-index: 5;
+                        width: max-content;
+                        max-width: 650px;
+                        @include adaptiveFont(70, 50);
+                        font-weight: 700;
+                        color: var(--card-text-color);
+                    }
+                    button {
+                        position: relative;
+                        z-index: 5;
+                    }
+                    & img{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+                .swiper-pagination {
+                    position: absolute;
+                    @include adaptiveProperty(bottom, 20, 15);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 5;
+                    display: grid;
+                    grid-template-columns: 10px 10px 10px;
+                    grid-template-rows: 10px;
+                    gap: 10px;
+                    .swiper-pagination-bullet {
+                        flex: 1;
+                        height: 7px;
+                        background-color: rgba($color: #fff, $alpha: 0.3);
+                        border-radius: 7px;
+                        transition: 0.3s;
+                        cursor: pointer;
+                        &.swiper-pagination-bullet-active {
+                            background-color: var(--main-color);
+                        }
+                    }
+                }
             }
         }
     }
@@ -600,11 +700,6 @@
                     }
                 }
             }
-        }
-
-        .show_more {
-            margin: 0 auto;
-            margin-top: 20px;
         }
     }
 
