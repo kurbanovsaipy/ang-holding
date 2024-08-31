@@ -22,7 +22,7 @@ export default function MobileBlock({info}) {
     return (
         <div className={`mobile_block`}>
 
-            <a href={`tel:${(info?.phone)?.replace(/\D/g, '')}`} className='phone_icon'>
+            <a href={`tel:+${(info?.phone)?.replace(/\D/g, '')}`} className='phone_icon'>
                 <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
                     <g id="SVGRepo_bgCarrier" strokeWidth="0"/>

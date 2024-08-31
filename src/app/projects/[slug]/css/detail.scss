@@ -62,10 +62,6 @@
                     justify-content: center;
                 }
             }
-            .subitem {
-                display: flex;
-                gap: 10px;
-            }
         }
     }
     .container {
@@ -335,7 +331,7 @@
             .description {
                 margin-top: 30px;
                 width: 100%;
-                max-width: 430px;
+                max-width: 550px;
                 @include adaptiveFont(20, 18);
                 word-break: break-word;
                 hyphens: auto;
@@ -437,7 +433,7 @@
 
         .layout_list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             grid-template-rows: auto;
             @include adaptiveProperty(gap, 20, 10);
             @include adaptiveProperty(margin-top, 60, 30);
@@ -453,7 +449,10 @@
                 align-items: center;
                 gap: 10px;
                 transition: 0.3s;
+                opacity: 0;
+                animation: Open 0.5s forwards;
                 cursor: pointer;
+                color: var(--text-color-dark);
                 @include mediaMinWidth(801) {
                     &:hover {
                         background-color: var(--main-color);
@@ -471,7 +470,7 @@
                     height: 140px;
                     @include mediaMaxWidth(800) {
                         max-width: 100%;
-                        height: auto;
+                        height: 300px;
                     }
                     img {
                         position: absolute;
@@ -482,8 +481,7 @@
                         object-fit: contain;
                         object-position: center;
                         @include mediaMaxWidth(800) {
-                            position: relative;
-                            height: auto;
+                            
                         }
                     }
                 }
@@ -492,7 +490,6 @@
                     width: 100%;
                     flex: 1;
                     display: flex;
-                    justify-content: space-around;
                     column-gap: 10px;
                     @include mediaMaxWidth(800) {
                         flex-direction: column;
@@ -500,7 +497,6 @@
                     }
                     .layout_settings {
                         .section {
-                            margin-top: 14px;
                             margin-bottom: 5px;
                             @include mediaMaxWidth(800) {
                                 display: flex;
@@ -510,6 +506,7 @@
                             .setings_name {
                                 @include adaptiveFont(18, 14);
                                 font-weight: 700;
+                                margin-bottom: 4px;
                             }
                             .setings_ch {
                                 font-size: 14px;
@@ -530,6 +527,84 @@
                 }
 
             }
+
+            .layout_skelet {
+                background-color: var(--background-grey);
+                border-radius: var(--main-border-radius);
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: 0.3s;
+                opacity: 0;
+                animation: Open 0.5s forwards;
+                @include mediaMaxWidth(800) {
+                    flex-direction: column;
+                }
+
+                .image {
+                    position: relative;
+                    width: 100%;
+                    max-width: 140px;
+                    min-width: 130px;
+                    height: 140px;
+                    border-radius: 10px;
+                    @include mediaMaxWidth(800) {
+                        max-width: 100%;
+                        height: 300px;
+                    }
+                }
+
+                .description_block {
+                    width: 100%;
+                    flex: 1;
+                    display: flex;
+                    justify-content: space-around;
+                    column-gap: 10px;
+                    @include mediaMaxWidth(800) {
+                        flex-direction: column;
+                        justify-content: baseline;
+                    }
+                    .layout_settings {
+                        width: 100%;
+                        .section {
+                            margin-top: 14px;
+                            margin-bottom: 5px;
+                            width: 100%;
+                            @include mediaMaxWidth(800) {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                gap: 30px;
+                            }
+                            .setings_name {
+                                width: 100%;
+                                height: 15px;
+                                margin-bottom: 5px;
+                                border-radius: 10px;
+                            }
+                            .setings_ch {
+                                width: 80%;
+                                height: 15px;
+                                border-radius: 10px;
+                                max-width: 80px;
+                            }
+                        }
+                    }
+    
+                    .button_block {
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: flex-end;
+                        align-self: flex-end;
+                    }
+                }
+            }
+        }
+
+        .show_more {
+            margin: 0 auto;
+            margin-top: 20px;
         }
     }
 
@@ -628,5 +703,37 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+.shim {
+    --back1: #ecedeeea;
+    --back2: #dedfe2ea;
+    background: var(--back1);
+    background-position: -500px 0;
+    background-image: linear-gradient(90deg, var(--back1) 5%, var(--back2) 23%, var(--back1) 40%, var(--back1) 100%);
+    background-repeat: no-repeat;
+    background-size: 1000px 100%;
+    animation: shim 1s linear infinite;
+}
+@keyframes shim {
+    to {
+        background-position: 500px 0;
+    }
+}
+
+.inner_shim {
+    --back1: #d1d1d1;
+    --back2: #c0c0c0;
+    background: var(--back1);
+    background-position: -500px 0;
+    background-image: linear-gradient(90deg, var(--back1) 5%, var(--back2) 23%, var(--back1) 40%, var(--back1) 100%);
+    background-repeat: no-repeat;
+    background-size: 1000px 100%;
+    animation: shim 1s linear infinite;
+}
+@keyframes shim {
+    to {
+        background-position: 500px 0;
     }
 }

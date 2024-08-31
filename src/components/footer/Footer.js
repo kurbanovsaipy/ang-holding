@@ -19,7 +19,7 @@ const getSocials = async () => {
 export default async function Footer({info}) {
 
     const socials = await getSocials()
-    const projects = await Api.get('pb/projects?limit=5&offset=0')
+    const projects = await Api.get('pb/house?limit=5&offset=0')
 
     return (
         <footer>
@@ -54,7 +54,7 @@ export default async function Footer({info}) {
                             </div>
 
                             <div className="phone">
-                                <a href={`tel:${(info?.phone)?.replace(/\D/g, '')}`} className="tel">
+                                <a href={`tel:+${(info?.phone)?.replace(/\D/g, '')}`} className="tel">
                                     <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
                                         <g id="SVGRepo_bgCarrier" strokeWidth="0"/>

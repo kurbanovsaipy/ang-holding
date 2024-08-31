@@ -130,6 +130,8 @@ header {
                 }
                 p {
                     @include adaptiveFont(13, 12);
+                    white-space: pre;
+                    text-align: left;
                 }
             }
         }

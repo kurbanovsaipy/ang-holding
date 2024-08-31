@@ -11,20 +11,22 @@ export default function Navigation() {
     const path = usePathname()
 
     return (
-        <nav>
-            {Store.navigation.slice(0, 5).map((el, i) => (
-                <>
-                    {el.anchor ? 
-                        <a key={i} href={el.link} className={`link ${path === el.link ? 'active' : ''}`}>{el.title}</a>
-                    :
-                        <Link key={i} href={el.link} className={`link ${path === el.link ? 'active' : ''}`}>{el.title}</Link>
-                    }
-                </>
-            ))}
+        <>
+            <nav>
+                {Store.navigation.slice(0, 5).map((el, i) => (
+                    <>
+                        {el.anchor ? 
+                            <a key={i} href={el.link} className={`link ${path === el.link ? 'active' : ''}`}>{el.title}</a>
+                        :
+                            <Link key={i} href={el.link} className={`link ${path === el.link ? 'active' : ''}`}>{el.title}</Link>
+                        }
+                    </>
+                ))}
 
-            {Store.navigation.length > 5 ? 
-                <More />
-            :<></>} 
-        </nav>
+                {Store.navigation.length > 5 ? 
+                    <More />
+                :<></>} 
+            </nav>
+        </>
     );
 }

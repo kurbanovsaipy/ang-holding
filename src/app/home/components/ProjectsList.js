@@ -1,16 +1,16 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import ProjectsCard from "./ProjectsCard";
 import Api from "@/utils/Api";
 import SkeletProjectCard from "@/components/skelet_card/SkeletProjectCard";
+import ProjectsCard from "@/components/card/ProjectsCard";
 
 export default function ProjectsList() {
 
     const [load, setLoad] = useState(false)
     const [projects, setProjects] = useState([])
     const [filter, setFilter] = useState({
-        limit: 5,
+        limit: 10,
         offset: 0
     })
 
@@ -19,10 +19,10 @@ export default function ProjectsList() {
         (async () => {
             let params = new URLSearchParams(filter).toString()
 
-            let res = await Api.get(`pb/projects?${params}`)
+            let res = await Api.get(`pb/house?${params}`)
 
             if(res) {
-                setProjects(res)
+                setProjects(res.filter(el => el.isArchive === false))
                 setLoad(true)
             }
 

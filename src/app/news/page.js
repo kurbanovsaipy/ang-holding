@@ -7,7 +7,13 @@ export async function generateMetadata() {
     let meta = await Api.getWithoutCache(`pages/info?path=/news`)
   
     if(meta) {
-      return {title: meta.title, description: meta.description}
+        return {
+            title: meta.title, 
+            description: meta.description,
+            keywords: meta.keywords,
+            contentType: meta.contentType,
+            author: meta.author
+        }
     }
 }
 
