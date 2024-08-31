@@ -158,6 +158,10 @@ input:-webkit-autofill:focus {
             }
         }
     }
+    &.show_more {
+        margin: 0 auto;
+        margin-top: 20px;
+    }
     img {
 
     }

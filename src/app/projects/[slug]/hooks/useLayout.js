@@ -45,6 +45,26 @@ export default function useLayout(id) {
         }
     }
 
+    const getStudio = async () => {
+        setLoad(false)
+        setFilter('studio')
+
+        let res = await Api.get(`pb/plan?houseId=${id}&roomMoreThan=0&isStudio=true`)
+
+        if(res) {
+            res = res.filter(el => el.isStudio === true)
+            setCount(res.length)
+            const list = chunkList(res)
+            setPagination(list)
+            if(list[1]) {
+                setLayouts(list[1])
+            } else {
+                setLayouts([])
+            }
+            setLoad(true)
+        }
+    }
+
     const moreRooms = async (room) => {
 
         setLoad(false)
@@ -97,7 +117,5 @@ export default function useLayout(id) {
 
     }, [id])
 
-    console.log(layouts)
-
-    return { layouts, count, load, filter, showMore, getAll, switchRooms, moreRooms }
+    return { layouts, count, load, filter, showMore, getAll, switchRooms, moreRooms, getStudio }
 }

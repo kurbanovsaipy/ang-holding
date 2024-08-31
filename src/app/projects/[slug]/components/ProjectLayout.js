@@ -16,7 +16,7 @@ export default function ProjectLayout({id}) {
             <div className="filters_block">
                 <div className="filters">
                     <button className={`main_button ${layout.filter === 'all' ? 'active' : ''}`} onClick={layout.getAll}>Все</button>
-                    <button className={`main_button ${layout.filter === 0 ? 'active' : ''}`} onClick={() => layout.switchRooms(0)}>Студии</button>
+                    <button className={`main_button ${layout.filter === 'studio' ? 'active' : ''}`} onClick={() => layout.getStudio()}>Студии</button>
                     <button className={`main_button ${layout.filter === 1 ? 'active' : ''}`} onClick={() => layout.switchRooms(1)}>1</button>
                     <button className={`main_button ${layout.filter === 2 ? 'active' : ''}`} onClick={() => layout.switchRooms(2)}>2</button>
                     <button className={`main_button ${layout.filter === 3 ? 'active' : ''}`} onClick={() => layout.switchRooms(3)}>3</button>

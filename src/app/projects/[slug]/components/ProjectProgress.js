@@ -7,8 +7,6 @@ import Api from '@/utils/Api';
 
 export default function ProjectProgress({progress}) {
 
-    console.log(progress)
-
     return (
         <div className="progress_slider_block container">
 

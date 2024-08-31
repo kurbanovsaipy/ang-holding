@@ -49,8 +49,8 @@ export default async function RootLayout({ children }) {
           <script src={`${Api.url}/script/pb.js`}></script>
           {scripts?.length ?
             <>
-              {scripts.map((el) => (
-                <div dangerouslySetInnerHTML={{__html: el.data}}></div>
+              {scripts.map((el, i) => (
+                <div key={i} dangerouslySetInnerHTML={{__html: el.data}}></div>
               ))}
             </>
           :<></>}

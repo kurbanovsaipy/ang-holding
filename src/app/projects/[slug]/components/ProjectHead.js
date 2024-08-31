@@ -1,12 +1,15 @@
 import Image from "next/image";
+import ShareBtn from "./ShareBtn";
+
 
 
 export default function ProjectHead({project}) {
+
     return (
         <div className="project_head">
             <Image 
                 className="head_back" 
-                src={project.fullImage}
+                src={project.fullImage || '/images/no-image.webp'}
                 alt="" 
                 placeholder='blur' 
                 width={0} 
@@ -18,10 +21,11 @@ export default function ProjectHead({project}) {
             />
             <h2 className="title">{project.title}</h2>
             <div className="button_block">
+                
                 <button className="main_button big fill">Вырбать квартиру</button>
-                <button className="main_button big img">
-                    <Image src={'/icons/share.svg'} width={35} height={35} alt=""/>
-                </button>
+
+                <ShareBtn />
+
             </div>
         </div>
     );

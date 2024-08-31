@@ -21,6 +21,8 @@ header {
         display: flex;
         align-items: center;
         height: 100%;
+        @include adaptiveProperty(padding-right, 30, 20);
+        @include adaptiveProperty(padding-left, 30, 20);
         .logo {
             width: 90px;
             height: 55px;

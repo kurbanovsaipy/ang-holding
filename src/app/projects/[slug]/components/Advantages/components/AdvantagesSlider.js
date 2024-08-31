@@ -10,9 +10,6 @@ export default function AdvantagesSlider() {
 
     const [swiper, setSwiper] = useState()
 
-    const prev = useRef(null)
-    const next = useRef(null)
-
     return (
         <>
             <Swiper

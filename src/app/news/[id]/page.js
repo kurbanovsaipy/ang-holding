@@ -27,7 +27,7 @@ export default async function Details({params}) {
                 />
             </div>
 
-            <p className="description">{detail?.description}</p>
+            <p className="description" dangerouslySetInnerHTML={{__html: Store.markdown(detail?.description)}}></p>
 
             <h2 className="main_title">Будут вам интересны</h2>
 
