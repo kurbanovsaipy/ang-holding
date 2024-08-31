@@ -30,7 +30,7 @@ export default function NewsListCard({el}) {
             <div className="content">
 
                 <Link href={`/news/${el.id}`} className="main_title">{el.title}</Link>
-                <Link href={`/news/${el.id}`} className="description">{el.description}</Link>
+                <Link href={`/news/${el.id}`} className="description" dangerouslySetInnerHTML={{__html: Store.markdown(el.description)}}></Link>
             
             </div>
         </div>

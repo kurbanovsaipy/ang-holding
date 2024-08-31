@@ -25,12 +25,13 @@ export default async function RootLayout({ children }) {
 
   const parametrs = await Api.getWithoutCache('thema/string')
   const info = await Api.getWithoutCache('contact/info')
+  const scripts = await Api.getWithoutCache('scripts/list')
 
   return (
       <html lang="ru" className={`${montserrat.variable} ${main.variable}`} style={{parametrs}} >
-        {/* <Head>
-          <link rel="icon" href="/favicon.ico"/>
-        </Head> */}
+        <Head>
+          {/* <link rel="icon" href="/favicon.ico"/> */}
+        </Head>
         <body>
 
           <Header info={info}/>
@@ -46,6 +47,13 @@ export default async function RootLayout({ children }) {
           <ButtonUp />
 
           <script src={`${Api.url}/script/pb.js`}></script>
+          {scripts?.length ?
+            <>
+              {scripts.map((el) => (
+                <div dangerouslySetInnerHTML={{__html: el.data}}></div>
+              ))}
+            </>
+          :<></>}
           
         </body>
       </html>
