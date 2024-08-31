@@ -4,7 +4,9 @@ import './common_news_list.scss';
 
 export default async function CommonNewsList() {
 
-    const news = await Api.get('news/last?limit=3')
+    let news = await Api.get('news/last?limit=3')
+
+    news = news?.filter(el => el.active === 1)
 
     return (
         <div className="news_list_block">

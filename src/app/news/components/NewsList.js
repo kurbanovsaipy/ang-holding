@@ -13,7 +13,10 @@ export default function NewsList({news}) {
                         <NewsListCard el={el} key={el.id}/>
                     ))}
                 </>
-            :<NothingHere />}
+            :
+                <div className="no_items">Новостей нет</div>
+            }
+
             
         </div>
     )
