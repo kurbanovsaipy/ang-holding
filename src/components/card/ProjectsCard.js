@@ -3,7 +3,7 @@ import './css/card.scss';
 import Image from "next/image";
 
 export default function ProjectsCard({el}) {
-    console.log(el)
+    
     return (
         <div className="card">
             <Image
