@@ -11,7 +11,7 @@ export default function Card({el}) {
             <Link href={`/news/${el.id}`} className="cover">
 
                 <Image 
-                    src={`${Api.url}/images/${el.image}`} 
+                    src={`${Api.url}/images/${el.image}` || '/images/no-image.webp'} 
                     alt=""
                     width={0} 
                     height={0} 
