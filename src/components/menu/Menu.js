@@ -39,8 +39,8 @@ export default function Menu() {
 
                 {Store.navigation.slice(0, 5).map((el, i) => (
                     el.anchor 
-                    ?<a key={i} href={el.link} className={`menu_link`}>{el.title}</a>
-                    :<Link key={i} href={el.link} className={`menu_link`}>{el.title}</Link>
+                    ?<a key={i} href={el.link} className={`menu_link`} onClick={closeMenu}>{el.title}</a>
+                    :<Link key={i} href={el.link} className={`menu_link`} onClick={closeMenu}>{el.title}</Link>
                 ))}
 
             </div>
