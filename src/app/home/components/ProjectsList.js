@@ -57,8 +57,6 @@ export default function ProjectsList() {
 
     }, [])
 
-    console.log(pagination)
-
     return (
         <>
             {load ? 

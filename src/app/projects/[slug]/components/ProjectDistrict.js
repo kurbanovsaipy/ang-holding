@@ -9,18 +9,18 @@ export default function ProjectDistrict({project}) {
                 <div className="description">
                     {project.district}
                 </div>
-
-                {project.places?.length 
-                ? <h4 className='title'>Интересные места</h4> 
-                :<></>}
                 
                 {project.places?.length ? 
-                    <div className="station">
-                        {project.places.map((el, i) => (
-                            <div className="station_item" key={i}>{el}</div>
-                        ))}
-                    </div>
+                    <>
+                        <h4 className='title'>Интересные места</h4> 
+                        <div className="station">
+                            {project.places.map((el, i) => (
+                                <div className="station_item" key={i}>{el}</div>
+                            ))}
+                        </div>
+                    </>
                 :<></>}
+                
             </div>
 
             <div className="image_block">

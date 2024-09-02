@@ -46,13 +46,9 @@ export default function More() {
             <button className={`more_button ${isOpen === 'open' ? 'active' : ''}`} onClick={(e) => toggleMenu(e)}>Ещё...</button>
             <div className={`list ${isOpen}`}>
                 {Store.navigation.slice(5).map((el, i) => (
-                    <>
-                        {el.anchor ? 
-                            <a key={i} href={el.link} className={`link_more`} onClick={closeMenu}>{el.title}</a>
-                        :
-                            <Link key={i} href={el.link} className={`link_more`} onClick={closeMenu}>{el.title}</Link>
-                        }
-                    </>
+                    el.anchor 
+                    ?<a key={i} href={el.link} className={`link_more`} onClick={closeMenu}>{el.title}</a>
+                    :<Link key={i} href={el.link} className={`link_more`} onClick={closeMenu}>{el.title}</Link>
                 ))}
             </div>
         </div>

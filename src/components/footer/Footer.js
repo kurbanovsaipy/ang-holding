@@ -52,13 +52,11 @@ export default async function Footer({info}) {
                             <div className="social_block">
 
                                 {socials?.length ? 
-                                    <>
-                                        {socials.map((el) => (
-                                            <a href={el.link} className="" key={el.id}>
-                                                <div className="icon_wrapper" dangerouslySetInnerHTML={{__html: el.icon}}></div>
-                                            </a>
-                                        ))}
-                                    </>
+                                    socials.map((el) => (
+                                        <a href={el.link} className="" key={el.id}>
+                                            <div className="icon_wrapper" dangerouslySetInnerHTML={{__html: el.icon}}></div>
+                                        </a>
+                                    ))
                                 :<></>}
                             </div>
 
@@ -128,13 +126,9 @@ export default async function Footer({info}) {
                                 <nav>
                                     <Link href={''} className={`link`}>Главная</Link>
                                     {Store.navigation.map((el, i) => (
-                                        <>
-                                            {el.anchor ? 
-                                                <a href={el.link} className={`link`}>{el.title}</a>
-                                            :
-                                                <Link href={el.link} className={`link`}>{el.title}</Link>
-                                            }
-                                        </>
+                                        el.anchor 
+                                        ?<a href={el.link} className={`link`}>{el.title}</a>
+                                        :<Link href={el.link} className={`link`}>{el.title}</Link>
                                     ))}
                                 </nav>
                             </div>

@@ -12,14 +12,10 @@ export default async function CommonNewsList() {
         <div className="news_list_block">
             
             {news?.length ? 
-                <>
-                    {news.map((el) => (
-                        <Card el={el} key={el.id}/>
-                    ))}
-                </>
-            :
-                <></>
-            }
+                news.map((el) => (
+                    <Card el={el} key={el.id}/>
+                ))
+            :<></>}
             
         </div>
     )

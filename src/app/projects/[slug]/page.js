@@ -15,17 +15,18 @@ import Head from 'next/head';
 export async function generateMetadata({params}) {
   
     let meta = await Api.getDataList(`pb/house?id=`, params.slug)
-  
+    let meta2 = await Api.getWithoutCache(`pages/info?path=/`)
+
     if(meta) {
       return {
         title: meta.title, 
         description: meta.project.description,
-        keywords: meta.keywords,
-        contentType: meta.contentType,
-        author: meta.author,
+        keywords: meta2.keywords,
+        contentType: meta2.contentType,
+        author: meta2.author,
         openGraph: {
             title: meta.title,
-            url: meta.og_url,
+            url: meta2.og_url,
             description: meta.project.description,
             images: [
               {
@@ -34,7 +35,7 @@ export async function generateMetadata({params}) {
                 height: 400
               }
             ],
-            siteName: meta.og_site_name
+            siteName: meta2.og_site_name
         }
       }
     }

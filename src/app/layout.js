@@ -29,9 +29,11 @@ export default async function RootLayout({ children }) {
 
   return (
       <html lang="ru" className={`${montserrat.variable} ${main.variable}`} style={{parametrs}} >
-        <Head>
-          {/* <link rel="icon" href="/favicon.ico"/> */}
-        </Head>
+
+        <head>
+            <link rel="icon" href={`${Api.url}/image/favicon.ico`}/>
+        </head>
+
         <body>
 
           <Header info={info}/>
@@ -47,12 +49,11 @@ export default async function RootLayout({ children }) {
           <ButtonUp />
 
           <script src={`${Api.url}/script/pb.js`}></script>
+          
           {scripts?.length ?
-            <>
-              {scripts.map((el, i) => (
+            scripts.map((el, i) => (
                 <div key={i} dangerouslySetInnerHTML={{__html: el.data}}></div>
-              ))}
-            </>
+              ))
           :<></>}
           
         </body>

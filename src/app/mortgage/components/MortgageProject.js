@@ -1,36 +1,33 @@
 'use client'
 
-import ProjectsCard from "@/components/card/ProjectsCard";
-import SkeletProjectCard from "@/components/skelet_card/SkeletProjectCard";
-import Api from "@/utils/Api";
-import { useEffect, useState } from "react";
+import ProjectsCard from "@/components/card/ProjectsCard"
+import SkeletProjectCard from "@/components/skelet_card/SkeletProjectCard"
+import Api from "@/utils/Api"
+import { useEffect, useState } from "react"
 
-
-export default function ProjectOther({id}) {
+export default function MortgageProject() {
 
     const [load, setLoad] = useState(false)
     const [projects, setProjects] = useState([])
 
     useEffect(() => {
+        
+        (async () => {
 
-        if(id) {
-            (async () => {
+            let res = await Api.get(`pb/house`)
 
-                let res = await Api.get(`pb/house`)
-    
-                if(res) {
-                    res = res.filter(el => el.id != id && el.isArchive === false && el.type === 'RESIDENTIAL').splice(0, 3)
-                    setProjects(res)
-                    setLoad(true)
-                }
-    
-            })()
-        }
+            if(res) {
+                res = res.filter(el => el.isArchive === false && el.type === 'RESIDENTIAL').splice(0, 3)
+                setProjects(res)
+                setLoad(true)
+            }
 
-    }, [id])
+        })()
+
+    }, [])
 
     return (
-        <div className="container project_other">
+        <div className="container">
             {load ? <>{projects?.length ? <h2 className="main_title">Другие проекты</h2> : <></>}</>
             :<h2 className="main_title">Другие проекты</h2>}
             
