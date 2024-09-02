@@ -3,7 +3,7 @@ import ShareBtn from "./ShareBtn";
 
 
 
-export default function ProjectHead({project}) {
+export default function ProjectHead({id, project}) {
 
     return (
         <div className="project_head">
@@ -22,7 +22,7 @@ export default function ProjectHead({project}) {
             <h2 className="title">{project.title}</h2>
             <div className="button_block">
                 
-                <button className="main_button big fill">Вырбать квартиру</button>
+                <a href={`/projects/${id}#/catalog/house/${id}/smallGrid?filter=property.status:AVAILABLE`} className="main_button big fill">Вырбать квартиру</a>
 
                 <ShareBtn />
 

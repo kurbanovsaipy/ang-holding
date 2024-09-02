@@ -10,6 +10,35 @@ import ProjectProgress from './components/ProjectProgress';
 import ProjectNews from './components/ProjectNews';
 import ProjectOther from './components/ProjectOther';
 import Api from '@/utils/Api';
+import Head from 'next/head';
+
+export async function generateMetadata({params}) {
+  
+    let meta = await Api.getDataList(`pb/house?id=`, params.slug)
+  
+    if(meta) {
+      return {
+        title: meta.title, 
+        description: meta.project.description,
+        keywords: meta.keywords,
+        contentType: meta.contentType,
+        author: meta.author,
+        openGraph: {
+            title: meta.title,
+            url: meta.og_url,
+            description: meta.project.description,
+            images: [
+              {
+                url: meta.image,
+                width: 500,
+                height: 400
+              }
+            ],
+            siteName: meta.og_site_name
+        }
+      }
+    }
+  }
 
 export default async function ProjectDetail({params}) {
 
@@ -18,7 +47,7 @@ export default async function ProjectDetail({params}) {
     return (
         <div className="project_detail">
 
-            <ProjectHead project={project}/>
+            <ProjectHead id={params.slug} project={project}/>
 
             {/* <ProjectAdvantages /> */}
 

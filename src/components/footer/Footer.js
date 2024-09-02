@@ -15,11 +15,20 @@ const getSocials = async () => {
     }
 }
 
+const getPbNavigation = async (type) => {
+    let res = await Api.get('pb/house')
+
+    if(res) {
+        return res.filter(el => el.isArchive === false && el.type === type).slice(0, 5)
+    }
+}
+
 
 export default async function Footer({info}) {
 
     const socials = await getSocials()
-    const projects = await Api.get('pb/house?limit=5&offset=0')
+    const projects = await getPbNavigation('RESIDENTIAL')
+    const parking = await getPbNavigation('PARKING')
 
     return (
         <footer>
@@ -98,11 +107,16 @@ export default async function Footer({info}) {
                             <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Паркинг и кладовые'}/>
                             <div className="nav_wrapper">
                                 <nav>
-                                    <Link href={''} className={`link`}>Название проекта 1</Link>
-                                    <Link href={''} className={`link`}>Название проекта 2</Link>
-                                    <Link href={''} className={`link`}>Название проекта 3</Link>
-                                    <Link href={''} className={`link`}>Название проекта 4</Link>
-                                    <Link href={''} className={`link`}>Название проекта 5</Link>
+                                    {parking?.length ? 
+                                        <>
+                                            {parking.map((el, i) => (
+                                                <a key={i} href={`/#/catalog/house/${el?.id}/smallGrid?filter=property.status:AVAILABLE`} className={`link`}>{el.title}</a>
+                                            ))}
+                                        </>
+                                    :
+                                        <></>
+                                    }
+                                    <a href={'/#parking'} className={`link`}>Все паркинги</a>
                                 </nav>
                             </div>
                                 

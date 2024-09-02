@@ -11,7 +11,7 @@ export default function ShareBtn() {
         if (typeof window !== 'undefined') {
             setShareData({
                 title: "Анг холдинг",
-                text: "Поделиться ссылкой на дом",
+                text: "",
                 url: window.location.href,
             });
         }
