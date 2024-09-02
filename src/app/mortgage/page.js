@@ -3,7 +3,8 @@ import Calculator from './components/calculator/Calculator'
 import Hero from './components/Hero'
 import './mortgage.scss'
 import Api from '@/utils/Api'
-import Projects from '../home/components/Projects'
+import ProjectOther from '../projects/[slug]/components/ProjectOther'
+import MortgageProject from './components/MortgageProject'
 
 export async function generateMetadata() {
   
@@ -15,8 +16,21 @@ export async function generateMetadata() {
             description: meta.description,
             keywords: meta.keywords,
             contentType: meta.contentType,
-            author: meta.author
-        }
+            author: meta.author,
+            openGraph: {
+                title: meta.og_title,
+                url: meta.og_url,
+                description: meta.og_description,
+                images: [
+                  {
+                    url: `${Api.url}/images/${meta.og_image}`,
+                    width: 500,
+                    height: 400
+                  }
+                ],
+                siteName: meta.og_site_name
+            }
+          }
     }
 }
 
@@ -37,7 +51,7 @@ export default async function Mortgage() {
                 {/* <CommonNewsList /> */}
             </div>
             
-            <Projects />
+            <MortgageProject />
         </div>
     )
 }

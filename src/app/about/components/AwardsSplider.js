@@ -32,19 +32,17 @@ export default function AwardsSplider({awards}) {
             }}
             extensions={ { AutoScroll } }
         >
+            
             {awards?.length ?
-                <>
-                    {awards.map(el => (
-                        <SplideSlide>
-                            <p className="year">{el.date}</p>
-                            <h3>{el.title}</h3>
-                            <p className="description">{el.description}</p>
-                        </SplideSlide>
-                    ))}
-                </>
-            :
-                <></>
-            }
+                awards.map((el, i) => (
+                    <SplideSlide key={i}>
+                        <p className="year">{el.date}</p>
+                        <h3>{el.title}</h3>
+                        <p className="description">{el.description}</p>
+                    </SplideSlide>
+                ))
+            :<></>}
+
         </Splide>
     )
 }

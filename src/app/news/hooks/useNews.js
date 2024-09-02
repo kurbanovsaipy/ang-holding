@@ -32,10 +32,8 @@ export default function useNews() {
             const query = new URLSearchParams(params).toString()
             const init = await Api.getFull(`news/page?${query}`)
             if(init) {
-                console.log(init)
                 const data = init.data.filter(el => el.active === 1)
                 if(!news) {
-                    console.log(init)
                     setNews(data)
                     setPageLoad(prev => prev = true)
                 } else {

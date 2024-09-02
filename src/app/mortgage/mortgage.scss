@@ -10,6 +10,9 @@
             @include adaptiveProperty(margin-bottom, 50, 30);
         }
         margin-bottom: 100px;
+        .grid {
+            @include adaptiveProperty(margin-top, 30, 15);
+        }
     }
     .hero{
         position: relative;
