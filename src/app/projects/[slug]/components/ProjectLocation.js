@@ -6,14 +6,14 @@ export default function ProjectLocation({project}) {
             <div className="description_block">
                 <h2 className="main_title">Общая информация</h2>
                 <div className="description">
-                    {project.description}
+                    {project?.description}
                 </div>
                 
-                {project.transports?.length ? 
+                {project?.transports?.length ? 
                     <>
                         <h4 className='title'>Транспортная доступность</h4>
                         <div className="station">
-                            {project.transports.map((el, i) => (
+                            {project?.transports?.map((el, i) => (
                                 <div className="station_item" key={i}>{el}</div>
                             ))}
                         </div>
@@ -22,7 +22,7 @@ export default function ProjectLocation({project}) {
             </div>
 
             <div className="image_block">
-                <img src={`${Api.url}/images/${project.map_image}`} alt="" />
+                <img src={`${Api.url}/images/${project?.map_image}`} alt="" />
             </div>
         </div>
     );

@@ -39,7 +39,7 @@ export default function ProjectOther({id}) {
                 <div className="grid">
                     {projects?.length ? 
                         <>
-                            {projects.map((el, i) => (
+                            {projects?.map((el, i) => (
                                 <ProjectsCard key={i} el={el}/>
                             ))}
                         </>

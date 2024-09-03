@@ -15,23 +15,23 @@ export default function ProjectLayout({id}) {
 
             <div className="filters_block">
                 <div className="filters">
-                    <button className={`main_button ${layout.filter === 'all' ? 'active' : ''}`} onClick={layout.getAll}>Все</button>
-                    <button className={`main_button ${layout.filter === 'studio' ? 'active' : ''}`} onClick={() => layout.getStudio()}>Студии</button>
-                    <button className={`main_button ${layout.filter === 1 ? 'active' : ''}`} onClick={() => layout.switchRooms(1)}>1</button>
-                    <button className={`main_button ${layout.filter === 2 ? 'active' : ''}`} onClick={() => layout.switchRooms(2)}>2</button>
-                    <button className={`main_button ${layout.filter === 3 ? 'active' : ''}`} onClick={() => layout.switchRooms(3)}>3</button>
-                    <button className={`main_button ${layout.filter === 'more' ? 'active' : ''}`} onClick={() => layout.moreRooms(4)}>4+</button>
+                    <button className={`main_button ${layout?.filter === 'all' ? 'active' : ''}`} onClick={layout?.getAll}>Все</button>
+                    <button className={`main_button ${layout?.filter === 'studio' ? 'active' : ''}`} onClick={() => layout?.getStudio()}>Студии</button>
+                    <button className={`main_button ${layout?.filter === 1 ? 'active' : ''}`} onClick={() => layout?.switchRooms(1)}>1</button>
+                    <button className={`main_button ${layout?.filter === 2 ? 'active' : ''}`} onClick={() => layout?.switchRooms(2)}>2</button>
+                    <button className={`main_button ${layout?.filter === 3 ? 'active' : ''}`} onClick={() => layout?.switchRooms(3)}>3</button>
+                    <button className={`main_button ${layout?.filter === 'more' ? 'active' : ''}`} onClick={() => layout?.moreRooms(4)}>4+</button>
                 </div>
                 <div className="search_result">
-                    <p>Найдено: {layout.count}</p>
+                    <p>Найдено: {layout?.count}</p>
                 </div>
             </div>
 
             {layout.load ? 
                 <>
-                    {layout.layouts?.length ? 
+                    {layout?.layouts?.length ? 
                         <div className="layout_list">
-                            {layout.layouts.map((el) => (
+                            {layout?.layouts?.map((el) => (
                                 <ProjectLayoutItem el={el} houseId={id} key={el.id}/>
                             ))}
                         </div>
@@ -41,7 +41,7 @@ export default function ProjectLayout({id}) {
                 <LayoutSkeletList />
             }
             
-            {layout.layouts?.length >= layout.count ? <></> :<button className="show_more main_button" onClick={layout.showMore}>Показать ещё</button>}
+            {layout?.layouts?.length >= layout?.count ? <></> :<button className="show_more main_button" onClick={layout?.showMore}>Показать ещё</button>}
             
         </div>
     );
