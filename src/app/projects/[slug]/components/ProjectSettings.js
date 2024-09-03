@@ -26,7 +26,7 @@ export default function ProjectSettings({data, maxFloor, propertyCount}) {
                     <Image src={'/icons/calendar.svg'} width={45} height={45} alt=""/></div>
                 <div className="description">
                     <h4 className="settings_name">Дата сдачи объекта</h4>
-                    <p className="character">{data.quarter} квартал {data.year} года</p>
+                    <p className="character">{data?.quarter} квартал {data?.year} года</p>
                 </div>
             </div>
         </div>

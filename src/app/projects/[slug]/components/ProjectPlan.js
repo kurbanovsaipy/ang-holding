@@ -7,7 +7,7 @@ const getGalery = async (id) => {
     
     if(res) {
         let list = res.find(el => el.id === id)
-        return list.images
+        return list?.images
     }    
 }
 

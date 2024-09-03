@@ -19,23 +19,23 @@ export async function generateMetadata({params}) {
 
     if(meta) {
       return {
-        title: meta.title, 
-        description: meta.project.description,
-        keywords: meta2.keywords,
-        contentType: meta2.contentType,
-        author: meta2.author,
+        title: meta?.title, 
+        description: meta?.project.description,
+        keywords: meta2?.keywords,
+        contentType: meta2?.contentType,
+        author: meta2?.author,
         openGraph: {
-            title: meta.title,
-            url: meta2.og_url,
-            description: meta.project.description,
+            title: meta?.title,
+            url: meta2?.og_url,
+            description: meta?.project.description,
             images: [
               {
-                url: meta.image,
+                url: meta?.image,
                 width: 500,
                 height: 400
               }
             ],
-            siteName: meta2.og_site_name
+            siteName: meta2?.og_site_name
         }
       }
     }

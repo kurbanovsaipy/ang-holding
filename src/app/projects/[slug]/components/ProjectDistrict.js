@@ -7,10 +7,10 @@ export default function ProjectDistrict({project}) {
             <div className="description_block">
                 <h2 className="main_title">О районе</h2>
                 <div className="description">
-                    {project.district}
+                    {project?.district}
                 </div>
                 
-                {project.places?.length ? 
+                {project?.places?.length ? 
                     <>
                         <h4 className='title'>Интересные места</h4> 
                         <div className="station">
@@ -24,7 +24,7 @@ export default function ProjectDistrict({project}) {
             </div>
 
             <div className="image_block">
-                <img src={`${Api.url}/images/${project.district_image}`} alt="" />
+                <img src={`${Api.url}/images/${project?.district_image}`} alt="" />
             </div>
         </div>
     );
