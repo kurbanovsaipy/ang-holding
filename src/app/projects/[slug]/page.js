@@ -17,7 +17,7 @@ export async function generateMetadata({params}) {
     let meta = await Api.getDataList(`pb/house?id=`, params.slug)
     let meta2 = await Api.getWithoutCache(`pages/info?path=/`)
 
-    if(meta) {
+    if(meta && meta2) {
       return {
         title: meta?.title, 
         description: meta?.project.description,

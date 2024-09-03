@@ -4,6 +4,34 @@ import CommonNewsList from '@/components/common_news_list/CommonNewsList';
 import Api from '@/utils/Api';
 import Store from '@/utils/Store';
 
+export async function generateMetadata() {
+  
+    let meta = await Api.getWithoutCache(`pages/info?path=/news`)
+  
+    if(meta) {
+        return {
+            title: meta?.title, 
+            description: meta?.description,
+            keywords: meta?.keywords,
+            contentType: meta?.contentType,
+            author: meta?.author,
+            openGraph: {
+                title: meta?.title,
+                url: meta?.og_url,
+                description: meta?.og_description,
+                images: [
+                  {
+                    url: `${Api.url}/images/${meta?.image}`,
+                    width: 500,
+                    height: 400
+                  }
+                ],
+                siteName: meta?.og_site_name
+            }
+        }
+    }
+}
+
 export default async function Details({params}) {
 
     const detail = await Api.getData(`news/data/?id=${params.id}`)
