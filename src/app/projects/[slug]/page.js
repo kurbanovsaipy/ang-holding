@@ -10,7 +10,6 @@ import ProjectProgress from './components/ProjectProgress';
 import ProjectNews from './components/ProjectNews';
 import ProjectOther from './components/ProjectOther';
 import Api from '@/utils/Api';
-import Head from 'next/head';
 
 export async function generateMetadata({params}) {
   
@@ -49,8 +48,6 @@ export default async function ProjectDetail({params}) {
         <div className="project_detail">
 
             <ProjectHead id={params.slug} project={project}/>
-
-            {/* <ProjectAdvantages /> */}
 
             <ProjectSettings data={project.developmentEndQuarter} maxFloor={project.maxFloor} propertyCount={project.propertyCount}/>
 
