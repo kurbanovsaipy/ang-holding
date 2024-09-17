@@ -14,9 +14,12 @@ export default function Header ({info}) {
 
                 <Link href={'/'} className="logo">
                     <Image 
-                        src={`${Api.url}/images/header`} 
-                        width={90} 
-                        height={55} 
+                        src={`${Api.url}/images/header`}
+                        width={0} 
+                        height={0} 
+                        style={{height: 'auto', width: 'auto', minWidth: '90px', maxWidth: '140px'}}
+                        priority={100}
+                        unoptimized={true} 
                         alt=''
                     />
                 </Link>
