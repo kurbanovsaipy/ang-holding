@@ -42,6 +42,7 @@ export default async function Footer({info}) {
                             <Link href={'/'} className="logo footer">
                                 <Image 
                                     src={`${Api.url}/images/footer`} 
+                                    // src={'/images/logo.10.svg'}
                                     width={0} 
                                     height={0} 
                                     priority={100}
