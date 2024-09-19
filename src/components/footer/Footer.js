@@ -41,13 +41,12 @@ export default async function Footer({info}) {
                         <div className="info_item">
                             <Link href={'/'} className="logo footer">
                                 <Image 
-                                    src={`${Api.url}/images/footer`} 
-                                    // src={'/images/logo.10.svg'}
+                                    src={`${Api.url}/images/footer.svg`}
                                     width={0} 
                                     height={0} 
                                     priority={100}
                                     unoptimized={true} 
-                                    style={{height: 'auto', width: 'auto', minWidth: '160px', maxWidth: '220px'}} 
+                                    style={{height: '90px', width: 'auto'}} 
                                     alt=""
                                 />
                             </Link>
