@@ -40,7 +40,16 @@ export default async function Footer({info}) {
 
                         <div className="info_item">
                             <Link href={'/'} className="logo footer">
-                                <Image src={`${Api.url}/images/footer`} width={160} height={80} alt=""/>
+                                <Image 
+                                    src={`${Api.url}/images/footer`} 
+                                    // src={'/images/logo.10.svg'}
+                                    width={0} 
+                                    height={0} 
+                                    priority={100}
+                                    unoptimized={true} 
+                                    style={{height: 'auto', width: 'auto', minWidth: '160px', maxWidth: '220px'}} 
+                                    alt=""
+                                />
                             </Link>
                             <a href="https://go.2gis.com/m67zw" className="contacts_item">
                                 Анг-холдинг, строительная компания, 17а комплекс, 07, Набережные Челны — 2ГИС
