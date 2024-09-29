@@ -13,7 +13,15 @@ export default function Header ({info}) {
             <div className="container">
 
                 <Link href={'/'} className="logo">
-                    <Image src={`${Api.url}/images/header.png`} width={90} height={55} alt=''/>
+                    <Image 
+                        src={`${Api.url}/images/header.svg`}
+                        width={0} 
+                        height={0} 
+                        style={{height: '100%', width: 'auto'}}
+                        priority={100}
+                        unoptimized={true} 
+                        alt=''
+                    />
                 </Link>
 
                 <Navigation />

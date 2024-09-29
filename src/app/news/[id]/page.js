@@ -4,6 +4,34 @@ import CommonNewsList from '@/components/common_news_list/CommonNewsList';
 import Api from '@/utils/Api';
 import Store from '@/utils/Store';
 
+export async function generateMetadata() {
+  
+    let meta = await Api.getWithoutCache(`pages/info?path=/news`)
+  
+    if(meta) {
+        return {
+            title: meta?.title, 
+            description: meta?.description,
+            keywords: meta?.keywords,
+            contentType: meta?.contentType,
+            author: meta?.author,
+            openGraph: {
+                title: meta?.title,
+                url: meta?.og_url,
+                description: meta?.og_description,
+                images: [
+                  {
+                    url: `${Api.url}/images/${meta?.image}`,
+                    width: 500,
+                    height: 400
+                  }
+                ],
+                siteName: meta?.og_site_name
+            }
+        }
+    }
+}
+
 export default async function Details({params}) {
 
     const detail = await Api.getData(`news/data/?id=${params.id}`)
@@ -27,12 +55,7 @@ export default async function Details({params}) {
                 />
             </div>
 
-            <p className="description">
-                Акция распространяется на ограниченный пул квартир в жилом комплексе «Миловидное». Ипотека от 3,5%, скидка до 20%. Условия могут отличаться в зависимости от выбранного лота.Подробности уточняйте у менеджеров отдела продаж по телефону:
-                <a href="tel:+79998887766"> кликабельный номер</a> 
-            </p>
-
-            <p className="description">{detail?.description}</p>
+            <div className="description" dangerouslySetInnerHTML={{__html: Store.markdown(detail?.description)}}></div>
 
             <h2 className="main_title">Будут вам интересны</h2>
 

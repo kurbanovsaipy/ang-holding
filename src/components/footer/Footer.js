@@ -3,11 +3,32 @@ import './css/footer.scss'
 import Api from "@/utils/Api";
 import Image from "next/image";
 import NavigationHead from "./NavigationHead";
+import Store from "@/utils/Store";
+
+const getSocials = async () => {
+    let res = await Api.getWithoutCache('socials/all')
+
+    if(res) {
+        return res.filter(el => el.active === 1)
+    } else {
+        return false
+    }
+}
+
+const getPbNavigation = async (type) => {
+    let res = await Api.get('pb/house')
+
+    if(res) {
+        return res.filter(el => el.isArchive === false && el.type === type).slice(0, 5)
+    }
+}
 
 
 export default async function Footer({info}) {
 
-    const socials = await Api.getWithoutCache('socials/all')
+    const socials = await getSocials()
+    const projects = await getPbNavigation('RESIDENTIAL')
+    const parking = await getPbNavigation('PARKING')
 
     return (
         <footer>
@@ -19,10 +40,19 @@ export default async function Footer({info}) {
 
                         <div className="info_item">
                             <Link href={'/'} className="logo footer">
-                                <Image src={`${Api.url}/images/footer.png`} width={160} height={80} alt=""/>
+                                <Image 
+                                    src={`${Api.url}/images/footer.svg`}
+                                    width={0} 
+                                    height={0} 
+                                    priority={100}
+                                    unoptimized={true} 
+                                    style={{height: '90px', width: 'auto'}} 
+                                    alt=""
+                                />
                             </Link>
-
-                            <p>Анг-холдинг, строительная компания, 17а комплекс, 07, Набережные Челны — 2ГИС</p>
+                            <a href="https://go.2gis.com/m67zw" className="contacts_item">
+                                Анг-холдинг, строительная компания, 17а комплекс, 07, Набережные Челны — 2ГИС
+                            </a>
 
                         </div>
 
@@ -30,18 +60,16 @@ export default async function Footer({info}) {
                             <div className="social_block">
 
                                 {socials?.length ? 
-                                    <>
-                                        {socials.map((el) => (
-                                            <a href={el.link} className="" key={el.id}>
-                                                <div className="icon_wrapper" dangerouslySetInnerHTML={{__html: el.icon}}></div>
-                                            </a>
-                                        ))}
-                                    </>
+                                    socials.map((el) => (
+                                        <a href={el.link} className="" key={el.id}>
+                                            <div className="icon_wrapper" dangerouslySetInnerHTML={{__html: el.icon}}></div>
+                                        </a>
+                                    ))
                                 :<></>}
                             </div>
 
                             <div className="phone">
-                                <a href={`tel:${info?.phone}`} className="tel">
+                                <a href={`tel:+${(info?.phone)?.replace(/\D/g, '')}`} className="tel">
                                     <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
                                         <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
@@ -64,35 +92,55 @@ export default async function Footer({info}) {
 
                         <div className="navigation">
                             <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Проекты'}/>
-                            <nav>
-                                <Link href={''} className={`link`}>Название проекта 1</Link>
-                                <Link href={''} className={`link`}>Название проекта 2</Link>
-                                <Link href={''} className={`link`}>Название проекта 3</Link>
-                                <Link href={''} className={`link`}>Название проекта 4</Link>
-                                <Link href={''} className={`link`}>Название проекта 5</Link>
-                            </nav>
+                            <div className="nav_wrapper">
+                                <nav>
+                                    {projects?.length ? 
+                                        <>
+                                            {projects.map((el, i) => (
+                                                <Link key={i} href={''} className={`link`}>{el.title}</Link>
+                                            ))}
+                                        </>
+                                    :
+                                        <></>
+                                    }
+                                    <a href={'/#projects'} className={`link`}>Все проекты</a>
+                                </nav>
+                            </div>
+                                
                         </div>
 
                         <div className="navigation">
                             <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Паркинг и кладовые'}/>
-                            <nav>
-                                <Link href={''} className={`link`}>Название проекта 1</Link>
-                                <Link href={''} className={`link`}>Название проекта 2</Link>
-                                <Link href={''} className={`link`}>Название проекта 3</Link>
-                                <Link href={''} className={`link`}>Название проекта 4</Link>
-                                <Link href={''} className={`link`}>Название проекта 5</Link>
-                            </nav>
+                            <div className="nav_wrapper">
+                                <nav>
+                                    {parking?.length ? 
+                                        <>
+                                            {parking.map((el, i) => (
+                                                <a key={i} href={`/#/catalog/house/${el?.id}/smallGrid?filter=property.status:AVAILABLE`} className={`link`}>{el.title}</a>
+                                            ))}
+                                        </>
+                                    :
+                                        <></>
+                                    }
+                                    <a href={'/#parking'} className={`link`}>Все паркинги</a>
+                                </nav>
+                            </div>
+                                
                         </div>
 
                         <div className="navigation">
                             <NavigationHead image={'/icons/arrow_down_white.svg'} title={'Карта сайта'}/>
-                            <nav>
-                                <Link href={''} className={`link`}>Главная</Link>
-                                <Link href={''} className={`link`}>Проекты</Link>
-                                <Link href={''} className={`link`}>Паркинг</Link>
-                                <Link href={''} className={`link`}>Ипотека</Link>
-                                <Link href={''} className={`link`}>О нас</Link>
-                            </nav>
+                            <div className="nav_wrapper">
+                                <nav>
+                                    <Link href={''} className={`link`}>Главная</Link>
+                                    {Store.navigation.map((el, i) => (
+                                        el.anchor 
+                                        ?<a href={el.link} className={`link`}>{el.title}</a>
+                                        :<Link href={el.link} className={`link`}>{el.title}</Link>
+                                    ))}
+                                </nav>
+                            </div>
+                                
                         </div>
 
                     </nav>

@@ -118,6 +118,9 @@
                 color: var(--text-color-dark);
                 display: block;
                 transition: 0.3s;
+                &:hover {
+                    color: var(--main-color);
+                }
             }
             .description{
                 display: block;
@@ -126,6 +129,10 @@
                 font-weight: 400;
                 @include adaptiveFont(20, 16);
                 line-height: 23px;
+                transition: 0.3s;
+                &:hover {
+                    color: var(--main-color);
+                }
             }
             @include mediaMinWidth(992) {
                 .image:hover{

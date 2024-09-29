@@ -33,7 +33,7 @@ footer {
         gap: 30px;
         flex-direction: column;
 
-        & p{
+        a{
           color: var(--text-color-light);
           max-width: 480px;
           line-height: 1;
@@ -111,7 +111,7 @@ footer {
         flex-direction: column;
         .info_item {
           align-items: center;
-          & p {
+          & a {
             text-align: center;
             max-width: 480px;
           }
@@ -147,6 +147,8 @@ footer {
               gap: 18px;
               .link {
                   color: var(--text-color-light);
+                  width: 100%;
+                  max-width: max-content;
                   @include adaptiveFont(16, 14);
                   &:before {
                     content: '';
@@ -187,40 +189,36 @@ footer {
             .arrow {
               display: block;
             }
-          }
-          & nav {
-            width: 100%;
-            max-width: 300px;
-            background: #fff;
-            border-radius: var(--main-border-radius);
-            height: 0;
-            overflow: hidden;
-            padding-top: 0;
-            padding-bottom: 0;
-            transition: 0.8s;
-            will-change: height;
-            .link {
-              color: var(--text-color-dark);
-              font-size: 18px;
-              &:nth-child(1) {
-                margin-top: 20px;
-              }
-              &:nth-child(5) {
-                margin-bottom: 20px;
-              }
-            }
-          }
-          &.show {  
-            & .navigation_head {
+            &.show {  
               .arrow {
                 transform: rotate(-180deg);
               }
             }
-            & nav {
-              height: 200px;
+          }
+          .nav_wrapper {
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            max-width: 300px;
+            background: #fff;
+            border-radius: var(--main-border-radius);
+            width: 100%;
+            padding-top: 0;
+            padding-bottom: 0;
+            transition: 0.8s;
+            will-change: height;
+          } 
+          & nav {
+            padding: 20px;
+            align-items: center;
+            .link {
+              text-align: center;
+              color: var(--text-color-dark);
+              font-size: 18px;
+              width: 100%;
+              max-width: max-content;
             }
           }
-
         }
       }
     }

@@ -49,11 +49,11 @@ Api.getData = async (path) => {
 
 }
 
-Api.getDataList = async (path) => {
+Api.getDataList = async (path, id) => {
 
     try {
 
-        let res = await fetch(`${Api.url}/${path}`, {
+        let res = await fetch(`${Api.url}/${path}${id}`, {
             next: { revalidate: 10 }
         })
 
@@ -62,7 +62,11 @@ Api.getDataList = async (path) => {
         if(res.status === 'success') {
             
             if(res.data.length > 0) {
-                return res.data[0]
+                if(res.data[0].id == id) {
+                    return res.data[0]
+                } else {
+                    return notFound()
+                }
             } else {
                 return notFound()
             }

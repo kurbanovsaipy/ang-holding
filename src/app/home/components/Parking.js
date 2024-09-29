@@ -1,4 +1,4 @@
-import ParkingCard from "./ParkingCard";
+import ParkingList from "./ParkingList";
 
 
 export default function Parking() {
@@ -6,14 +6,11 @@ export default function Parking() {
         <div className="container anchor" id="parking">
             <div className="head">
             <h2 className="main_title">Паркинги и кладовые</h2>
-            <button className='main_button'>Показать на карте</button>
+            {/* <button className='main_button'>Показать на карте</button> */}
             </div>
             
-            <div className="grid">
-                <ParkingCard />
-                <ParkingCard />
-                <ParkingCard />
-            </div>
+            <ParkingList />
+            
         </div>
     );
 }

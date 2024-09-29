@@ -11,32 +11,59 @@ import ProjectNews from './components/ProjectNews';
 import ProjectOther from './components/ProjectOther';
 import Api from '@/utils/Api';
 
+export async function generateMetadata({params}) {
+  
+    let meta = await Api.getDataList(`pb/house?id=`, params.slug)
+    let meta2 = await Api.getWithoutCache(`pages/info?path=/`)
+
+    if(meta && meta2) {
+      return {
+        title: meta?.title, 
+        description: meta?.project.description,
+        keywords: meta2?.keywords,
+        contentType: meta2?.contentType,
+        author: meta2?.author,
+        openGraph: {
+            title: meta?.title,
+            url: meta2?.og_url,
+            description: meta?.project.description,
+            images: [
+              {
+                url: meta?.image,
+                width: 500,
+                height: 400
+              }
+            ],
+            siteName: meta2?.og_site_name
+        }
+      }
+    }
+  }
+
 export default async function ProjectDetail({params}) {
 
-    const project = await Api.getDataList(`pb/house?id=${params.slug}`)
+    const project = await Api.getDataList(`pb/house?id=`, params.slug)
 
     return (
         <div className="project_detail">
 
-            <ProjectHead project={project}/>
+            <ProjectHead id={params.slug} project={project}/>
 
-            <ProjectSettings project={project}/>
+            <ProjectSettings data={project.developmentEndQuarter} maxFloor={project.maxFloor} propertyCount={project.propertyCount}/>
 
-            <ProjectAdvantages project={project}/>
+            <ProjectLocation project={project.project}/>
 
-            <ProjectLocation project={project}/>
+            <ProjectPlan id={project.projectId}/>
 
-            <ProjectPlan project={project}/>
+            <ProjectDistrict project={project.project}/>
 
-            <ProjectLayout project={project}/>
+            <ProjectLayout id={params.slug}/>
 
-            <ProjectProgress project={project}/>
+            <ProjectProgress progress={project.project.progress}/>
 
-            <ProjectDistrict project={project}/>
+            <ProjectNews />
 
-            <ProjectNews project={project}/>
-
-            <ProjectOther project={project}/>
+            <ProjectOther id={params.slug}/>
 
         </div>
     );

@@ -1,0 +1,22 @@
+@import './../../style/common.scss';
+
+.button_up {
+    position: fixed;
+    bottom: 70px;
+    right: 0;
+    border-radius: 50%;
+    background: var(--main-color);
+    z-index: 100;
+    box-shadow: 0px 10px 25px -5px #0009;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--main-color);
+    transition: 0.7s ease;
+    transform: translateX(115%);
+    @include adaptiveProperty(width, 60, 50);
+    @include adaptiveProperty(height, 60, 50);
+    @include mediaMaxWidth(992) {
+        bottom: 100px;
+    }
+}

@@ -11,7 +11,7 @@ export default function Card({el}) {
             <Link href={`/news/${el.id}`} className="cover">
 
                 <Image 
-                    src={`${Api.url}/images/${el.image}`} 
+                    src={`${Api.url}/images/${el.image}` || '/images/no-image.webp'} 
                     alt=""
                     width={0} 
                     height={0} 
@@ -29,7 +29,7 @@ export default function Card({el}) {
             <div className="content">
 
                 <Link href={`/news/${el.id}`} className="main_title">{el.title}</Link>
-                <Link href={`/news/${el.id}`} className="description">{el.description}</Link>
+                <Link href={`/news/${el.id}`} className="description" dangerouslySetInnerHTML={{__html: Store.markdown(el.description)}}></Link>
             
             </div>
         </div>

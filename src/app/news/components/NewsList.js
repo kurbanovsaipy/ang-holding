@@ -1,4 +1,5 @@
 
+import NothingHere from "@/components/nothing_here/NothingHere";
 import NewsListCard from "./NewsListCard";
 
 export default function NewsList({news}) {
@@ -13,8 +14,9 @@ export default function NewsList({news}) {
                     ))}
                 </>
             :
-                <div className="no_items">No items</div>
+                <div className="no_items">Новостей нет</div>
             }
+
             
         </div>
     )

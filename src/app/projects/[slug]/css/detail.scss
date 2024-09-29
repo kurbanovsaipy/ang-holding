@@ -37,6 +37,7 @@
             z-index: 1;
         }
         .title {
+            text-align: center;
             margin-top: auto;
             position: relative;
             z-index: 3;
@@ -61,10 +62,6 @@
                     align-items: center;
                     justify-content: center;
                 }
-            }
-            .subitem {
-                display: flex;
-                gap: 10px;
             }
         }
     }
@@ -139,6 +136,11 @@
                 background-color: #fff;
                 box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.25);
                 z-index: 5;
+                &::-webkit-scrollbar {
+                    width: 0px;
+                    height: 0px;
+                    background: black;
+                }
                 @include mediaMaxWidth(900) {
                     transform: translateY(0);   
                     max-width: 100%;
@@ -330,7 +332,7 @@
             .description {
                 margin-top: 30px;
                 width: 100%;
-                max-width: 430px;
+                max-width: 550px;
                 @include adaptiveFont(20, 18);
                 word-break: break-word;
                 hyphens: auto;
@@ -372,20 +374,119 @@
     .general_plan {
         .general {
             width: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
             position: relative;
-            border-radius: var(--main-border-radius);
-            background-color: #a8a8a8;
             overflow: hidden;
-            @include adaptiveProperty(margin-top, 50, 25);
-            @include adaptiveProperty(padding, 50, 20);
             height: 75dvh;
             min-height: 600px;
+            margin-top: 20px;
+            border-radius: calc(var(--main-border-radius) * 1.5);  
+            background-color: var(--background-grey);
             @include mediaMaxWidth(600) {
                 height: 300px;
                 min-height: 300px;
+            }
+            .galery_swiper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%; 
+                @include mediaMaxWidth(768) {
+                    position: relative;
+                    height: 400px;
+                }
+                .button_block {
+                    position: absolute;
+                    left: 35px;
+                    bottom: 50px;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    z-index: 5;
+                    button {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        border: 2px solid var(--main-color);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: 0.3s;
+                        color: var(--text-color-light);
+                        font-size: 20px;
+                        font-weight: 700;
+                        @include mediaMinWidth(769) {
+                            &:hover {
+                                background-color: var(--main-color);
+                            }
+                        }
+
+                    }
+                }
+                .swiper-slide {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba($color: #000000, $alpha: 0.2);
+                        z-index: 3;
+                        width: 100%;
+                        -ms-user-select: none; 
+                        -moz-user-select: none; 
+                        -webkit-user-select: none; 
+                        user-select: none;
+                    }
+                    .title {
+                        position: relative;
+                        z-index: 5;
+                        width: max-content;
+                        max-width: 650px;
+                        @include adaptiveFont(70, 50);
+                        font-weight: 700;
+                        color: var(--card-text-color);
+                    }
+                    button {
+                        position: relative;
+                        z-index: 5;
+                    }
+                    & img{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+                .swiper-pagination {
+                    position: absolute;
+                    @include adaptiveProperty(bottom, 20, 15);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 5;
+                    display: grid;
+                    grid-template-columns: 10px 10px 10px;
+                    grid-template-rows: 10px;
+                    gap: 10px;
+                    .swiper-pagination-bullet {
+                        flex: 1;
+                        height: 7px;
+                        background-color: rgba($color: #fff, $alpha: 0.3);
+                        border-radius: 7px;
+                        transition: 0.3s;
+                        cursor: pointer;
+                        &.swiper-pagination-bullet-active {
+                            background-color: var(--main-color);
+                        }
+                    }
+                }
             }
         }
     }
@@ -432,7 +533,7 @@
 
         .layout_list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             grid-template-rows: auto;
             @include adaptiveProperty(gap, 20, 10);
             @include adaptiveProperty(margin-top, 60, 30);
@@ -448,7 +549,10 @@
                 align-items: center;
                 gap: 10px;
                 transition: 0.3s;
+                opacity: 0;
+                animation: Open 0.5s forwards;
                 cursor: pointer;
+                color: var(--text-color-dark);
                 @include mediaMinWidth(801) {
                     &:hover {
                         background-color: var(--main-color);
@@ -466,7 +570,7 @@
                     height: 140px;
                     @include mediaMaxWidth(800) {
                         max-width: 100%;
-                        height: auto;
+                        height: 300px;
                     }
                     img {
                         position: absolute;
@@ -477,8 +581,7 @@
                         object-fit: contain;
                         object-position: center;
                         @include mediaMaxWidth(800) {
-                            position: relative;
-                            height: auto;
+                            
                         }
                     }
                 }
@@ -487,7 +590,6 @@
                     width: 100%;
                     flex: 1;
                     display: flex;
-                    justify-content: space-around;
                     column-gap: 10px;
                     @include mediaMaxWidth(800) {
                         flex-direction: column;
@@ -495,7 +597,6 @@
                     }
                     .layout_settings {
                         .section {
-                            margin-top: 14px;
                             margin-bottom: 5px;
                             @include mediaMaxWidth(800) {
                                 display: flex;
@@ -505,6 +606,7 @@
                             .setings_name {
                                 @include adaptiveFont(18, 14);
                                 font-weight: 700;
+                                margin-bottom: 4px;
                             }
                             .setings_ch {
                                 font-size: 14px;
@@ -524,6 +626,79 @@
                     }
                 }
 
+            }
+
+            .layout_skelet {
+                background-color: var(--background-grey);
+                border-radius: var(--main-border-radius);
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: 0.3s;
+                opacity: 0;
+                animation: Open 0.5s forwards;
+                @include mediaMaxWidth(800) {
+                    flex-direction: column;
+                }
+
+                .image {
+                    position: relative;
+                    width: 100%;
+                    max-width: 140px;
+                    min-width: 130px;
+                    height: 140px;
+                    border-radius: 10px;
+                    @include mediaMaxWidth(800) {
+                        max-width: 100%;
+                        height: 300px;
+                    }
+                }
+
+                .description_block {
+                    width: 100%;
+                    flex: 1;
+                    display: flex;
+                    justify-content: space-around;
+                    column-gap: 10px;
+                    @include mediaMaxWidth(800) {
+                        flex-direction: column;
+                        justify-content: baseline;
+                    }
+                    .layout_settings {
+                        width: 100%;
+                        .section {
+                            margin-top: 14px;
+                            margin-bottom: 5px;
+                            width: 100%;
+                            @include mediaMaxWidth(800) {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                gap: 30px;
+                            }
+                            .setings_name {
+                                width: 100%;
+                                height: 15px;
+                                margin-bottom: 5px;
+                                border-radius: 10px;
+                            }
+                            .setings_ch {
+                                width: 80%;
+                                height: 15px;
+                                border-radius: 10px;
+                                max-width: 80px;
+                            }
+                        }
+                    }
+    
+                    .button_block {
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: flex-end;
+                        align-self: flex-end;
+                    }
+                }
             }
         }
     }
@@ -623,5 +798,37 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+.shim {
+    --back1: #ecedeeea;
+    --back2: #dedfe2ea;
+    background: var(--back1);
+    background-position: -500px 0;
+    background-image: linear-gradient(90deg, var(--back1) 5%, var(--back2) 23%, var(--back1) 40%, var(--back1) 100%);
+    background-repeat: no-repeat;
+    background-size: 1000px 100%;
+    animation: shim 1s linear infinite;
+}
+@keyframes shim {
+    to {
+        background-position: 500px 0;
+    }
+}
+
+.inner_shim {
+    --back1: #d1d1d1;
+    --back2: #c0c0c0;
+    background: var(--back1);
+    background-position: -500px 0;
+    background-image: linear-gradient(90deg, var(--back1) 5%, var(--back2) 23%, var(--back1) 40%, var(--back1) 100%);
+    background-repeat: no-repeat;
+    background-size: 1000px 100%;
+    animation: shim 1s linear infinite;
+}
+@keyframes shim {
+    to {
+        background-position: 500px 0;
     }
 }

@@ -6,7 +6,15 @@ export default function NavigationHead ({title, image}) {
 
     const openSpoiler = (e) => {
         const spoiler = e.currentTarget.closest('.navigation')
-        spoiler.classList.toggle('show')
+        const nav = e.currentTarget.nextElementSibling
+        const height = spoiler.querySelector('nav').offsetHeight
+
+        e.currentTarget.classList.toggle('show')
+        if(e.currentTarget.classList.contains('show')) {
+            nav.style.height = `${height}px`
+        } else {
+            nav.style.height = `0px`
+        }
     }
 
     return (
