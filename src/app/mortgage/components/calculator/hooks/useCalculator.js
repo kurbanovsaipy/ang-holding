@@ -14,7 +14,7 @@ export default function useCalculator(mortgage) {
         flat: 1,
         initial: 30,
         term: 50,
-        rate: 30,
+        rate: 0,
     })
     const max = 100000000
     const [tab, setTab] = useState('Семейная')
@@ -24,7 +24,10 @@ export default function useCalculator(mortgage) {
         if(mortgage) {
             const keys = Object.keys(mortgage) 
             setField(prev => ({...prev, rate: mortgage[keys[0]].value}))
-        }
+            
+            const percent = (mortgage[keys[0]].value / 30) * 100
+            setRange(prev => ({...prev, rate: percent}))
+        }   
     }, [mortgage])
 
     useEffect(() => {
@@ -167,8 +170,6 @@ export default function useCalculator(mortgage) {
 
         allTabs.forEach(el => {
             const name = +el.name
-            console.log('name', name.toFixed(1))
-            console.log('rate', rate)
             if(name.toFixed(1) === rate) {
                 el.classList.add('active')
             } else {
