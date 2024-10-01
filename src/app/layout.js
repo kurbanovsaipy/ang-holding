@@ -26,7 +26,7 @@ export default async function RootLayout({ children }) {
   const parametrs = await Api.getWithoutCache('thema/string')
   const info = await Api.getWithoutCache('contact/info')
   const scripts = await Api.getWithoutCache('scripts/list')
-
+  console.log(parametrs)
   return (
       <html lang="ru" className={`${montserrat.variable} ${main.variable}`} style={{parametrs}} >
 

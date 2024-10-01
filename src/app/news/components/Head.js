@@ -29,7 +29,7 @@ export default function Head({changeSort, sort}) {
 
             <div className="filter">
                 <div className="flex" onMouseDown={e => openFilter(e)}>
-                    По дате - {sort === 'ASC' ? 'новые' : 'старые'}
+                    По дате - {sort === 'DESC' ? 'новые' : 'старые'}
                     <Image 
                         src='/icons/arrow_down.svg'
                         alt=''
@@ -39,8 +39,8 @@ export default function Head({changeSort, sort}) {
                 </div>
                 {open && 
                     <div className="filter_list" >
-                        <p className={sort === 'ASC' && 'active'} onMouseDown={e => changeSort(e, 'ASC')}>Новые</p>
-                        <p className={sort === 'DESC' && 'active'} onMouseDown={e => changeSort(e, 'DESC')}>Старые</p>
+                        <p className={sort === 'DESC' && 'active'} onMouseDown={e => changeSort(e, 'DESC')}>Новые</p>
+                        <p className={sort === 'ASC' && 'active'} onMouseDown={e => changeSort(e, 'ASC')}>Старые</p>
                     </div>
                 }  
             </div>

@@ -9,7 +9,7 @@ export default function useNews() {
     const [params, setParams] = useState({
         page: 1,
         limit: 6,
-        sort: 'ASC',
+        sort: 'DESC',
     })
 
     function showMore() {

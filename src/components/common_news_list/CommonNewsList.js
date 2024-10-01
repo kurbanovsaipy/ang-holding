@@ -4,7 +4,7 @@ import './common_news_list.scss';
 
 const getNews = async (path) => {
     const news = await Api.get(path)
-
+    console.log(news)
     return news?.filter(el => el.active === 1)
 }
 
