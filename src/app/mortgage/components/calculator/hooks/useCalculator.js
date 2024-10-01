@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-export default function useCalculator() {
+export default function useCalculator(mortgage) {
     
     const [monthPay, setMonthPay] = useState(0)
     const [total, setTotal] = useState(0)
@@ -8,7 +8,7 @@ export default function useCalculator() {
         flat: 1000000,
         initial: 300000,
         term: 25,
-        rate: 9,
+        rate: 0,
     })
     const [range, setRange] = useState({
         flat: 1,
@@ -19,6 +19,13 @@ export default function useCalculator() {
     const max = 100000000
     const [tab, setTab] = useState('Семейная')
     const calculatorTabs = useRef()
+    
+    useEffect(() => {
+        if(mortgage) {
+            const keys = Object.keys(mortgage) 
+            setField(prev => ({...prev, rate: mortgage[keys[0]].value}))
+        }
+    }, [mortgage])
 
     useEffect(() => {
 

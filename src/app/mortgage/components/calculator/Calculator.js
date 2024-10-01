@@ -6,7 +6,7 @@ import useCalculator from "./hooks/useCalculator"
 
 export default function Calculator({mortgage}) {
 
-    const calculate = useCalculator()
+    const calculate = useCalculator(mortgage)
 
     return (
         <div className="calculator" id="calculator">
