@@ -22,7 +22,7 @@ export default function ProjectHead({id, project}) {
             <h2 className="title">{project?.title}</h2>
             <div className="button_block">
                 
-                <a href={`/projects/${id}#/catalog/house/${id}/smallGrid?filter=property.status:AVAILABLE`} className="main_button big fill">Вырбать квартиру</a>
+                <a href={`/projects/${id}#/catalog/house/${id}/smallGrid?filter=property.status:AVAILABLE`} className="main_button big fill">Выбрать квартиру</a>
 
                 <ShareBtn />
 
